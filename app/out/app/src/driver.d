@@ -115,4 +115,12 @@ app/out/app/src/driver.o: app/src/driver.c app/inc/driver.h \
  libs/sapi/sapi_v0.5.2/external_peripherals/inc/sapi_magnetometer_hmc5883l.h \
  libs/sapi/sapi_v0.5.2/external_peripherals/inc/sapi_magnetometer_qmc5883l.h \
  libs/sapi/sapi_v0.5.2/external_peripherals/inc/sapi_imu_mpu9250.h \
- libs/sapi/sapi_v0.5.2/external_peripherals/inc/sapi_ultrasonic_hcsr04.h
+ libs/sapi/sapi_v0.5.2/external_peripherals/inc/sapi_ultrasonic_hcsr04.h \
+ libs/freertos/include/FreeRTOS.h app/inc/FreeRTOSConfig.h \
+ libs/freertos/include/private/projdefs.h \
+ libs/freertos/include/private/portable.h \
+ libs/freertos/include/private/deprecated_definitions.h \
+ libs/freertos/source/portable/ARM_CM4F/portmacro.h \
+ libs/freertos/include/private/mpu_wrappers.h app/inc/FreeRTOSConfig.h \
+ libs/freertos/include/task.h libs/freertos/include/private/list.h \
+ libs/freertos/include/queue.h

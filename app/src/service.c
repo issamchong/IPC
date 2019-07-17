@@ -49,6 +49,8 @@ int Op_selector(char *msg){
 	}
 
 }
+
+// This function suspends the task, it takes the task handle and the task number, the number to decide the message
 int EndTask(TaskHandle_t *handle,const uint8_t i){
 
 

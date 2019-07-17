@@ -13,6 +13,7 @@
 /*==================[macros and definitions]=================================*/
 
 /*==================[internal data declaration]==============================*/
+QueueHandle_t handle;
 /*==================[internal functions declaration]=========================*/
 
 /*==================[internal data definition]===============================*/
@@ -25,23 +26,33 @@ uint8_t v;
 
 /*==================[external functions definition]==========================*/
 
-// Funcion que se ejecuta periodicamente
 
 //This function copies the data portion of the the message buffer to data  and casts data type to read-only on MsgBuffer inside this block only
 int GetMsg(char *data, const char* buffer ){
 
-
-
-	//buffer[1]='G';
-	memmove(data,buffer+1,sizeof(buffer)-1);
-
-
+	//buffer[1]='G';                          			//code to validate read-only permission
+	memcpy(data,buffer+2,6);
 }
 
+// This functions sets the baud rate of the USB UART
 void uart_config(int baud,bool_t state )
 {
      uartConfig(UART_USB,baud);
-	 //uartInterrupt( UART_USB, state); // Habilitar el ISR del uart
+	 //uartInterrupt( UART_USB, state); 				// Enable UART interrupt
+}
+
+//This function extracts the operation byte from the frame and saves it into a operation buffer
+int GetOp(char *op, const char* buffer ){
+
+	op[0]='0';
+}
+int Send2Qu(QueueHandle_t *handler,const  char* Msg_Only,const char* Msg_withOp){
+
+
+	strcat(Msg_withOp,Msg_Only);
+	printf("Message with operation flag   is %s\r\n",Msg_withOp);
+	handler =xQueueCreate(1, sizeof(Msg_withOp));
+
 }
 
 /*==================[end of file]============================================*/

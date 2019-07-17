@@ -45,7 +45,10 @@
 
 
 /*==================[definiciones y macros]==================================*/
-
+#define TASK1_0
+#define TASK2_0
+#define SERVER_0
+#define DRIVER_1
 /*==================[definiciones de datos internos]=========================*/
 
 volatile TaskHandle_t ServHandle = NULL;
@@ -55,12 +58,10 @@ volatile TaskHandle_t Task2Handle = NULL;
 volatile QueueHandle_t QeueMayusculizador;
 volatile QueueHandle_t QeueMinusculizador;
 volatile QueueHandle_t QeueTransmitir;
-volatile xSemaphoreHandle key=0;
-volatile QueueHandle_t Frame;
-char MsgBuffer[10]="1hAppy}\0"; 														//The message will be stored in this buffer
+volatile xSemaphoreHandle QuTransmitir=0;
+volatile QueueHandle_t MsgHandle;
+char MsgBuffer[10]="{1hAppy}"; 														//The message will be stored in this buffer
 struct Frame message;
-
-
 
 
 /*==================[definiciones de datos externos]=========================*/
@@ -70,51 +71,73 @@ struct Frame message;
 // The server assigns the messages to the correct task based on the operation byte, it also creates queues for each task
 void server(void){
 
-	//strcpy(message.data,MsgBuffer);
-	//printf("data is %s",message.data );
+	//declaring local variables
     char i=MsgBuffer[0];
-	int notificationValue;  											  			// Declaring notification variable to receive notifications from tasks
+	int notificationValue;
 
+	//creating queue to receive message from driver
+	QeueMayusculizador =xQueueCreate(1, sizeof(MsgBuffer));
+// Check operation byte to decide what task the message should  be sent to
     switch(i)
     {
     	case '0':
     		QeueMayusculizador =xQueueCreate(1, sizeof(MsgBuffer));
     		if(!xQueueSend(QeueMayusculizador,MsgBuffer,50)){								//Send message to Queue from the buffer then verify if returned 1
     			uartWriteString(UART_USB,"Error: could not send message to Task 1");									//Error handling if the returned value is not 1
-    			}
+
+    		}
     		break;
 
     	case '1':
     		QeueMinusculizador =xQueueCreate(1, sizeof(MsgBuffer));
     	    if(!xQueueSend(QeueMinusculizador,MsgBuffer,50)){								//Send message to Queue from the buffer then verify if returned 1
-    	    	uartWriteString(UART_USB,"Error: could not send message to Task 1");									//Error handling if the returned value is not 1
+    	    	uartWriteString(UART_USB,"Error: could not send message to Task 2");									//Error handling if the returned value is not 1
     	    	}
     	    break;
     	default:
 			uartWriteString(UART_USB,"Not such operation");
     }
-
-
 	notificationValue=ulTaskNotifyTake(pdTRUE, (TickType_t)portMAX_DELAY); 			// guardar las notificaciones en este variable, se 											//resetea automatico a zero por tener pdTRUE
 }
 
 void driver(void){
 
-	char data[100]="data";
+	//Local variables definitions and declaration
+	char data[100]="\0";
+	char op[2]="\0";																//Initialize an empty buffer
+	char SOF='{';
+	char EnOF='}';
+	char MsgAnOp[101]="\0";
 
-	GetMsg(data,MsgBuffer);
-	printf("data is %s",data);
-
-
-
-	//char data[100];
-	//memmove(data,MsgBuffer+1,sizeof(MsgBuffer)-1);
-	//data[strlen(data)-1] = 0;
-	//printf("data is %s",data);
+	//Create a semaphore for data protection
+	QuTransmitir = xSemaphoreCreateMutex();
 
 
- 	while(1){
-	}
+// validate the frame format
+
+	if(!((MsgBuffer[0]==SOF) || (MsgBuffer[0]==EnOF))){
+		uartWriteString(UART_USB,"Invalid frame format\n");
+		}else
+			uartWriteString(UART_USB,"valid frame format\n");
+
+// Verify if message or operation could be extracted
+	if(!GetMsg(data,MsgBuffer)){													// This function extracts the message portion of the frame and saves it into data buffer
+		uartWriteString(UART_USB,"Could not get message");							// Print error if message was not extracted
+
+	} else
+		printf("data is %s\r\n",data);												// Print data buffer to verify
+
+	if(!GetOp(op,MsgBuffer)){														// This function extracts the message portion of the frame and saves it into data buffer
+
+		uartWriteString(UART_USB,"No op");											// Print error if operation byte  was not extracted
+
+	} else
+		printf("operation  is %s\r\n",op);											// Print the operation to test
+		strcpy(MsgAnOp,op);
+		strcat(MsgAnOp,data);
+		printf("operation  is %s\r\n",MsgAnOp);
+		QeueTransmitir =xQueueCreate(1, sizeof(MsgAnOp));
+
 }
 //This task converts the message letters to upper case
 void task1(void){
@@ -181,16 +204,20 @@ int main(void)
       DrivHandle                  // Puntero al handler de la tarea
    );
 
-  // Crear tarea server en freeRTOS
+#ifdef SERVER_1
+// Crear tarea server en freeRTOS
    xTaskCreate(
-      server,                     // Funcion de la tarea a ejecutar
-      (const char *)"server",     // Nombre de la tarea como String amigable para el usuario
-      configMINIMAL_STACK_SIZE*2, // Cantidad de stack de la tarea
-      0,                          // Parametros de tarea
-      tskIDLE_PRIORITY+2,         // Prioridad de la tarea
-      0                  // Puntero a la tarea creada en el sistema
+      server,                     	 // Fun cion de la tarea a ejecutar
+      (const char *)"server",     	 // Nombre de la tarea como String amigable para el usuario
+      configMINIMAL_STACK_SIZE*2, 	 // Cantidad de stack de la tarea
+      0,                          	 // Parametros de tarea
+      tskIDLE_PRIORITY+1,         	 // Prioridad de la tarea
+      0                 			 // Puntero a la tarea creada en el sistema
    );
+#endif
 
+
+#ifdef TASK1_1
   // Crear tarea task1 en freeRTOS
    xTaskCreate(
       task1,                     // Funcion de la tarea a ejecutar
@@ -200,6 +227,9 @@ int main(void)
       tskIDLE_PRIORITY+1,         // Prioridad de la tarea
       Task1Handle                  // Puntero a la tarea creada en el sistema
    );
+#endif
+
+#ifdef TASK2_1
   // Crear tarea task1 en freeRTOS
    xTaskCreate(
       task2,                     // Funcion de la tarea a ejecutar
@@ -209,7 +239,10 @@ int main(void)
       tskIDLE_PRIORITY+1,         // Prioridad de la tarea
       Task2Handle                  // Puntero a la tarea creada en el sistema
    );
-   key = xSemaphoreCreateMutex();
+ #endif
+
+
+
    // Iniciar scheduler
    vTaskStartScheduler();
 
