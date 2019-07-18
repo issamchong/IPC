@@ -46,12 +46,12 @@ int GetOp(char *op, const char* buffer ){
 
 	op[0]='0';
 }
-int Send2Qu(QueueHandle_t *handler,const  char* Msg_Only,const char* Msg_withOp){
+int Send2Qu(QueueHandle_t *handler,const  char* Msg_Only,const char* Msg_Op){
 
 
-	strcat(Msg_withOp,Msg_Only);
-	printf("Message with operation flag   is %s\r\n",Msg_withOp);
-	handler =xQueueCreate(1, sizeof(Msg_withOp));
+	strcat(Msg_Op,Msg_Only);
+	printf("Message with operation flag   is %s\r\n",Msg_Op);
+	handler =xQueueCreate(1, sizeof(Msg_Op));
 
 }
 

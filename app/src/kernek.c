@@ -47,18 +47,21 @@
 /*==================[definiciones y macros]==================================*/
 #define TASK1_0
 #define TASK2_0
-#define SERVER_0
+#define SERVER_1
+#define SERVER_B1_0
+#define SERVER_B2_1
 #define DRIVER_1
+
 /*==================[definiciones de datos internos]=========================*/
 
+// List of variable to be created first before executing any task
 volatile TaskHandle_t ServHandle = NULL;
 volatile TaskHandle_t DrivHandle = NULL;
 volatile TaskHandle_t Task1Handle = NULL;
 volatile TaskHandle_t Task2Handle = NULL;
 volatile QueueHandle_t QeueMayusculizador;
 volatile QueueHandle_t QeueMinusculizador;
-volatile QueueHandle_t QeueTransmitir;
-volatile xSemaphoreHandle QuTransmitir=0;
+volatile xSemaphoreHandle *QTrans_key=0;
 volatile QueueHandle_t MsgHandle;
 char MsgBuffer[10]="{1hAppy}"; 														//The message will be stored in this buffer
 struct Frame message;
@@ -71,13 +74,10 @@ struct Frame message;
 // The server assigns the messages to the correct task based on the operation byte, it also creates queues for each task
 void server(void){
 
-	//declaring local variables
+#ifdef SERVER_B1_1
     char i=MsgBuffer[0];
-	int notificationValue;
 
-	//creating queue to receive message from driver
 	QeueMayusculizador =xQueueCreate(1, sizeof(MsgBuffer));
-// Check operation byte to decide what task the message should  be sent to
     switch(i)
     {
     	case '0':
@@ -97,48 +97,78 @@ void server(void){
     	default:
 			uartWriteString(UART_USB,"Not such operation");
     }
-	notificationValue=ulTaskNotifyTake(pdTRUE, (TickType_t)portMAX_DELAY); 			// guardar las notificaciones en este variable, se 											//resetea automatico a zero por tener pdTRUE
+#endif
+
+
+    while(1){
+
+    	if(xSemaphoreTake(QTrans_key,1000)){
+    		uartWriteString(UART_USB,"Server has the Queue key\n");
+    		//Send2Qu(QeueTransmitir,MsgBuffer,op);				//Send message with operation flag to server if the correct operation  byte is provided
+    		xSemaphoreGive(QTrans_key);
+    		uartWriteString(UART_USB,"Server released Queue key\n");
+    	} else
+    		uartWriteString(UART_USB,"Server Could get key");
+    	vTaskDelay(1000);
+    }
 }
 
 void driver(void){
 
+
+#ifdef DRIVER_B1_1
 	//Local variables definitions and declaration
-	char data[100]="\0";
-	char op[2]="\0";																//Initialize an empty buffer
+	char data[100]="\0";															//This i
+	char op[2]="\0";
 	char SOF='{';
 	char EnOF='}';
-	char MsgAnOp[101]="\0";
+	volatile QueueHandle_t *QeueTransmitir;
 
-	//Create a semaphore for data protection
-	QuTransmitir = xSemaphoreCreateMutex();
-
-
-// validate the frame format
-
+	//validate the frame format
 	if(!((MsgBuffer[0]==SOF) || (MsgBuffer[0]==EnOF))){
 		uartWriteString(UART_USB,"Invalid frame format\n");
 		}else
 			uartWriteString(UART_USB,"valid frame format\n");
 
-// Verify if message or operation could be extracted
-	if(!GetMsg(data,MsgBuffer)){													// This function extracts the message portion of the frame and saves it into data buffer
-		uartWriteString(UART_USB,"Could not get message");							// Print error if message was not extracted
+    // Get the message portion from the frame
+	if(!GetMsg(data,MsgBuffer)){
+		uartWriteString(UART_USB,"Could not get message");
 
 	} else
-		printf("data is %s\r\n",data);												// Print data buffer to verify
+		printf("data is %s\r\n",data);
 
-	if(!GetOp(op,MsgBuffer)){														// This function extracts the message portion of the frame and saves it into data buffer
+	// Get the operation byte and save it in op
+	if(!GetOp(op,MsgBuffer)){
 
-		uartWriteString(UART_USB,"No op");											// Print error if operation byte  was not extracted
+		uartWriteString(UART_USB,"No op");
 
 	} else
-		printf("operation  is %s\r\n",op);											// Print the operation to test
-		strcpy(MsgAnOp,op);
-		strcat(MsgAnOp,data);
-		printf("operation  is %s\r\n",MsgAnOp);
-		QeueTransmitir =xQueueCreate(1, sizeof(MsgAnOp));
 
+		if(xSemaphoreTake(QTrans_key,1000)){
+
+			uartWriteString(UART_USB,"Driver has the Queue key");
+			Send2Qu(QeueTransmitir,MsgBuffer,op);				//Send message with operation flag to server if the correct operation  byte is provided
+			xSemaphoreGive(QTrans_key);
+			uartWriteString(UART_USB,"Driver released Queue key");
+		}else
+			uartWriteString(UART_USB,"Access failed");
+#endif DRIVER_B1_1
+
+	while(1){
+
+		if(xSemaphoreTake(QTrans_key,1000)){
+
+				uartWriteString(UART_USB,"Driver has the Queue key\n");
+			//	Send2Qu(QeueTransmitir,MsgBuffer,op);				//Send message with operation flag to server if the correct operation  byte is provided
+				xSemaphoreGive(QTrans_key);
+				//uartWriteString(UART_USB,"Driver released Queue key\n");
+
+		}else
+			uartWriteString(UART_USB,"Driver Could not get key\n");
+		vTaskDelay(1000);
+	}
 }
+
 //This task converts the message letters to upper case
 void task1(void){
 	
@@ -190,7 +220,7 @@ int main(void)
    // ---------- CONFIGURACIONES ------------------------------
    // Inicializar y configurar la plataforma
 
-
+   QTrans_key = xSemaphoreCreateMutex();
    boardConfig();
    uart_config(9600,0);           //configurar el uart baud rate y habilita y dishabilita usb interrupt
    //UART2_IRQHandler();

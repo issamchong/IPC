@@ -23,13 +23,13 @@ extern "C" {
 /*==================[macros]=================================================*/
 
 /*==================[typedef]================================================*/
+
+// This structure contains information about the frame sent
 typedef  struct Frame{
-							//Since it is read only flag and crucial; it is defined as const
-	const uint8_t SOF;
-	volatile const uint8_t OP;
-	const char size[2];
+
+	volatile const uint8_t Operation;
+	const char sizeT[2];
 	volatile char* data[100];
-	const uint8_t EnOF;
 	const uint8_t heap_task1;
 	const uint8_t heap_task2;
 };

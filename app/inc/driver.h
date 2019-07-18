@@ -37,7 +37,7 @@ void uart_config(int baud, bool_t state);
 int GetMsg(char *data,const  char* buffer );
 //This function gets the operation byte and saves it into operation buffer
 int GetOp(char *op,const  char* buffer );
-int Send2Qu(QueueHandle_t *handler,const  char* Msg_Only,const char* Msg_withOp);
+int Send2Qu(QueueHandle_t *handler,const  char* Msg_Only,const char* Msg_Op);
 
 
 
