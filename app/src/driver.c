@@ -31,7 +31,7 @@ uint8_t v;
 int GetMsg(char *data, const char* buffer ){
 
 	//buffer[1]='G';                          			//code to validate read-only permission
-	memcpy(data,buffer+2,6);
+	memcpy(data,buffer+2,5);
 }
 
 // This functions sets the baud rate of the USB UART
@@ -44,15 +44,14 @@ void uart_config(int baud,bool_t state )
 //This function extracts the operation byte from the frame and saves it into a operation buffer
 int GetOp(char *op, const char* buffer ){
 
-	op[0]='0';
+	op[0]=buffer[1];
 }
 int Send2Qu(QueueHandle_t *handler,const  char* Msg_Only,const char* Msg_Op){
 
 
 	strcat(Msg_Op,Msg_Only);
 	printf("Message with operation flag   is %s\r\n",Msg_Op);
-	handler =xQueueCreate(1, sizeof(Msg_Op));
-
+	//xQueueSend(,MsgBuffer,50)
 }
 
 /*==================[end of file]============================================*/

@@ -46,12 +46,14 @@
 
 /*==================[definiciones y macros]==================================*/
 #define TASK1_0
-#define TASK2_0
+#define TASK2_1
 #define SERVER_1
-#define SERVER_B1_0
-#define SERVER_B2_1
-#define DRIVER_1
-
+#define SERVER_B1_1
+#define SERVER_B2_0
+#define DRIVER_0
+#define DRIVER_B1_1
+#define DRIVER_B2_1
+#define Task2_Test_0
 /*==================[definiciones de datos internos]=========================*/
 
 // List of variable to be created first before executing any task
@@ -72,18 +74,19 @@ struct Frame message;
 /*==================[declaraciones de funciones internas]====================*/
 
 // The server assigns the messages to the correct task based on the operation byte, it also creates queues for each task
+
 void server(void){
 
+	char msg[20]="\0";
 #ifdef SERVER_B1_1
-    char i=MsgBuffer[0];
+    char i=MsgBuffer[1];
 
-	QeueMayusculizador =xQueueCreate(1, sizeof(MsgBuffer));
     switch(i)
     {
     	case '0':
     		QeueMayusculizador =xQueueCreate(1, sizeof(MsgBuffer));
     		if(!xQueueSend(QeueMayusculizador,MsgBuffer,50)){								//Send message to Queue from the buffer then verify if returned 1
-    			uartWriteString(UART_USB,"Error: could not send message to Task 1");									//Error handling if the returned value is not 1
+    			uartWriteString(UART_USB,"Error: could not send message to Task 1\n");									//Error handling if the returned value is not 1
 
     		}
     		break;
@@ -91,38 +94,45 @@ void server(void){
     	case '1':
     		QeueMinusculizador =xQueueCreate(1, sizeof(MsgBuffer));
     	    if(!xQueueSend(QeueMinusculizador,MsgBuffer,50)){								//Send message to Queue from the buffer then verify if returned 1
-    	    	uartWriteString(UART_USB,"Error: could not send message to Task 2");									//Error handling if the returned value is not 1
-    	    	}
+    	    	uartWriteString(UART_USB,"Error: could not send message to Task 2\n");									//Error handling if the returned value is not 1
+    	    	}else
+    	    		uartWriteString(UART_USB,"Server: Message sent to Task 2\n");
+    	    		vTaskDelay(1000);
+
+
     	    break;
     	default:
 			uartWriteString(UART_USB,"Not such operation");
     }
-#endif
+#endif SERVER_B1_1
 
-
+#ifdef SERVER_B2_1
     while(1){
 
     	if(xSemaphoreTake(QTrans_key,1000)){
-    		uartWriteString(UART_USB,"Server has the Queue key\n");
-    		//Send2Qu(QeueTransmitir,MsgBuffer,op);				//Send message with operation flag to server if the correct operation  byte is provided
+    		uartWriteString(UART_USB,"Server: has the Queue key\n");
+    		xQueueReceive(MsgHandle,msg,1000);
+    		printf("Server message is %s\n",msg);
     		xSemaphoreGive(QTrans_key);
-    		uartWriteString(UART_USB,"Server released Queue key\n");
-    	} else
-    		uartWriteString(UART_USB,"Server Could get key");
-    	vTaskDelay(1000);
+
+    	}vTaskDelay(1000);
     }
+#endif SERVER_B2_1
+
 }
+
+
 
 void driver(void){
 
 
+// Set up section of Driver
 #ifdef DRIVER_B1_1
 	//Local variables definitions and declaration
-	char data[100]="\0";															//This i
+	char data[100]="\0";
 	char op[2]="\0";
 	char SOF='{';
 	char EnOF='}';
-	volatile QueueHandle_t *QeueTransmitir;
 
 	//validate the frame format
 	if(!((MsgBuffer[0]==SOF) || (MsgBuffer[0]==EnOF))){
@@ -143,30 +153,26 @@ void driver(void){
 		uartWriteString(UART_USB,"No op");
 
 	} else
+		printf("Operation is %s\n",op);
 
-		if(xSemaphoreTake(QTrans_key,1000)){
 
-			uartWriteString(UART_USB,"Driver has the Queue key");
-			Send2Qu(QeueTransmitir,MsgBuffer,op);				//Send message with operation flag to server if the correct operation  byte is provided
-			xSemaphoreGive(QTrans_key);
-			uartWriteString(UART_USB,"Driver released Queue key");
-		}else
-			uartWriteString(UART_USB,"Access failed");
 #endif DRIVER_B1_1
 
+//Lopp section of Driver
+#ifdef DRIVER_B2_1
 	while(1){
 
 		if(xSemaphoreTake(QTrans_key,1000)){
 
 				uartWriteString(UART_USB,"Driver has the Queue key\n");
-			//	Send2Qu(QeueTransmitir,MsgBuffer,op);				//Send message with operation flag to server if the correct operation  byte is provided
+				xQueueSend(MsgHandle,MsgBuffer,1000);
+				uartWriteString(UART_USB,"Driver sent message\n");
 				xSemaphoreGive(QTrans_key);
 				//uartWriteString(UART_USB,"Driver released Queue key\n");
-
-		}else
-			uartWriteString(UART_USB,"Driver Could not get key\n");
-		vTaskDelay(1000);
+		}vTaskDelay(1000);
 	}
+
+#endif DRIVER_B2_1
 }
 
 //This task converts the message letters to upper case
@@ -184,7 +190,6 @@ void task1(void){
 			} else
 				vTaskDelay(1000);
 				uartWriteString(UART_USB,"Error: No new message received for Task 1 \n");    // Error handling if no new message is received
-
 		 }else
 			 EndTask(&Task1Handle,1);   			  // Error showing the queue was not created yet
 	}
@@ -193,19 +198,20 @@ void task1(void){
 //This function converts to lower case letter the message
 void task2(void){
 
-	char MsgBuffer[5];
+#ifdef Task2_Test_1
+	QeueMinusculizador =xQueueCreate(1, sizeof(MsgBuffer));
+	xQueueSend(QeueMinusculizador,MsgBuffer,50);
+#endif Task2_Test_1
+
+	char Task2Buffer[10]="\0";
 	while(1){
 		if(QeueMinusculizador !=0){
-			if(xQueueReceive(QeueMinusculizador,MsgBuffer,100)){
-				if(!LwrCase(MsgBuffer)){                           						  		  	  //convert message letters to upper case
-					uartWriteString(UART_USB,"Task 2: Error could not convert to lower  case");
-				}else
-					vTaskDelay(2000);
+			if(xQueueReceive(QeueMinusculizador,Task2Buffer,100)){
+				if(!LwrCase(Task2Buffer)){                           						  		  	  //convert message letters to upper case
+					uartWriteString(UART_USB,"Task 2: Could not convert to lower  case\n");
+				}
 			}else
-				vTaskDelay(1000);
-
-				uartWriteString(UART_USB," Error: No new message received for Task 2  \n");
-
+				uartWriteString(UART_USB," Task 2 : No new message received for Task 2  \n");
 		}else
 			EndTask(&Task2Handle,2);
 	}
@@ -219,12 +225,16 @@ int main(void)
 {
    // ---------- CONFIGURACIONES ------------------------------
    // Inicializar y configurar la plataforma
-
-   QTrans_key = xSemaphoreCreateMutex();
    boardConfig();
    uart_config(9600,0);           //configurar el uart baud rate y habilita y dishabilita usb interrupt
-   //UART2_IRQHandler();
-   // Crear driver en freeRTOS
+
+   //Create Mutex and Queues
+   MsgHandle =xQueueCreate(1, sizeof(MsgBuffer));
+   QTrans_key = xSemaphoreCreateMutex();
+
+
+#ifdef DRIVER_1
+   // Create tasks
    xTaskCreate(
       driver,                     // Funcion de la tarea a ejecutar
       (const char *)"driver",     // Nombre de la tarea como String amigable para el usuario, se pasa com const para solo leer
@@ -233,6 +243,8 @@ int main(void)
       tskIDLE_PRIORITY+1,         // Prioridad de la tarea
       DrivHandle                  // Puntero al handler de la tarea
    );
+#endif DRIVER_1
+
 
 #ifdef SERVER_1
 // Crear tarea server en freeRTOS
@@ -241,11 +253,11 @@ int main(void)
       (const char *)"server",     	 // Nombre de la tarea como String amigable para el usuario
       configMINIMAL_STACK_SIZE*2, 	 // Cantidad de stack de la tarea
       0,                          	 // Parametros de tarea
-      tskIDLE_PRIORITY+1,         	 // Prioridad de la tarea
+      tskIDLE_PRIORITY+2,         	 // Prioridad de la tarea
       0                 			 // Puntero a la tarea creada en el sistema
    );
-#endif
 
+#endif SERVER_1
 
 #ifdef TASK1_1
   // Crear tarea task1 en freeRTOS
