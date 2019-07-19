@@ -40,7 +40,6 @@ typedef  struct Frame{
 
 
 int  EndTask(TaskHandle_t *handle, const uint8_t i);
-int  Send2Task(QueueHandle_t *QuMayu,QueueHandle_t *QuMinu ,char *MsgBuf);
 /*==================[cplusplus]==============================================*/
 
 #ifdef __cplusplus
