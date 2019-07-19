@@ -51,7 +51,7 @@
 #define SERVER_B1_1
 #define SERVER_B2_0
 #define DRIVER_0
-#define DRIVER_B1_1
+#define DRIVER_B1_0
 #define DRIVER_B2_1
 #define Task2_Test_0
 /*==================[definiciones de datos internos]=========================*/
@@ -77,33 +77,10 @@ struct Frame message;
 
 void server(void){
 
-	char msg[20]="\0";
 #ifdef SERVER_B1_1
-    char i=MsgBuffer[1];
 
-    switch(i)
-    {
-    	case '0':
-    		QeueMayusculizador =xQueueCreate(1, sizeof(MsgBuffer));
-    		if(!xQueueSend(QeueMayusculizador,MsgBuffer,50)){								//Send message to Queue from the buffer then verify if returned 1
-    			uartWriteString(UART_USB,"Error: could not send message to Task 1\n");									//Error handling if the returned value is not 1
+	Send2Task(&QeueMayusculizador,&QeueMinusculizador,MsgBuffer);
 
-    		}
-    		break;
-
-    	case '1':
-    		QeueMinusculizador =xQueueCreate(1, sizeof(MsgBuffer));
-    	    if(!xQueueSend(QeueMinusculizador,MsgBuffer,50)){								//Send message to Queue from the buffer then verify if returned 1
-    	    	uartWriteString(UART_USB,"Error: could not send message to Task 2\n");									//Error handling if the returned value is not 1
-    	    	}else
-    	    		uartWriteString(UART_USB,"Server: Message sent to Task 2\n");
-    	    		vTaskDelay(1000);
-
-
-    	    break;
-    	default:
-			uartWriteString(UART_USB,"Not such operation");
-    }
 #endif SERVER_B1_1
 
 #ifdef SERVER_B2_1

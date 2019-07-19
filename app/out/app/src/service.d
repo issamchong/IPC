@@ -122,4 +122,5 @@ app/out/app/src/service.o: app/src/service.c app/inc/service.h \
  libs/freertos/include/private/deprecated_definitions.h \
  libs/freertos/source/portable/ARM_CM4F/portmacro.h \
  libs/freertos/include/private/mpu_wrappers.h app/inc/FreeRTOSConfig.h \
- libs/freertos/include/task.h libs/freertos/include/private/list.h
+ libs/freertos/include/task.h libs/freertos/include/private/list.h \
+ libs/freertos/include/queue.h

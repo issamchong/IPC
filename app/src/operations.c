@@ -33,7 +33,6 @@ int LwrCase(char *data){
 
 	strcpy(data,strlwr(data));   			 								// convert to lower case
 	printf("Message in lower case  is : %s\n",data);
-	//printf("Message in lower case  is : %c\n",data[strlen(data)-1]);
 	return 1;
 }
 

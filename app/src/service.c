@@ -20,35 +20,11 @@
 /*==================[external data definition]===============================*/
 
 /*==================[internal functions definition]==========================*/
+char datamsg[10]="{1hAppy}"; 														//The message will be stored in this buffer
 
 /*==================[external functions definition]==========================*/
 
 
-int ReadData(){}
-int SendData(){}
-int Op_selector(char *msg){
-
-
-	char flag;
-	flag =msg[0];
-
-	switch (flag)
-	{
-		case '0':
-			return 0;
-			break;
-		case '1':
-			return 1;
-			break;
-		case '2':
-			return 2;
-			break;
-		case '3':
-				return 3;
-				break;
-	}
-
-}
 
 // This function suspends the task, it takes the task handle and the task number, the number to decide the message
 int EndTask(TaskHandle_t *handle,const uint8_t i){
@@ -70,6 +46,32 @@ int EndTask(TaskHandle_t *handle,const uint8_t i){
 	  return 1;
 }
 
+
+int  Send2Task(QueueHandle_t *QuMayu,QueueHandle_t *QuMinu ,char *MsgBuf){
+
+	char *i=MsgBuf;
+	i++;
+	switch(*i)
+	    {
+	    	case '0':
+	    		*QuMayu =xQueueCreate(1, 202);
+	    		if(!xQueueSend(*QuMayu,MsgBuf,50)){								//Send message to Queue from the buffer then verify if returned 1
+	    			uartWriteString(UART_USB,"Error: could not send message to Task 1\n");									//Error handling if the returned value is not 1
+	    		}
+	    		break;
+
+	    	case '1':
+	    		*QuMinu =xQueueCreate(1, 202);
+	    	    if(!xQueueSend(*QuMinu,MsgBuf,50)){								//Send message to Queue from the buffer then verify if returned 1
+	    	    	uartWriteString(UART_USB,"Error: could not send message to Task 2\n");									//Error handling if the returned value is not 1
+	    	    	}else
+	    	    		uartWriteString(UART_USB,"Server: Message sent to Task 2\n");
+	    	    		vTaskDelay(1000);
+	    	    break;
+	    	default:
+				uartWriteString(UART_USB,"Not such operation");
+	    }
+}
 
 
 /*==================[end of file]============================================*/

@@ -13,6 +13,7 @@
 #include "FreeRTOS.h"
 #include "FreeRTOSConfig.h"
 #include "task.h"
+#include "queue.h"
 
 /*==================[cplusplus]==============================================*/
 
@@ -38,10 +39,8 @@ typedef  struct Frame{
 /*==================[external functions declaration]=========================*/
 
 
-int ReadData();  // leer el mensaje y verifique protocolo, utiliza driver.h
-int SendData();  // leer de la cola lo que dejo el task selecionado, verifique protocolo y envia al driver.h	
-int Op_selector(char  *msg);  // analiza el mensaje y decide a que task lo envia via  ReadData()
 int  EndTask(TaskHandle_t *handle, const uint8_t i);
+int  Send2Task(QueueHandle_t *QuMayu,QueueHandle_t *QuMinu ,char *MsgBuf);
 /*==================[cplusplus]==============================================*/
 
 #ifdef __cplusplus

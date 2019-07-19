@@ -124,5 +124,5 @@ app/out/app/src/kernek.o: app/src/kernek.c \
  libs/sapi/sapi_v0.5.2/external_peripherals/inc/sapi_magnetometer_qmc5883l.h \
  libs/sapi/sapi_v0.5.2/external_peripherals/inc/sapi_imu_mpu9250.h \
  libs/sapi/sapi_v0.5.2/external_peripherals/inc/sapi_ultrasonic_hcsr04.h \
- app/inc/FreeRTOSConfig.h app/inc/driver.h libs/freertos/include/queue.h \
+ app/inc/FreeRTOSConfig.h libs/freertos/include/queue.h app/inc/driver.h \
  libs/freertos/include/semphr.h libs/freertos/include/queue.h
