@@ -48,10 +48,123 @@ int GetOp(char *op, const char* buffer ){
 }
 int Send2Qu(QueueHandle_t *handler,const  char* Msg_Only,const char* Msg_Op){
 
-
 	strcat(Msg_Op,Msg_Only);
 	printf("Message with operation flag   is %s\r\n",Msg_Op);
 	//xQueueSend(,MsgBuffer,50)
 }
+int ASCI(char *frame, uint8_t  size, char *buf){
+
+
+char buffer[36]="xxxxxxxxxxxxxxxxxx";
+int newval, j=0;
+char msg[18]="xxxxxxxxxxxxxxxxxx";
+
+    for (int i = 0; i < size; i+=2)
+
+    {
+
+        int firstvalue = frame[i] - '0';
+
+        int secondvalue;
+
+        //if RecvData[i+1] is a letter convert it to integer, otherwise use it.
+
+            switch(frame[i+1])
+
+        {
+
+            case 'A':
+
+            {
+
+                secondvalue = 10;
+
+
+
+            }break;
+
+            case 'B':
+
+            {
+
+                secondvalue = 11;
+
+
+
+            }break;
+
+            case 'C':
+
+            {
+
+                secondvalue = 12;
+
+
+
+            }break;
+
+            case 'D':
+
+            {
+
+                secondvalue = 13;
+
+
+
+            }break;
+
+            case 'E':
+
+            {
+
+                secondvalue = 14;
+
+
+
+            }break;
+
+            case 'F':
+
+            {
+
+                secondvalue = 15;
+
+
+
+            }break;
+
+            default:
+
+                secondvalue = frame[i+1] - '0';
+
+            break;
+        }
+
+
+
+        //convert the two values into decimal form
+
+        newval =  16 * firstvalue + secondvalue;
+
+        //change newval into a character
+
+          // cast type newval into character, save itin ptrBuffer :buffer[0]='G' only for the first element
+	buffer[i]=(char)newval;
+
+    }
+
+	for(int j=0;j<=18;j++){
+		msg[j]=buffer[j*2];
+
+	 }
+	strcpy(buf,msg);
+
+    return 0;
+
+}
+
+
+
+
 
 /*==================[end of file]============================================*/

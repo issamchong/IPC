@@ -38,6 +38,7 @@ int GetMsg(char *data,const  char* buffer );
 //This function gets the operation byte and saves it into operation buffer
 int GetOp(char *op,const  char* buffer );
 int Send2Qu(QueueHandle_t *handler,const  char* Msg_Only,const char* Msg_Op);
+int ASCI(char *frame,uint8_t size,char *buf);
 
 
 
