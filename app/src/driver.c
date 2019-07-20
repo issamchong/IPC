@@ -28,10 +28,9 @@ uint8_t v;
 
 
 //This function copies the data portion of the the message buffer to data  and casts data type to read-only on MsgBuffer inside this block only
-int GetMsg(char *data, const char* buffer ){
+int GetMsg(char *data, const char* buffer,uint8_t size ){
 
-	//buffer[1]='G';                          			//code to validate read-only permission
-	memcpy(data,buffer+2,5);
+	memcpy(data,buffer+2,size-2);
 }
 
 // This functions sets the baud rate of the USB UART
@@ -54,113 +53,57 @@ int Send2Qu(QueueHandle_t *handler,const  char* Msg_Only,const char* Msg_Op){
 }
 int ASCI(char *frame, uint8_t  size, char *buf){
 
-
-char buffer[36]="xxxxxxxxxxxxxxxxxx";
+char buffer[111]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 int newval, j=0;
-char msg[18]="xxxxxxxxxxxxxxxxxx";
+char msg[60]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
     for (int i = 0; i < size; i+=2)
-
     {
-
         int firstvalue = frame[i] - '0';
-
         int secondvalue;
-
         //if RecvData[i+1] is a letter convert it to integer, otherwise use it.
-
             switch(frame[i+1])
-
         {
-
             case 'A':
-
             {
-
                 secondvalue = 10;
-
-
-
             }break;
-
             case 'B':
-
             {
-
                 secondvalue = 11;
-
-
-
             }break;
-
             case 'C':
-
             {
-
                 secondvalue = 12;
-
-
-
             }break;
-
             case 'D':
-
             {
-
                 secondvalue = 13;
-
-
-
             }break;
 
             case 'E':
-
             {
-
                 secondvalue = 14;
-
-
-
             }break;
-
             case 'F':
-
             {
-
                 secondvalue = 15;
-
-
-
             }break;
-
             default:
-
                 secondvalue = frame[i+1] - '0';
-
             break;
         }
-
-
-
         //convert the two values into decimal form
-
         newval =  16 * firstvalue + secondvalue;
-
         //change newval into a character
-
           // cast type newval into character, save itin ptrBuffer :buffer[0]='G' only for the first element
 	buffer[i]=(char)newval;
-
     }
-
-	for(int j=0;j<=18;j++){
+	for(int j=0;j<=sizeof(msg);j++){
 		msg[j]=buffer[j*2];
-
 	 }
 	strcpy(buf,msg);
-
     return 0;
-
 }
 
 

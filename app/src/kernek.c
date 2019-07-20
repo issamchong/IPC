@@ -46,7 +46,7 @@
 
 /*==================[definiciones y macros]==================================*/
 #define TASK1_0
-#define TASK2_0
+#define TASK2_1
 #define SERVER_1
 #define DRIVER_1
 #define DRIVER_B1_1
@@ -65,9 +65,8 @@ volatile xSemaphoreHandle QTrans_key=0;
 volatile xSemaphoreHandle QuT1_key=0;
 volatile xSemaphoreHandle QuT2_key=0;
 volatile QueueHandle_t MsgHandle;
-char HexFrame[36]="474F4420426C65737320416D657269636121"; 														//The message will be stored in this buffer
-char AsciFrame[36]="xxxxxxxxxxxxxxxxxx";
-struct Frame message;
+char HexFrame[110]="7B313530546869732069732052544F5320636F757273652054503120696E20746573742C616E6420697420697320776F726B696E67217D"; 														//The message will be stored in this buffer
+char AsciFrame[55]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
 
 /*==================[definiciones de datos externos]=========================*/
@@ -78,18 +77,28 @@ struct Frame message;
 
 void server(void){
 
-	char msg[20]="\0";
+	struct Frame message;
+	char msg[sizeof(AsciFrame)]="\0";
 	char *f=msg;
+	char SizeData[3]="\0";
 
-
-
+// Checking if new message is available and where to send it
     while(1){
 
-    	if(xSemaphoreTake(QTrans_key,1000)){
-    		xQueueReceive(MsgHandle,msg,1000);
-    		xSemaphoreGive(QTrans_key);
-
-    	}vTaskDelay(1000);
+    	if(!(xSemaphoreTake(QTrans_key,1000))){
+    		uartWriteString(UART_USB,"Server: Key was not released\n");
+    	}else{
+    		if(!(xQueueReceive(MsgHandle,msg,1000))){                          									//Important QueueReceive clears msg when called again
+    			uartWriteString(UART_USB,"Server: Could not access Queue\n");
+    			}else{
+    				xSemaphoreGive(QTrans_key);vTaskDelay(1000);
+    				SizeData[0]=msg[1];
+    				SizeData[1]=msg[2];
+    				message.size= atoi(SizeData);
+    				message.operation=	atoi(*f);
+    				printf("Server: size of data is %d\n",message.size);
+    			}
+    		}vTaskDelay(500);
 
         switch(*f)
         {
@@ -106,7 +115,7 @@ void server(void){
     			printf("Server: operation flag is %c\n",*f);
         		if(xSemaphoreTake(QuT2_key,1000)){
         			xQueueSend(QeueMinusculizador,msg,50);
-		        	xSemaphoreGive(QuT2_key);//Send message to Queue from the buffer then verify if returned 1
+		        	xSemaphoreGive(QuT2_key);
 		        }vTaskDelay(1000);
         	    break;
         	case '\0':
@@ -125,38 +134,33 @@ void driver(void){
 // Set up section of Driver
 #ifdef DRIVER_B1_1
 	//Local variables definitions and declaration
-	char data[36]="\0";
+	char data[sizeof(AsciFrame)]="\0";
 	char op[2]="\0";
 	char SOF='{';
 	char EnOF='}';
 
 	ASCI(HexFrame,sizeof(HexFrame),AsciFrame);
-	printf("Data  is %s \n",AsciFrame);
-
+	printf("Driver: frame  is %s \n",AsciFrame);
 
 	//validate the AsciFrame format
-	if(!((AsciFrame[0]==SOF) || (AsciFrame[0]==EnOF))){
+	if(!((AsciFrame[0]==SOF) && (AsciFrame[sizeof(AsciFrame)-1]==EnOF))){
 		uartWriteString(UART_USB,"Driver: Invalid AsciFrame format\n");
 		}else{
 			uartWriteString(UART_USB,"Driver: valid AsciFrame format\n");
-			// Get the message portion from the AsciFrame
-			if(!GetMsg(data,AsciFrame)){
+			if(!GetMsg(data,AsciFrame,sizeof(AsciFrame))){
 				uartWriteString(UART_USB,"Driver: Could not get message");
-			}
-			// Get the operation byte and save it in op
-			if(!GetOp(op,AsciFrame)){
-
-				uartWriteString(UART_USB,"Driver: No operation");
-
 			} else
-				strcat(op,data);
-				printf("Driver: Message to server is %s\r\n",op);
+				if(!GetOp(op,AsciFrame)){
+					uartWriteString(UART_USB,"Driver: No operation");
+				} else
+					strcat(op,data);
+					printf("Driver: Message to server is %s\r\n",op);
 		}
 
 
 #endif DRIVER_B1_1
 
-//Lopp section of Driver
+//Sending new messages to Server only only key is available
 #ifdef DRIVER_B2_1
 	while(1){
 
@@ -197,7 +201,7 @@ void task2(void){
 	xQueueSend(QeueMinusculizador,MsgBuffer,50);
 #endif Task2_Test_1
 
-	char Task2Buffer[18]="\0";
+	char Task2Buffer[sizeof(AsciFrame)]="\0";
 	while(1){
 		if(QeueMinusculizador !=0){
 			if(xQueueReceive(QeueMinusculizador,Task2Buffer,3000)){

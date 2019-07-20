@@ -28,9 +28,9 @@ extern "C" {
 // This structure contains information about the frame sent
 typedef  struct Frame{
 
-	volatile const uint8_t Operation;
-	const char sizeT[2];
-	volatile char* data[100];
+	volatile  uint8_t operation;
+	volatile  uint8_t size;
+	volatile char* data[55];
 	const uint8_t heap_task1;
 	const uint8_t heap_task2;
 };
