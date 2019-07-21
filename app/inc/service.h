@@ -31,14 +31,23 @@ typedef  struct Frame{
 	volatile  uint8_t operation;
 	volatile  uint8_t size;
 	volatile char* data[55];
-	const uint8_t heap_task1;
-	const uint8_t heap_task2;
+	volatile  uint8_t heap_task1;
+	volatile  uint8_t heap_task2;
+};
+
+typedef  struct Tasks_Stack{
+
+	volatile  uint8_t ServerStack;
+	volatile  uint8_t DriverStack;
+	volatile  uint8_t Task1Stack;
+	volatile  uint8_t Task2Stack;
+
 };
 /*==================[external data declaration]==============================*/
 
 /*==================[external functions declaration]=========================*/
-
-
+int GetOp(char *op,const  char* buffer );
+int GetMsg(char *data,const  char* buffer,uint8_t size );
 int  EndTask(TaskHandle_t *handle, const uint8_t i);
 /*==================[cplusplus]==============================================*/
 

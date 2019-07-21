@@ -28,9 +28,9 @@ uint8_t v;
 
 
 //This function copies the data portion of the the message buffer to data  and casts data type to read-only on MsgBuffer inside this block only
-int GetMsg(char *data, const char* buffer,uint8_t size ){
+int GetData(char *data, const char* buffer,uint8_t size ){
 
-	memcpy(data,buffer+2,size-2);
+	memcpy(data,buffer+1,size-2);
 }
 
 // This functions sets the baud rate of the USB UART
@@ -40,11 +40,7 @@ void uart_config(int baud,bool_t state )
 	 //uartInterrupt( UART_USB, state); 				// Enable UART interrupt
 }
 
-//This function extracts the operation byte from the frame and saves it into a operation buffer
-int GetOp(char *op, const char* buffer ){
 
-	op[0]=buffer[1];
-}
 int Send2Qu(QueueHandle_t *handler,const  char* Msg_Only,const char* Msg_Op){
 
 	strcat(Msg_Op,Msg_Only);

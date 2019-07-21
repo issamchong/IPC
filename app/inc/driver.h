@@ -34,9 +34,8 @@ extern "C" {
 void uart_config(int baud, bool_t state);
 
 //This function copies the data portion of the the message buffer to data  and casts data type to read-only on MsgBuffer inside this block only
-int GetMsg(char *data,const  char* buffer,uint8_t size );
+int GetData(char *data,const  char* buffer,uint8_t size );
 //This function gets the operation byte and saves it into operation buffer
-int GetOp(char *op,const  char* buffer );
 int Send2Qu(QueueHandle_t *handler,const  char* Msg_Only,const char* Msg_Op);
 int ASCI(char *frame,uint8_t size,char *buf);
 

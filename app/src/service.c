@@ -26,6 +26,14 @@
 
 
 // This function suspends the task, it takes the task handle and the task number, the number to decide the message
+int GetMsg(char *data, const char* buffer,uint8_t size ){
+
+	memcpy(data,buffer+2,size-2);
+}
+int GetOp(char *op, const char* buffer ){
+
+	op[0]=buffer[1];
+}
 int EndTask(TaskHandle_t *handle,const uint8_t i){
 
 
