@@ -63,7 +63,7 @@ volatile TaskHandle_t Task1Handle = NULL;
 volatile TaskHandle_t Task2Handle = NULL;
 volatile QueueHandle_t QeueMayusculizador;
 volatile QueueHandle_t QeueMinusculizador;
-volatile xSemaphoreHandle QTrans_key=0;
+volatile xSemaphoreHandle MsgHandle_key=0;
 volatile xSemaphoreHandle DataProcessed_key=0;
 volatile QueueHandle_t MsgHandle;
 volatile QueueHandle_t DataProcessed_handle;
@@ -84,7 +84,7 @@ void server(void){
 	/* Inspect our own high water mark on entering the Server. */
 	TaskStatus_t xTaskDetails;
 
-	printf("Server: Stack available is %d \n", xTaskDetails.usStackHighWaterMark);
+	printf("Server: Staring Stack size is %d \n", xTaskDetails.usStackHighWaterMark);
 	char msg[sizeof(AsciFrame)]="\0";
 	char *f=msg;
 	char SizeData[3]="\0";
@@ -92,19 +92,18 @@ void server(void){
 // Checking if new message is available and where to send it
     while(1){
 
-
-    		if(!(xQueueReceive(MsgHandle,msg,1000))){                          									//Important QueueReceive clears msg when called again
-    			uartWriteString(UART_USB,"Server: Could not access Queue shared with Driver\n");
-    			}else{
-    				SizeData[0]=msg[1];
-    				SizeData[1]=msg[2];
-    				message.size= atoi(SizeData);
-    				message.operation=	atoi(*f);
-    				strcpy(message.data,msg);
-    				printf("Server: Size of data is %d\n",message.size);
-    				printf("Server: Message received from Driver is > %s\n",message.data);
-    			}
+    	if(!(xQueueReceive(MsgHandle,msg,1000))){                          									//Important QueueReceive clears msg when called again
+    		uartWriteString(UART_USB,"Server: Could not access Queue shared with Driver\n");
+    	}else{
+    		SizeData[0]=msg[1];
+    		SizeData[1]=msg[2];
+    		message.size= atoi(SizeData);
+    		message.operation=	atoi(*f);
+    		strcpy(message.data,msg);
+    		printf("Server: Size of data is %d\n",message.size);
+    		printf("Server: Message received from Driver is > %s\n",message.data);
     		vTaskDelay(500);
+    	}
 
         switch(*f)
         {
@@ -153,8 +152,6 @@ void server(void){
 void driver(void){
 
 
-// Set up section of Driver
-#ifdef DRIVER_B1_1
 	//Interrupt service routine  when message is new frame is received
 	char data[sizeof(AsciFrame)]="\0";
 	char op[2]="\0";
@@ -172,21 +169,33 @@ void driver(void){
 			uartWriteString(UART_USB,"Driver: Valid ASCII  format\n");
 			if(!GetData(data,AsciFrame,sizeof(AsciFrame))){
 				uartWriteString(UART_USB,"Driver: Could not get message");
-			} else
-				uartWriteString(UART_USB,"Driver: Data sent to Server successfully\n");
-
+			}
 		}
 
-#endif DRIVER_B1_1
-
-//Sending new messages to Server only only key is available
-#ifdef DRIVER_B2_1
 	while(1){
 
-			xQueueSend(MsgHandle,data,1000);
-			vTaskDelay(3000);
+		if(!(xSemaphoreTake(MsgHandle_key,1000))){
+			uartWriteString(UART_USB,"Driver: Waiting key to send \n");
+		}else{
+			if(!(xQueueSend(MsgHandle,data,1000))){
+				uartWriteString(UART_USB,"Driver: Could not send data to Server\n");
+			}else{
+				xSemaphoreGive(MsgHandle_key);
+				vTaskDelay(3000);
+			}
+		}
+
+		if(!(xSemaphoreTake(MsgHandle_key,1000))){
+				uartWriteString(UART_USB,"Driver: Waiting Key to receive \n");
+			}else{
+				if(!(xQueueReceive(MsgHandle,data,1000))){
+					//uartWriteString(UART_USB,"Driver: Could not receive data to Server\n");
+				}else{
+					xSemaphoreGive(MsgHandle_key);
+					vTaskDelay(3000);
+				}
+			}
 	}
-#endif DRIVER_B2_1
 }
 
 //This task converts the message letters to upper case
@@ -214,10 +223,7 @@ void task1(void){
 //This function converts to lower case letter the message
 void task2(void){
 
-#ifdef Task2_Test_1
-	QeueMinusculizador =xQueueCreate(1, sizeof(MsgBuffer));
-	xQueueSend(QeueMinusculizador,MsgBuffer,50);
-#endif Task2_Test_1
+
 
 	char Task2Buffer[sizeof(AsciFrame)]="\0";
 	while(1){
@@ -259,8 +265,7 @@ int main(void)
    MsgHandle =xQueueCreate(1, sizeof(AsciFrame));
    DataProcessed_handle =xQueueCreate(1, sizeof(AsciFrame));
    DataProcessed_key=xSemaphoreCreateMutex();
-
-
+   MsgHandle_key=xSemaphoreCreateMutex();
 
 
 #ifdef DRIVER_1
@@ -312,9 +317,6 @@ int main(void)
       Task2Handle                  // Puntero a la tarea creada en el sistema
    );
  #endif
-
-
-
    // Iniciar scheduler
    vTaskStartScheduler();
 
