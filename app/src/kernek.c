@@ -64,9 +64,9 @@ volatile TaskHandle_t Task2Handle = NULL;
 volatile QueueHandle_t QeueMayusculizador;
 volatile QueueHandle_t QeueMinusculizador;
 volatile xSemaphoreHandle QTrans_key=0;
-volatile xSemaphoreHandle QuTask_key=0;
+volatile xSemaphoreHandle DataProcessed_key=0;
 volatile QueueHandle_t MsgHandle;
-volatile QueueHandle_t DataProcessed;
+volatile QueueHandle_t DataProcessed_handle;
 char HexFrame[110]="7B313530546869732069732052544F5320636F757273652054503120696E20746573742C616E6420697420697320776F726B696E67217D"; 														//The message will be stored in this buffer
 char AsciFrame[55]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 struct Tasks_Stack StackRemain;
@@ -114,7 +114,7 @@ void server(void){
         			uartWriteString(UART_USB,"Server: Could send to Task1\n");
         		}else{
         			vTaskDelay(1000);
-        		 	if(!(xQueueReceive(DataProcessed,msg,1000))){                          									//Important QueueReceive clears msg when called again
+        		 	if(!(xQueueReceive(DataProcessed_handle,msg,1000))){                          									//Important QueueReceive clears msg when called again
         		    	    uartWriteString(UART_USB,"Server: Could not receive message from Task1\n");
         		    	}else{
         		    		printf("Server: Message processed by Task1 is > %s\n",msg);
@@ -130,7 +130,7 @@ void server(void){
         			uartWriteString(UART_USB,"Server: Could send to Task2\n");
 		        }else{
 		        	vTaskDelay(1000);
-		        	if(!(xQueueReceive(DataProcessed,msg,1000))){                          									//Important QueueReceive clears msg when called again
+		        	if(!(xQueueReceive(DataProcessed_handle,msg,1000))){                          									//Important QueueReceive clears msg when called again
 		        		uartWriteString(UART_USB,"Server: Could not receive message from Task2\n");
 		        	}else{
 		        		printf("Server: Message processed by Task2 is > %s\n",msg);
@@ -202,7 +202,7 @@ void task1(void){
 					if(!UperCase(Task1Buffer)){                           						  		  	  //convert message letters to upper case
 						uartWriteString(UART_USB,"Task 1: Could not convert to lower  case\n");
 					}else{
-						if(!(xQueueSend(DataProcessed,Task1Buffer,50))){
+						if(!(xQueueSend(DataProcessed_handle,Task1Buffer,50))){
 							uartWriteString(UART_USB,"Task1: Could send to message back to Server\n");
 						}vTaskDelay(1000);
 					}
@@ -228,9 +228,14 @@ void task2(void){
 				if(!LwrCase(Task2Buffer)){                           						  		  	  //convert message letters to upper case
 					uartWriteString(UART_USB,"Task 2: Could not convert to lower  case\n");
 				}else{
-					if(!(xQueueSend(DataProcessed,Task2Buffer,50))){
-						uartWriteString(UART_USB,"Task2: Could send to message back to Server\n");
-					}vTaskDelay(1000);
+					if(xSemaphoreTake(DataProcessed_key,1000)){
+						uartWriteString(UART_USB,"Task 2: Key is not available\n");
+					}else{
+						if(!(xQueueSend(DataProcessed_handle,Task2Buffer,50))){
+							uartWriteString(UART_USB,"Task2: Could send to message back to Server\n");
+						}
+						xSemaphoreGive(DataProcessed_key);
+					}
 				}
 		}else
 			EndTask(&Task2Handle,2);
@@ -252,8 +257,8 @@ int main(void)
    QeueMayusculizador =xQueueCreate(1, sizeof(AsciFrame));
    QeueMinusculizador =xQueueCreate(1, sizeof(AsciFrame));
    MsgHandle =xQueueCreate(1, sizeof(AsciFrame));
-   DataProcessed =xQueueCreate(1, sizeof(AsciFrame));
-
+   DataProcessed_handle =xQueueCreate(1, sizeof(AsciFrame));
+   DataProcessed_key=xSemaphoreCreateMutex();
 
 
 
