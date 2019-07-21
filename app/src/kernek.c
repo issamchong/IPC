@@ -69,6 +69,7 @@ volatile QueueHandle_t MsgHandle;
 char HexFrame[110]="7B313530546869732069732052544F5320636F757273652054503120696E20746573742C616E6420697420697320776F726B696E67217D"; 														//The message will be stored in this buffer
 char AsciFrame[55]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 struct Tasks_Stack StackRemain;
+struct Frame message;																					//Only Server has access to that structure
 
 
 /*==================[definiciones de datos externos]=========================*/
@@ -83,7 +84,6 @@ void server(void){
 	TaskStatus_t xTaskDetails;
 
 	printf("Server: Stack available is %d \n", xTaskDetails.usStackHighWaterMark);
-	struct Frame message;																					//Only Server has access to that structure
 	char msg[sizeof(AsciFrame)]="\0";
 	char *f=msg;
 	char SizeData[3]="\0";
@@ -188,7 +188,7 @@ void driver(void){
 		if(xSemaphoreTake(QTrans_key,1000)){
 			xQueueSend(MsgHandle,data,1000);
 			xSemaphoreGive(QTrans_key);
-		}vTaskDelay(3000);
+		}vTaskDelay(1000);
 	}
 #endif DRIVER_B2_1
 }

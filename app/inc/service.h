@@ -31,8 +31,7 @@ typedef  struct Frame{
 	volatile  uint8_t operation;
 	volatile  uint8_t size;
 	volatile char* data[55];
-	volatile  uint8_t heap_task1;
-	volatile  uint8_t heap_task2;
+	volatile char* dataProcessed[55];
 };
 
 typedef  struct Tasks_Stack{

@@ -96,6 +96,7 @@ SystemCoreClock     0x4               app/out/libs/lpc_open/lpc_chip_43xx/src/ch
 msg                 0x18c             app/out/app/src/driver.o
 xQueueRegistry      0x40              app/out/libs/freertos/source/queue.o
 StackRemain         0x4               app/out/app/src/kernek.o
+message             0x1bc             app/out/app/src/kernek.o
 MsgHandle           0x4               app/out/app/src/kernek.o
 handle              0x4               app/out/app/src/driver.o
 v                   0x1               app/out/app/src/driver.o
@@ -15304,7 +15305,7 @@ END GROUP
                 0x000000001a000150                __data_section_table_end = .
                 0x000000001a000150                __bss_section_table = .
                 0x000000001a000150        0x4 LONG 0x10000300 ADDR (.bss)
-                0x000000001a000154        0x4 LONG 0x2b08 SIZEOF (.bss)
+                0x000000001a000154        0x4 LONG 0x2cc4 SIZEOF (.bss)
                 0x000000001a000158        0x4 LONG 0x10080000 ADDR (.bss_RAM2)
                 0x000000001a00015c        0x4 LONG 0x0 SIZEOF (.bss_RAM2)
                 0x000000001a000160        0x4 LONG 0x20000000 ADDR (.bss_RAM3)
@@ -15395,254 +15396,253 @@ END GROUP
                 0x000000001a0003ec                EndTask
  .text.LwrCase  0x000000001a000434       0x14 app/out/app/src/operations.o
                 0x000000001a000434                LwrCase
- .text.server   0x000000001a000448      0x1f8 app/out/app/src/kernek.o
+ .text.server   0x000000001a000448      0x200 app/out/app/src/kernek.o
                 0x000000001a000448                server
- .text.driver   0x000000001a000640       0xcc app/out/app/src/kernek.o
-                0x000000001a000640                driver
- .text.task2    0x000000001a00070c       0x94 app/out/app/src/kernek.o
-                0x000000001a00070c                task2
- .text.main     0x000000001a0007a0       0xcc app/out/app/src/kernek.o
-                0x000000001a0007a0                main
+ .text.driver   0x000000001a000648       0xcc app/out/app/src/kernek.o
+                0x000000001a000648                driver
+ .text.task2    0x000000001a000714       0x94 app/out/app/src/kernek.o
+                0x000000001a000714                task2
+ .text.main     0x000000001a0007a8       0xcc app/out/app/src/kernek.o
+                0x000000001a0007a8                main
  .text.initialise_monitor_handles
-                0x000000001a00086c        0x2 app/out/libs/cmsis_core//src/armv7m_startup.o
-                0x000000001a00086c                initialise_monitor_handles
- *fill*         0x000000001a00086e        0x2 ff
+                0x000000001a000874        0x2 app/out/libs/cmsis_core//src/armv7m_startup.o
+                0x000000001a000874                initialise_monitor_handles
+ *fill*         0x000000001a000876        0x2 ff
  .text.Reset_Handler
-                0x000000001a000870       0x88 app/out/libs/cmsis_core//src/armv7m_startup.o
-                0x000000001a000870                Reset_Handler
- .text._fini    0x000000001a0008f8        0x2 app/out/libs/cmsis_core//src/armv7m_startup.o
-                0x000000001a0008f8                _fini
- .text._init    0x000000001a0008fa        0x2 app/out/libs/cmsis_core//src/armv7m_startup.o
-                0x000000001a0008fa                _init
+                0x000000001a000878       0x88 app/out/libs/cmsis_core//src/armv7m_startup.o
+                0x000000001a000878                Reset_Handler
+ .text._fini    0x000000001a000900        0x2 app/out/libs/cmsis_core//src/armv7m_startup.o
+                0x000000001a000900                _fini
+ .text._init    0x000000001a000902        0x2 app/out/libs/cmsis_core//src/armv7m_startup.o
+                0x000000001a000902                _init
  .text._close_r
-                0x000000001a0008fc        0xa app/out/libs/sys_newlib//src/system.o
-                0x000000001a0008fc                _close_r
+                0x000000001a000904        0xa app/out/libs/sys_newlib//src/system.o
+                0x000000001a000904                _close_r
  .text._fstat_r
-                0x000000001a000906        0xa app/out/libs/sys_newlib//src/system.o
-                0x000000001a000906                _fstat_r
+                0x000000001a00090e        0xa app/out/libs/sys_newlib//src/system.o
+                0x000000001a00090e                _fstat_r
  .text._isatty_r
-                0x000000001a000910       0x12 app/out/libs/sys_newlib//src/system.o
-                0x000000001a000910                _isatty_r
+                0x000000001a000918       0x12 app/out/libs/sys_newlib//src/system.o
+                0x000000001a000918                _isatty_r
  .text._lseek_r
-                0x000000001a000922        0xa app/out/libs/sys_newlib//src/system.o
-                0x000000001a000922                _lseek_r
- .text._read_r  0x000000001a00092c       0x4e app/out/libs/sys_newlib//src/system.o
-                0x000000001a00092c                _read_r
+                0x000000001a00092a        0xa app/out/libs/sys_newlib//src/system.o
+                0x000000001a00092a                _lseek_r
+ .text._read_r  0x000000001a000934       0x4e app/out/libs/sys_newlib//src/system.o
+                0x000000001a000934                _read_r
  .text._write_r
-                0x000000001a00097a       0x28 app/out/libs/sys_newlib//src/system.o
-                0x000000001a00097a                _write_r
- *fill*         0x000000001a0009a2        0x2 ff
- .text._sbrk_r  0x000000001a0009a4       0x20 app/out/libs/sys_newlib//src/system.o
-                0x000000001a0009a4                _sbrk_r
+                0x000000001a000982       0x28 app/out/libs/sys_newlib//src/system.o
+                0x000000001a000982                _write_r
+ *fill*         0x000000001a0009aa        0x2 ff
+ .text._sbrk_r  0x000000001a0009ac       0x20 app/out/libs/sys_newlib//src/system.o
+                0x000000001a0009ac                _sbrk_r
  .text.pvPortMalloc
-                0x000000001a0009c4       0x70 app/out/libs/freertos/MemMang/heap_1.o
-                0x000000001a0009c4                pvPortMalloc
+                0x000000001a0009cc       0x70 app/out/libs/freertos/MemMang/heap_1.o
+                0x000000001a0009cc                pvPortMalloc
  .text.vPortFree
-                0x000000001a000a34       0x16 app/out/libs/freertos/MemMang/heap_1.o
-                0x000000001a000a34                vPortFree
+                0x000000001a000a3c       0x16 app/out/libs/freertos/MemMang/heap_1.o
+                0x000000001a000a3c                vPortFree
  .text.prvGetDisinheritPriorityAfterTimeout
-                0x000000001a000a4a       0x12 app/out/libs/freertos/source/queue.o
+                0x000000001a000a52       0x12 app/out/libs/freertos/source/queue.o
  .text.prvIsQueueFull
-                0x000000001a000a5c       0x1e app/out/libs/freertos/source/queue.o
+                0x000000001a000a64       0x1e app/out/libs/freertos/source/queue.o
  .text.prvIsQueueEmpty
-                0x000000001a000a7a       0x1a app/out/libs/freertos/source/queue.o
+                0x000000001a000a82       0x1a app/out/libs/freertos/source/queue.o
  .text.prvCopyDataToQueue
-                0x000000001a000a94       0x76 app/out/libs/freertos/source/queue.o
+                0x000000001a000a9c       0x76 app/out/libs/freertos/source/queue.o
  .text.prvCopyDataFromQueue
-                0x000000001a000b0a       0x24 app/out/libs/freertos/source/queue.o
+                0x000000001a000b12       0x24 app/out/libs/freertos/source/queue.o
  .text.prvUnlockQueue
-                0x000000001a000b2e       0x6e app/out/libs/freertos/source/queue.o
+                0x000000001a000b36       0x6e app/out/libs/freertos/source/queue.o
  .text.xQueueGenericReset
-                0x000000001a000b9c       0x84 app/out/libs/freertos/source/queue.o
-                0x000000001a000b9c                xQueueGenericReset
+                0x000000001a000ba4       0x84 app/out/libs/freertos/source/queue.o
+                0x000000001a000ba4                xQueueGenericReset
  .text.prvInitialiseNewQueue
-                0x000000001a000c20       0x22 app/out/libs/freertos/source/queue.o
+                0x000000001a000c28       0x22 app/out/libs/freertos/source/queue.o
  .text.xQueueGenericCreateStatic
-                0x000000001a000c42       0x90 app/out/libs/freertos/source/queue.o
-                0x000000001a000c42                xQueueGenericCreateStatic
+                0x000000001a000c4a       0x90 app/out/libs/freertos/source/queue.o
+                0x000000001a000c4a                xQueueGenericCreateStatic
  .text.xQueueGenericCreate
-                0x000000001a000cd2       0x4e app/out/libs/freertos/source/queue.o
-                0x000000001a000cd2                xQueueGenericCreate
+                0x000000001a000cda       0x4e app/out/libs/freertos/source/queue.o
+                0x000000001a000cda                xQueueGenericCreate
  .text.xQueueGenericSend
-                0x000000001a000d20      0x17c app/out/libs/freertos/source/queue.o
-                0x000000001a000d20                xQueueGenericSend
+                0x000000001a000d28      0x17c app/out/libs/freertos/source/queue.o
+                0x000000001a000d28                xQueueGenericSend
  .text.prvInitialiseMutex
-                0x000000001a000e9c       0x18 app/out/libs/freertos/source/queue.o
+                0x000000001a000ea4       0x18 app/out/libs/freertos/source/queue.o
  .text.xQueueCreateMutex
-                0x000000001a000eb4       0x16 app/out/libs/freertos/source/queue.o
-                0x000000001a000eb4                xQueueCreateMutex
+                0x000000001a000ebc       0x16 app/out/libs/freertos/source/queue.o
+                0x000000001a000ebc                xQueueCreateMutex
  .text.xQueueGenericSendFromISR
-                0x000000001a000eca       0xcc app/out/libs/freertos/source/queue.o
-                0x000000001a000eca                xQueueGenericSendFromISR
- *fill*         0x000000001a000f96        0x2 ff
+                0x000000001a000ed2       0xcc app/out/libs/freertos/source/queue.o
+                0x000000001a000ed2                xQueueGenericSendFromISR
+ *fill*         0x000000001a000f9e        0x2 ff
  .text.xQueueReceive
-                0x000000001a000f98      0x158 app/out/libs/freertos/source/queue.o
-                0x000000001a000f98                xQueueReceive
+                0x000000001a000fa0      0x158 app/out/libs/freertos/source/queue.o
+                0x000000001a000fa0                xQueueReceive
  .text.xQueueSemaphoreTake
-                0x000000001a0010f0      0x19c app/out/libs/freertos/source/queue.o
-                0x000000001a0010f0                xQueueSemaphoreTake
+                0x000000001a0010f8      0x19c app/out/libs/freertos/source/queue.o
+                0x000000001a0010f8                xQueueSemaphoreTake
  .text.vQueueAddToRegistry
-                0x000000001a00128c       0x28 app/out/libs/freertos/source/queue.o
-                0x000000001a00128c                vQueueAddToRegistry
+                0x000000001a001294       0x28 app/out/libs/freertos/source/queue.o
+                0x000000001a001294                vQueueAddToRegistry
  .text.vQueueWaitForMessageRestricted
-                0x000000001a0012b4       0x52 app/out/libs/freertos/source/queue.o
-                0x000000001a0012b4                vQueueWaitForMessageRestricted
+                0x000000001a0012bc       0x52 app/out/libs/freertos/source/queue.o
+                0x000000001a0012bc                vQueueWaitForMessageRestricted
  .text.vListInitialise
-                0x000000001a001306       0x16 app/out/libs/freertos/source/list.o
-                0x000000001a001306                vListInitialise
+                0x000000001a00130e       0x16 app/out/libs/freertos/source/list.o
+                0x000000001a00130e                vListInitialise
  .text.vListInitialiseItem
-                0x000000001a00131c        0x6 app/out/libs/freertos/source/list.o
-                0x000000001a00131c                vListInitialiseItem
+                0x000000001a001324        0x6 app/out/libs/freertos/source/list.o
+                0x000000001a001324                vListInitialiseItem
  .text.vListInsertEnd
-                0x000000001a001322       0x18 app/out/libs/freertos/source/list.o
-                0x000000001a001322                vListInsertEnd
+                0x000000001a00132a       0x18 app/out/libs/freertos/source/list.o
+                0x000000001a00132a                vListInsertEnd
  .text.vListInsert
-                0x000000001a00133a       0x34 app/out/libs/freertos/source/list.o
-                0x000000001a00133a                vListInsert
+                0x000000001a001342       0x34 app/out/libs/freertos/source/list.o
+                0x000000001a001342                vListInsert
  .text.uxListRemove
-                0x000000001a00136e       0x28 app/out/libs/freertos/source/list.o
-                0x000000001a00136e                uxListRemove
- *fill*         0x000000001a001396        0x2 ff
+                0x000000001a001376       0x28 app/out/libs/freertos/source/list.o
+                0x000000001a001376                uxListRemove
+ *fill*         0x000000001a00139e        0x2 ff
  .text.vApplicationGetIdleTaskMemory
-                0x000000001a001398       0x18 app/out/libs/freertos/source/static_provider.o
-                0x000000001a001398                vApplicationGetIdleTaskMemory
+                0x000000001a0013a0       0x18 app/out/libs/freertos/source/static_provider.o
+                0x000000001a0013a0                vApplicationGetIdleTaskMemory
  .text.vApplicationGetTimerTaskMemory
-                0x000000001a0013b0       0x18 app/out/libs/freertos/source/static_provider.o
-                0x000000001a0013b0                vApplicationGetTimerTaskMemory
+                0x000000001a0013b8       0x18 app/out/libs/freertos/source/static_provider.o
+                0x000000001a0013b8                vApplicationGetTimerTaskMemory
  .text.vApplicationStackOverflowHook
-                0x000000001a0013c8        0x2 app/out/libs/freertos/source/hooks.o
-                0x000000001a0013c8                vApplicationStackOverflowHook
+                0x000000001a0013d0        0x2 app/out/libs/freertos/source/hooks.o
+                0x000000001a0013d0                vApplicationStackOverflowHook
  .text.vApplicationMallocFailedHook
-                0x000000001a0013ca        0x2 app/out/libs/freertos/source/hooks.o
-                0x000000001a0013ca                vApplicationMallocFailedHook
+                0x000000001a0013d2        0x2 app/out/libs/freertos/source/hooks.o
+                0x000000001a0013d2                vApplicationMallocFailedHook
  .text.prvTaskCheckFreeStackSpace
-                0x000000001a0013cc       0x14 app/out/libs/freertos/source/tasks.o
+                0x000000001a0013d4       0x14 app/out/libs/freertos/source/tasks.o
  .text.prvResetNextTaskUnblockTime
-                0x000000001a0013e0       0x2c app/out/libs/freertos/source/tasks.o
+                0x000000001a0013e8       0x2c app/out/libs/freertos/source/tasks.o
  .text.prvInitialiseNewTask
-                0x000000001a00140c       0x92 app/out/libs/freertos/source/tasks.o
- *fill*         0x000000001a00149e        0x2 ff
+                0x000000001a001414       0x92 app/out/libs/freertos/source/tasks.o
+ *fill*         0x000000001a0014a6        0x2 ff
  .text.prvInitialiseTaskLists
-                0x000000001a0014a0       0x68 app/out/libs/freertos/source/tasks.o
+                0x000000001a0014a8       0x68 app/out/libs/freertos/source/tasks.o
  .text.prvAddNewTaskToReadyList
-                0x000000001a001508       0xac app/out/libs/freertos/source/tasks.o
+                0x000000001a001510       0xac app/out/libs/freertos/source/tasks.o
  .text.prvDeleteTCB
-                0x000000001a0015b4       0x38 app/out/libs/freertos/source/tasks.o
+                0x000000001a0015bc       0x38 app/out/libs/freertos/source/tasks.o
  .text.prvCheckTasksWaitingTermination
-                0x000000001a0015ec       0x4c app/out/libs/freertos/source/tasks.o
+                0x000000001a0015f4       0x4c app/out/libs/freertos/source/tasks.o
  .text.prvIdleTask
-                0x000000001a001638       0x28 app/out/libs/freertos/source/tasks.o
+                0x000000001a001640       0x28 app/out/libs/freertos/source/tasks.o
  .text.prvAddCurrentTaskToDelayedList
-                0x000000001a001660       0x98 app/out/libs/freertos/source/tasks.o
+                0x000000001a001668       0x98 app/out/libs/freertos/source/tasks.o
  .text.xTaskCreateStatic
-                0x000000001a0016f8       0x72 app/out/libs/freertos/source/tasks.o
-                0x000000001a0016f8                xTaskCreateStatic
+                0x000000001a001700       0x72 app/out/libs/freertos/source/tasks.o
+                0x000000001a001700                xTaskCreateStatic
  .text.xTaskCreate
-                0x000000001a00176a       0x66 app/out/libs/freertos/source/tasks.o
-                0x000000001a00176a                xTaskCreate
+                0x000000001a001772       0x66 app/out/libs/freertos/source/tasks.o
+                0x000000001a001772                xTaskCreate
  .text.eTaskGetState
-                0x000000001a0017d0       0x80 app/out/libs/freertos/source/tasks.o
-                0x000000001a0017d0                eTaskGetState
+                0x000000001a0017d8       0x80 app/out/libs/freertos/source/tasks.o
+                0x000000001a0017d8                eTaskGetState
  .text.vTaskStartScheduler
-                0x000000001a001850       0x94 app/out/libs/freertos/source/tasks.o
-                0x000000001a001850                vTaskStartScheduler
+                0x000000001a001858       0x94 app/out/libs/freertos/source/tasks.o
+                0x000000001a001858                vTaskStartScheduler
  .text.vTaskSuspendAll
-                0x000000001a0018e4       0x10 app/out/libs/freertos/source/tasks.o
-                0x000000001a0018e4                vTaskSuspendAll
+                0x000000001a0018ec       0x10 app/out/libs/freertos/source/tasks.o
+                0x000000001a0018ec                vTaskSuspendAll
  .text.xTaskGetTickCount
-                0x000000001a0018f4        0xc app/out/libs/freertos/source/tasks.o
-                0x000000001a0018f4                xTaskGetTickCount
+                0x000000001a0018fc        0xc app/out/libs/freertos/source/tasks.o
+                0x000000001a0018fc                xTaskGetTickCount
  .text.xTaskIncrementTick
-                0x000000001a001900      0x118 app/out/libs/freertos/source/tasks.o
-                0x000000001a001900                xTaskIncrementTick
+                0x000000001a001908      0x118 app/out/libs/freertos/source/tasks.o
+                0x000000001a001908                xTaskIncrementTick
  .text.xTaskResumeAll
-                0x000000001a001a18       0xf4 app/out/libs/freertos/source/tasks.o
-                0x000000001a001a18                xTaskResumeAll
+                0x000000001a001a20       0xf4 app/out/libs/freertos/source/tasks.o
+                0x000000001a001a20                xTaskResumeAll
  .text.vTaskDelay
-                0x000000001a001b0c       0x4c app/out/libs/freertos/source/tasks.o
-                0x000000001a001b0c                vTaskDelay
+                0x000000001a001b14       0x4c app/out/libs/freertos/source/tasks.o
+                0x000000001a001b14                vTaskDelay
  .text.vTaskSwitchContext
-                0x000000001a001b58       0xc8 app/out/libs/freertos/source/tasks.o
-                0x000000001a001b58                vTaskSwitchContext
+                0x000000001a001b60       0xc8 app/out/libs/freertos/source/tasks.o
+                0x000000001a001b60                vTaskSwitchContext
  .text.vTaskSuspend
-                0x000000001a001c20       0xec app/out/libs/freertos/source/tasks.o
-                0x000000001a001c20                vTaskSuspend
+                0x000000001a001c28       0xec app/out/libs/freertos/source/tasks.o
+                0x000000001a001c28                vTaskSuspend
  .text.vTaskPlaceOnEventList
-                0x000000001a001d0c       0x30 app/out/libs/freertos/source/tasks.o
-                0x000000001a001d0c                vTaskPlaceOnEventList
+                0x000000001a001d14       0x30 app/out/libs/freertos/source/tasks.o
+                0x000000001a001d14                vTaskPlaceOnEventList
  .text.vTaskPlaceOnEventListRestricted
-                0x000000001a001d3c       0x38 app/out/libs/freertos/source/tasks.o
-                0x000000001a001d3c                vTaskPlaceOnEventListRestricted
+                0x000000001a001d44       0x38 app/out/libs/freertos/source/tasks.o
+                0x000000001a001d44                vTaskPlaceOnEventListRestricted
  .text.xTaskRemoveFromEventList
-                0x000000001a001d74       0x8c app/out/libs/freertos/source/tasks.o
-                0x000000001a001d74                xTaskRemoveFromEventList
+                0x000000001a001d7c       0x8c app/out/libs/freertos/source/tasks.o
+                0x000000001a001d7c                xTaskRemoveFromEventList
  .text.vTaskInternalSetTimeOutState
-                0x000000001a001e00       0x18 app/out/libs/freertos/source/tasks.o
-                0x000000001a001e00                vTaskInternalSetTimeOutState
+                0x000000001a001e08       0x18 app/out/libs/freertos/source/tasks.o
+                0x000000001a001e08                vTaskInternalSetTimeOutState
  .text.xTaskCheckForTimeOut
-                0x000000001a001e18       0x80 app/out/libs/freertos/source/tasks.o
-                0x000000001a001e18                xTaskCheckForTimeOut
+                0x000000001a001e20       0x80 app/out/libs/freertos/source/tasks.o
+                0x000000001a001e20                xTaskCheckForTimeOut
  .text.vTaskMissedYield
-                0x000000001a001e98        0xc app/out/libs/freertos/source/tasks.o
-                0x000000001a001e98                vTaskMissedYield
+                0x000000001a001ea0        0xc app/out/libs/freertos/source/tasks.o
+                0x000000001a001ea0                vTaskMissedYield
  .text.vTaskGetInfo
-                0x000000001a001ea4       0x78 app/out/libs/freertos/source/tasks.o
-                0x000000001a001ea4                vTaskGetInfo
+                0x000000001a001eac       0x78 app/out/libs/freertos/source/tasks.o
+                0x000000001a001eac                vTaskGetInfo
  .text.xTaskGetSchedulerState
-                0x000000001a001f1c       0x20 app/out/libs/freertos/source/tasks.o
-                0x000000001a001f1c                xTaskGetSchedulerState
+                0x000000001a001f24       0x20 app/out/libs/freertos/source/tasks.o
+                0x000000001a001f24                xTaskGetSchedulerState
  .text.xTaskPriorityInherit
-                0x000000001a001f3c       0xb8 app/out/libs/freertos/source/tasks.o
-                0x000000001a001f3c                xTaskPriorityInherit
+                0x000000001a001f44       0xb8 app/out/libs/freertos/source/tasks.o
+                0x000000001a001f44                xTaskPriorityInherit
  .text.xTaskPriorityDisinherit
-                0x000000001a001ff4       0xb0 app/out/libs/freertos/source/tasks.o
-                0x000000001a001ff4                xTaskPriorityDisinherit
+                0x000000001a001ffc       0xb0 app/out/libs/freertos/source/tasks.o
+                0x000000001a001ffc                xTaskPriorityDisinherit
  .text.vTaskPriorityDisinheritAfterTimeout
-                0x000000001a0020a4       0xc0 app/out/libs/freertos/source/tasks.o
-                0x000000001a0020a4                vTaskPriorityDisinheritAfterTimeout
+                0x000000001a0020ac       0xc0 app/out/libs/freertos/source/tasks.o
+                0x000000001a0020ac                vTaskPriorityDisinheritAfterTimeout
  .text.pvTaskIncrementMutexHeldCount
-                0x000000001a002164       0x1c app/out/libs/freertos/source/tasks.o
-                0x000000001a002164                pvTaskIncrementMutexHeldCount
+                0x000000001a00216c       0x1c app/out/libs/freertos/source/tasks.o
+                0x000000001a00216c                pvTaskIncrementMutexHeldCount
  .text.prvGetNextExpireTime
-                0x000000001a002180       0x20 app/out/libs/freertos/source/timers.o
+                0x000000001a002188       0x20 app/out/libs/freertos/source/timers.o
  .text.prvInsertTimerInActiveList
-                0x000000001a0021a0       0x48 app/out/libs/freertos/source/timers.o
+                0x000000001a0021a8       0x48 app/out/libs/freertos/source/timers.o
  .text.prvCheckForValidListAndQueue
-                0x000000001a0021e8       0x70 app/out/libs/freertos/source/timers.o
+                0x000000001a0021f0       0x70 app/out/libs/freertos/source/timers.o
  .text.prvInitialiseNewTimer
-                0x000000001a002258       0x40 app/out/libs/freertos/source/timers.o
+                0x000000001a002260       0x40 app/out/libs/freertos/source/timers.o
  .text.xTimerCreateTimerTask
-                0x000000001a002298       0x64 app/out/libs/freertos/source/timers.o
-                0x000000001a002298                xTimerCreateTimerTask
+                0x000000001a0022a0       0x64 app/out/libs/freertos/source/timers.o
+                0x000000001a0022a0                xTimerCreateTimerTask
  .text.xTimerCreateStatic
-                0x000000001a0022fc       0x4c app/out/libs/freertos/source/timers.o
-                0x000000001a0022fc                xTimerCreateStatic
+                0x000000001a002304       0x4c app/out/libs/freertos/source/timers.o
+                0x000000001a002304                xTimerCreateStatic
  .text.xTimerGenericCommand
-                0x000000001a002348       0x6c app/out/libs/freertos/source/timers.o
-                0x000000001a002348                xTimerGenericCommand
+                0x000000001a002350       0x6c app/out/libs/freertos/source/timers.o
+                0x000000001a002350                xTimerGenericCommand
  .text.prvSwitchTimerLists
-                0x000000001a0023b4       0x78 app/out/libs/freertos/source/timers.o
+                0x000000001a0023bc       0x78 app/out/libs/freertos/source/timers.o
  .text.prvSampleTimeNow
-                0x000000001a00242c       0x2c app/out/libs/freertos/source/timers.o
+                0x000000001a002434       0x2c app/out/libs/freertos/source/timers.o
  .text.prvProcessExpiredTimer
-                0x000000001a002458       0x60 app/out/libs/freertos/source/timers.o
+                0x000000001a002460       0x60 app/out/libs/freertos/source/timers.o
  .text.prvProcessTimerOrBlockTask
-                0x000000001a0024b8       0x74 app/out/libs/freertos/source/timers.o
+                0x000000001a0024c0       0x74 app/out/libs/freertos/source/timers.o
  .text.prvProcessReceivedCommands
-                0x000000001a00252c       0xfc app/out/libs/freertos/source/timers.o
+                0x000000001a002534       0xfc app/out/libs/freertos/source/timers.o
  .text.prvTimerTask
-                0x000000001a002628       0x16 app/out/libs/freertos/source/timers.o
- *fill*         0x000000001a00263e        0x2 ff
+                0x000000001a002630       0x16 app/out/libs/freertos/source/timers.o
+ *fill*         0x000000001a002646        0x2 ff
  .text.prvTaskExitError
-                0x000000001a002640       0x40 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+                0x000000001a002648       0x40 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
  .text.prvPortStartFirstTask
-                0x000000001a002680       0x28 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+                0x000000001a002688       0x28 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
  .text.vPortEnableVFP
-                0x000000001a0026a8       0x14 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+                0x000000001a0026b0       0x14 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
  .text.pxPortInitialiseStack
-                0x000000001a0026bc       0x2c app/out/libs/freertos/source/portable/ARM_CM4F/port.o
-                0x000000001a0026bc                pxPortInitialiseStack
- *fill*         0x000000001a0026e8        0x8 ff
+                0x000000001a0026c4       0x2c app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+                0x000000001a0026c4                pxPortInitialiseStack
  .text.SVC_Handler
                 0x000000001a0026f0       0x24 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
                 0x000000001a0026f0                SVC_Handler
@@ -16225,7 +16225,7 @@ END GROUP
  *(.bss.$RamAHB_ETB16*)
                 0x000000002000c000                . = ALIGN (0x4)
 
-.bss            0x0000000010000300     0x2b08
+.bss            0x0000000010000300     0x2cc4
                 0x0000000010000300                _bss = .
  *(.bss*)
  .bss.DrivHandle
@@ -16352,19 +16352,20 @@ END GROUP
                 0x0000000010002dac        0x4 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-mallocr.o)
                 0x0000000010002dac                __malloc_sbrk_start
  *(COMMON)
- COMMON         0x0000000010002db0       0x10 app/out/app/src/kernek.o
+ COMMON         0x0000000010002db0      0x1cc app/out/app/src/kernek.o
                 0x0000000010002db0                QeueMinusculizador
                 0x0000000010002db4                QeueMayusculizador
                 0x0000000010002db8                StackRemain
-                0x0000000010002dbc                MsgHandle
- COMMON         0x0000000010002dc0       0x40 app/out/libs/freertos/source/queue.o
-                0x0000000010002dc0                xQueueRegistry
- COMMON         0x0000000010002e00        0x4 app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
-                0x0000000010002e00                SystemCoreClock
- COMMON         0x0000000010002e04        0x4 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
-                0x0000000010002e04                g_pUsbApi
-                0x0000000010002e08                . = ALIGN (0x4)
-                0x0000000010002e08                _ebss = .
+                0x0000000010002dbc                message
+                0x0000000010002f78                MsgHandle
+ COMMON         0x0000000010002f7c       0x40 app/out/libs/freertos/source/queue.o
+                0x0000000010002f7c                xQueueRegistry
+ COMMON         0x0000000010002fbc        0x4 app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
+                0x0000000010002fbc                SystemCoreClock
+ COMMON         0x0000000010002fc0        0x4 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+                0x0000000010002fc0                g_pUsbApi
+                0x0000000010002fc4                . = ALIGN (0x4)
+                0x0000000010002fc4                _ebss = .
                 [!provide]                        PROVIDE (end = .)
 
 .noinit_RAM2    0x0000000010080000        0x0
@@ -16387,51 +16388,51 @@ END GROUP
  *(.noinit.$RamAHB_ETB16*)
                 0x000000002000c000                . = ALIGN (0x4)
 
-.noinit         0x0000000010002e08        0x0
-                0x0000000010002e08                _noinit = .
+.noinit         0x0000000010002fc4        0x0
+                0x0000000010002fc4                _noinit = .
  *(.noinit*)
-                0x0000000010002e08                . = ALIGN (0x4)
-                0x0000000010002e08                _end_noinit = .
-                0x0000000010002e08                PROVIDE (_pvHeapStart = .)
+                0x0000000010002fc4                . = ALIGN (0x4)
+                0x0000000010002fc4                _end_noinit = .
+                0x0000000010002fc4                PROVIDE (_pvHeapStart = .)
                 0x0000000010008000                PROVIDE (_vStackTop = (__top_RamLoc32 - 0x0))
-                0xffffffff53ff701e                PROVIDE (__valid_user_code_checksum = (0x0 - ((((((_vStackTop + (Reset_Handler + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
+                0xffffffff53ff7016                PROVIDE (__valid_user_code_checksum = (0x0 - ((((((_vStackTop + (Reset_Handler + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
 OUTPUT(app/out/app.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000    0x2bfc1
+.debug_info     0x0000000000000000    0x2bfb8
  .debug_info    0x0000000000000000     0x26b0 app/out/app/src/driver.o
  .debug_info    0x00000000000026b0     0x2030 app/out/app/src/service.o
  .debug_info    0x00000000000046e0      0x15a app/out/app/src/operations.o
- .debug_info    0x000000000000483a     0x2fea app/out/app/src/kernek.o
- .debug_info    0x0000000000007824      0x301 app/out/libs/cmsis_core//src/armv7m_startup.o
- .debug_info    0x0000000000007b25      0xf43 app/out/libs/sys_newlib//src/system.o
- .debug_info    0x0000000000008a68      0xf30 app/out/libs/freertos/MemMang/heap_1.o
- .debug_info    0x0000000000009998     0x3147 app/out/libs/freertos/source/queue.o
- .debug_info    0x000000000000cadf      0xb09 app/out/libs/freertos/source/list.o
- .debug_info    0x000000000000d5e8      0x346 app/out/libs/freertos/source/static_provider.o
- .debug_info    0x000000000000d92e      0x135 app/out/libs/freertos/source/hooks.o
- .debug_info    0x000000000000da63     0x3956 app/out/libs/freertos/source/tasks.o
- .debug_info    0x00000000000113b9     0x2476 app/out/libs/freertos/source/timers.o
- .debug_info    0x000000000001382f      0xa5e app/out/libs/freertos/source/portable/ARM_CM4F/port.o
- .debug_info    0x000000000001428d     0x2130 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
- .debug_info    0x00000000000163bd     0x14c3 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
- .debug_info    0x0000000000017880     0x164f app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
- .debug_info    0x0000000000018ecf      0xaef app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
- .debug_info    0x00000000000199be     0x18ed app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
- .debug_info    0x000000000001b2ab      0xc3d app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
- .debug_info    0x000000000001bee8      0xab0 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
- .debug_info    0x000000000001c998      0x219 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
- .debug_info    0x000000000001cbb1     0x1606 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
- .debug_info    0x000000000001e1b7     0x1366 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
- .debug_info    0x000000000001f51d       0x3f app/out/libs/lpc_open/lpc_startup/src/crp.o
- .debug_info    0x000000000001f55c      0xbbd app/out/libs/lpc_open/lpc_startup/src/sysinit.o
- .debug_info    0x0000000000020119       0x74 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
- .debug_info    0x000000000002018d      0xeaf app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
- .debug_info    0x000000000002103c     0x24c6 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
- .debug_info    0x0000000000023502     0x1136 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
- .debug_info    0x0000000000024638     0x1a90 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
- .debug_info    0x00000000000260c8     0x330e app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
- .debug_info    0x00000000000293d6      0xdb2 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
- .debug_info    0x000000000002a188     0x1e39 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
+ .debug_info    0x000000000000483a     0x2fe1 app/out/app/src/kernek.o
+ .debug_info    0x000000000000781b      0x301 app/out/libs/cmsis_core//src/armv7m_startup.o
+ .debug_info    0x0000000000007b1c      0xf43 app/out/libs/sys_newlib//src/system.o
+ .debug_info    0x0000000000008a5f      0xf30 app/out/libs/freertos/MemMang/heap_1.o
+ .debug_info    0x000000000000998f     0x3147 app/out/libs/freertos/source/queue.o
+ .debug_info    0x000000000000cad6      0xb09 app/out/libs/freertos/source/list.o
+ .debug_info    0x000000000000d5df      0x346 app/out/libs/freertos/source/static_provider.o
+ .debug_info    0x000000000000d925      0x135 app/out/libs/freertos/source/hooks.o
+ .debug_info    0x000000000000da5a     0x3956 app/out/libs/freertos/source/tasks.o
+ .debug_info    0x00000000000113b0     0x2476 app/out/libs/freertos/source/timers.o
+ .debug_info    0x0000000000013826      0xa5e app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+ .debug_info    0x0000000000014284     0x2130 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+ .debug_info    0x00000000000163b4     0x14c3 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+ .debug_info    0x0000000000017877     0x164f app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_info    0x0000000000018ec6      0xaef app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
+ .debug_info    0x00000000000199b5     0x18ed app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_info    0x000000000001b2a2      0xc3d app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .debug_info    0x000000000001bedf      0xab0 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_info    0x000000000001c98f      0x219 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
+ .debug_info    0x000000000001cba8     0x1606 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
+ .debug_info    0x000000000001e1ae     0x1366 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
+ .debug_info    0x000000000001f514       0x3f app/out/libs/lpc_open/lpc_startup/src/crp.o
+ .debug_info    0x000000000001f553      0xbbd app/out/libs/lpc_open/lpc_startup/src/sysinit.o
+ .debug_info    0x0000000000020110       0x74 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
+ .debug_info    0x0000000000020184      0xeaf app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_info    0x0000000000021033     0x24c6 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+ .debug_info    0x00000000000234f9     0x1136 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+ .debug_info    0x000000000002462f     0x1a90 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_info    0x00000000000260bf     0x330e app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+ .debug_info    0x00000000000293cd      0xdb2 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
+ .debug_info    0x000000000002a17f     0x1e39 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
 
 .debug_abbrev   0x0000000000000000     0x58cf
  .debug_abbrev  0x0000000000000000      0x361 app/out/app/src/driver.o
@@ -16469,34 +16470,34 @@ OUTPUT(app/out/app.elf elf32-littlearm)
  .debug_abbrev  0x00000000000052cb      0x216 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
  .debug_abbrev  0x00000000000054e1      0x3ee app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
 
-.debug_loc      0x0000000000000000     0xaeae
+.debug_loc      0x0000000000000000     0xae95
  .debug_loc     0x0000000000000000      0x26d app/out/app/src/driver.o
  .debug_loc     0x000000000000026d       0xd0 app/out/app/src/service.o
  .debug_loc     0x000000000000033d       0x3c app/out/app/src/operations.o
- .debug_loc     0x0000000000000379       0xac app/out/app/src/kernek.o
- .debug_loc     0x0000000000000425      0x206 app/out/libs/cmsis_core//src/armv7m_startup.o
- .debug_loc     0x000000000000062b      0x586 app/out/libs/sys_newlib//src/system.o
- .debug_loc     0x0000000000000bb1       0x54 app/out/libs/freertos/MemMang/heap_1.o
- .debug_loc     0x0000000000000c05     0x140a app/out/libs/freertos/source/queue.o
- .debug_loc     0x000000000000200f       0x70 app/out/libs/freertos/source/list.o
- .debug_loc     0x000000000000207f     0x1c42 app/out/libs/freertos/source/tasks.o
- .debug_loc     0x0000000000003cc1      0xbcb app/out/libs/freertos/source/timers.o
- .debug_loc     0x000000000000488c       0xdc app/out/libs/freertos/source/portable/ARM_CM4F/port.o
- .debug_loc     0x0000000000004968      0x5b0 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
- .debug_loc     0x0000000000004f18       0xf5 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
- .debug_loc     0x000000000000500d      0xd25 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
- .debug_loc     0x0000000000005d32      0x67e app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
- .debug_loc     0x00000000000063b0     0x123c app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
- .debug_loc     0x00000000000075ec      0x1b5 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
- .debug_loc     0x00000000000077a1      0xd56 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
- .debug_loc     0x00000000000084f7      0xc9a app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
- .debug_loc     0x0000000000009191       0x13 app/out/libs/lpc_open/lpc_startup/src/sysinit.o
- .debug_loc     0x00000000000091a4       0xed app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
- .debug_loc     0x0000000000009291      0xb6c app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
- .debug_loc     0x0000000000009dfd       0xc1 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
- .debug_loc     0x0000000000009ebe      0x7e4 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
- .debug_loc     0x000000000000a6a2      0x34f app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
- .debug_loc     0x000000000000a9f1      0x4bd app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
+ .debug_loc     0x0000000000000379       0x93 app/out/app/src/kernek.o
+ .debug_loc     0x000000000000040c      0x206 app/out/libs/cmsis_core//src/armv7m_startup.o
+ .debug_loc     0x0000000000000612      0x586 app/out/libs/sys_newlib//src/system.o
+ .debug_loc     0x0000000000000b98       0x54 app/out/libs/freertos/MemMang/heap_1.o
+ .debug_loc     0x0000000000000bec     0x140a app/out/libs/freertos/source/queue.o
+ .debug_loc     0x0000000000001ff6       0x70 app/out/libs/freertos/source/list.o
+ .debug_loc     0x0000000000002066     0x1c42 app/out/libs/freertos/source/tasks.o
+ .debug_loc     0x0000000000003ca8      0xbcb app/out/libs/freertos/source/timers.o
+ .debug_loc     0x0000000000004873       0xdc app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+ .debug_loc     0x000000000000494f      0x5b0 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+ .debug_loc     0x0000000000004eff       0xf5 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+ .debug_loc     0x0000000000004ff4      0xd25 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_loc     0x0000000000005d19      0x67e app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
+ .debug_loc     0x0000000000006397     0x123c app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_loc     0x00000000000075d3      0x1b5 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_loc     0x0000000000007788      0xd56 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
+ .debug_loc     0x00000000000084de      0xc9a app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
+ .debug_loc     0x0000000000009178       0x13 app/out/libs/lpc_open/lpc_startup/src/sysinit.o
+ .debug_loc     0x000000000000918b       0xed app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_loc     0x0000000000009278      0xb6c app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+ .debug_loc     0x0000000000009de4       0xc1 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+ .debug_loc     0x0000000000009ea5      0x7e4 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_loc     0x000000000000a689      0x34f app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+ .debug_loc     0x000000000000a9d8      0x4bd app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
 
 .debug_aranges  0x0000000000000000      0xfc0
  .debug_aranges
@@ -16822,74 +16823,74 @@ OUTPUT(app/out/app.elf elf32-littlearm)
  .debug_line    0x0000000000012311      0x91d app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
  .debug_line    0x0000000000012c2e      0xa77 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
 
-.debug_str      0x0000000000000000    0x2f373
+.debug_str      0x0000000000000000    0x2f377
  .debug_str     0x0000000000000000    0x266e8 app/out/app/src/driver.o
                                       0x26ace (size before relaxing)
  .debug_str     0x00000000000266e8       0x5c app/out/app/src/service.o
                                       0x26053 (size before relaxing)
  .debug_str     0x0000000000026744       0x44 app/out/app/src/operations.o
                                        0x2d69 (size before relaxing)
- .debug_str     0x0000000000026788      0xc60 app/out/app/src/kernek.o
-                                      0x27730 (size before relaxing)
- .debug_str     0x00000000000273e8      0x1e5 app/out/libs/cmsis_core//src/armv7m_startup.o
+ .debug_str     0x0000000000026788      0xc64 app/out/app/src/kernek.o
+                                      0x27728 (size before relaxing)
+ .debug_str     0x00000000000273ec      0x1e5 app/out/libs/cmsis_core//src/armv7m_startup.o
                                        0x2f64 (size before relaxing)
- .debug_str     0x00000000000275cd      0x714 app/out/libs/sys_newlib//src/system.o
+ .debug_str     0x00000000000275d1      0x714 app/out/libs/sys_newlib//src/system.o
                                        0x6bc7 (size before relaxing)
- .debug_str     0x0000000000027ce1      0x21c app/out/libs/freertos/MemMang/heap_1.o
+ .debug_str     0x0000000000027ce5      0x21c app/out/libs/freertos/MemMang/heap_1.o
                                       0x1dee0 (size before relaxing)
- .debug_str     0x0000000000027efd      0xb5d app/out/libs/freertos/source/queue.o
+ .debug_str     0x0000000000027f01      0xb5d app/out/libs/freertos/source/queue.o
                                       0x1f27f (size before relaxing)
- .debug_str     0x0000000000028a5a       0xa0 app/out/libs/freertos/source/list.o
+ .debug_str     0x0000000000028a5e       0xa0 app/out/libs/freertos/source/list.o
                                       0x1ceda (size before relaxing)
- .debug_str     0x0000000000028afa      0x1c0 app/out/libs/freertos/source/static_provider.o
+ .debug_str     0x0000000000028afe      0x1c0 app/out/libs/freertos/source/static_provider.o
                                       0x19b73 (size before relaxing)
- .debug_str     0x0000000000028cba       0x3b app/out/libs/freertos/source/hooks.o
+ .debug_str     0x0000000000028cbe       0x3b app/out/libs/freertos/source/hooks.o
                                       0x1a705 (size before relaxing)
- .debug_str     0x0000000000028cf5     0x1b6b app/out/libs/freertos/source/tasks.o
+ .debug_str     0x0000000000028cf9     0x1b6b app/out/libs/freertos/source/tasks.o
                                       0x1ffda (size before relaxing)
- .debug_str     0x000000000002a860      0x57f app/out/libs/freertos/source/timers.o
+ .debug_str     0x000000000002a864      0x57f app/out/libs/freertos/source/timers.o
                                       0x1f7b7 (size before relaxing)
- .debug_str     0x000000000002addf      0x769 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+ .debug_str     0x000000000002ade3      0x769 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
                                       0x1b995 (size before relaxing)
- .debug_str     0x000000000002b548      0x998 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+ .debug_str     0x000000000002b54c      0x998 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
                                       0x1b624 (size before relaxing)
- .debug_str     0x000000000002bee0      0x352 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+ .debug_str     0x000000000002bee4      0x352 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
                                       0x1afb5 (size before relaxing)
- .debug_str     0x000000000002c232      0x3ca app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_str     0x000000000002c236      0x3ca app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
                                       0x176ab (size before relaxing)
- .debug_str     0x000000000002c5fc      0x14a app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
+ .debug_str     0x000000000002c600      0x14a app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
                                       0x17046 (size before relaxing)
- .debug_str     0x000000000002c746      0x5c6 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_str     0x000000000002c74a      0x5c6 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
                                       0x17a6e (size before relaxing)
- .debug_str     0x000000000002cd0c       0x8c app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .debug_str     0x000000000002cd10       0x8c app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
                                       0x1759b (size before relaxing)
- .debug_str     0x000000000002cd98       0xbc app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_str     0x000000000002cd9c       0xbc app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
                                       0x174fc (size before relaxing)
- .debug_str     0x000000000002ce54       0x42 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
+ .debug_str     0x000000000002ce58       0x42 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
                                       0x167fd (size before relaxing)
- .debug_str     0x000000000002ce96      0x3e1 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
+ .debug_str     0x000000000002ce9a      0x3e1 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
                                       0x1723c (size before relaxing)
- .debug_str     0x000000000002d277      0x584 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
+ .debug_str     0x000000000002d27b      0x584 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
                                       0x177dd (size before relaxing)
- .debug_str     0x000000000002d7fb       0x43 app/out/libs/lpc_open/lpc_startup/src/crp.o
+ .debug_str     0x000000000002d7ff       0x43 app/out/libs/lpc_open/lpc_startup/src/crp.o
                                        0x2d64 (size before relaxing)
- .debug_str     0x000000000002d83e       0xb9 app/out/libs/lpc_open/lpc_startup/src/sysinit.o
+ .debug_str     0x000000000002d842       0xb9 app/out/libs/lpc_open/lpc_startup/src/sysinit.o
                                       0x1a287 (size before relaxing)
- .debug_str     0x000000000002d8f7       0x56 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
+ .debug_str     0x000000000002d8fb       0x56 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
                                        0x2dbf (size before relaxing)
- .debug_str     0x000000000002d94d       0xc6 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_str     0x000000000002d951       0xc6 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
                                       0x1af0e (size before relaxing)
- .debug_str     0x000000000002da13      0x8c2 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+ .debug_str     0x000000000002da17      0x8c2 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
                                       0x1bbe6 (size before relaxing)
- .debug_str     0x000000000002e2d5      0x111 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+ .debug_str     0x000000000002e2d9      0x111 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
                                       0x1f3c3 (size before relaxing)
- .debug_str     0x000000000002e3e6      0x288 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_str     0x000000000002e3ea      0x288 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
                                       0x1b209 (size before relaxing)
- .debug_str     0x000000000002e66e      0x765 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+ .debug_str     0x000000000002e672      0x765 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
                                       0x21072 (size before relaxing)
- .debug_str     0x000000000002edd3       0x2d app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
+ .debug_str     0x000000000002edd7       0x2d app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
                                       0x1a72b (size before relaxing)
- .debug_str     0x000000000002ee00      0x573 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
+ .debug_str     0x000000000002ee04      0x573 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
                                       0x1ba27 (size before relaxing)
 
 .comment        0x0000000000000000       0x7f
@@ -17058,65 +17059,65 @@ OUTPUT(app/out/app.elf elf32-littlearm)
  .ARM.attributes
                 0x0000000000000d0a       0x34 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-mlock.o)
 
-.debug_frame    0x0000000000000000     0x2fa8
+.debug_frame    0x0000000000000000     0x2fac
  .debug_frame   0x0000000000000000       0x80 app/out/app/src/driver.o
  .debug_frame   0x0000000000000080       0x54 app/out/app/src/service.o
  .debug_frame   0x00000000000000d4       0x40 app/out/app/src/operations.o
- .debug_frame   0x0000000000000114       0x98 app/out/app/src/kernek.o
- .debug_frame   0x00000000000001ac      0x114 app/out/libs/cmsis_core//src/armv7m_startup.o
- .debug_frame   0x00000000000002c0      0x1d8 app/out/libs/sys_newlib//src/system.o
- .debug_frame   0x0000000000000498       0x5c app/out/libs/freertos/MemMang/heap_1.o
- .debug_frame   0x00000000000004f4      0x434 app/out/libs/freertos/source/queue.o
- .debug_frame   0x0000000000000928       0x6c app/out/libs/freertos/source/list.o
- .debug_frame   0x0000000000000994       0x30 app/out/libs/freertos/source/static_provider.o
- .debug_frame   0x00000000000009c4       0x30 app/out/libs/freertos/source/hooks.o
- .debug_frame   0x00000000000009f4      0x614 app/out/libs/freertos/source/tasks.o
- .debug_frame   0x0000000000001008      0x2c0 app/out/libs/freertos/source/timers.o
- .debug_frame   0x00000000000012c8      0x100 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
- .debug_frame   0x00000000000013c8      0x204 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
- .debug_frame   0x00000000000015cc       0x5c app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
- .debug_frame   0x0000000000001628      0x1f4 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
- .debug_frame   0x000000000000181c      0x160 app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
- .debug_frame   0x000000000000197c      0x318 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
- .debug_frame   0x0000000000001c94       0x70 app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
- .debug_frame   0x0000000000001d04       0x7c app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
- .debug_frame   0x0000000000001d80       0x30 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
- .debug_frame   0x0000000000001db0      0x198 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
- .debug_frame   0x0000000000001f48      0x270 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
- .debug_frame   0x00000000000021b8       0x28 app/out/libs/lpc_open/lpc_startup/src/sysinit.o
- .debug_frame   0x00000000000021e0       0x20 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
- .debug_frame   0x0000000000002200       0x74 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
- .debug_frame   0x0000000000002274      0x204 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
- .debug_frame   0x0000000000002478       0x88 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
- .debug_frame   0x0000000000002500       0xa4 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
- .debug_frame   0x00000000000025a4       0xb8 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
- .debug_frame   0x000000000000265c       0x28 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
- .debug_frame   0x0000000000002684      0x12c app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
- .debug_frame   0x00000000000027b0       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00000000000027dc       0x34 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
- .debug_frame   0x0000000000002810       0x30 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-atoi.o)
- .debug_frame   0x0000000000002840       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
- .debug_frame   0x000000000000286c       0x28 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x0000000000002894       0x20 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
- .debug_frame   0x00000000000028b4       0x74 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-printf.o)
- .debug_frame   0x0000000000002928       0x20 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strcpy.o)
- .debug_frame   0x0000000000002948       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strlwr.o)
- .debug_frame   0x0000000000002974       0x84 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strtol.o)
- .debug_frame   0x00000000000029f8       0x40 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wbuf.o)
- .debug_frame   0x0000000000002a38       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wsetup.o)
- .debug_frame   0x0000000000002a64       0x68 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-fflush.o)
- .debug_frame   0x0000000000002acc      0x11c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
- .debug_frame   0x0000000000002be8       0x54 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-fwalk.o)
- .debug_frame   0x0000000000002c3c       0x68 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-locale.o)
- .debug_frame   0x0000000000002ca4       0x58 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-makebuf.o)
- .debug_frame   0x0000000000002cfc       0x48 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-mbtowc_r.o)
- .debug_frame   0x0000000000002d44       0x38 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-freer.o)
- .debug_frame   0x0000000000002d7c       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x0000000000002da8       0xac /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf.o)
- .debug_frame   0x0000000000002e54       0x60 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf_i.o)
- .debug_frame   0x0000000000002eb4       0x88 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-stdio.o)
- .debug_frame   0x0000000000002f3c       0x3c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wctomb_r.o)
- .debug_frame   0x0000000000002f78       0x30 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-mlock.o)
+ .debug_frame   0x0000000000000114       0x9c app/out/app/src/kernek.o
+ .debug_frame   0x00000000000001b0      0x114 app/out/libs/cmsis_core//src/armv7m_startup.o
+ .debug_frame   0x00000000000002c4      0x1d8 app/out/libs/sys_newlib//src/system.o
+ .debug_frame   0x000000000000049c       0x5c app/out/libs/freertos/MemMang/heap_1.o
+ .debug_frame   0x00000000000004f8      0x434 app/out/libs/freertos/source/queue.o
+ .debug_frame   0x000000000000092c       0x6c app/out/libs/freertos/source/list.o
+ .debug_frame   0x0000000000000998       0x30 app/out/libs/freertos/source/static_provider.o
+ .debug_frame   0x00000000000009c8       0x30 app/out/libs/freertos/source/hooks.o
+ .debug_frame   0x00000000000009f8      0x614 app/out/libs/freertos/source/tasks.o
+ .debug_frame   0x000000000000100c      0x2c0 app/out/libs/freertos/source/timers.o
+ .debug_frame   0x00000000000012cc      0x100 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+ .debug_frame   0x00000000000013cc      0x204 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+ .debug_frame   0x00000000000015d0       0x5c app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+ .debug_frame   0x000000000000162c      0x1f4 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_frame   0x0000000000001820      0x160 app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
+ .debug_frame   0x0000000000001980      0x318 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_frame   0x0000000000001c98       0x70 app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .debug_frame   0x0000000000001d08       0x7c app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_frame   0x0000000000001d84       0x30 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
+ .debug_frame   0x0000000000001db4      0x198 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
+ .debug_frame   0x0000000000001f4c      0x270 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
+ .debug_frame   0x00000000000021bc       0x28 app/out/libs/lpc_open/lpc_startup/src/sysinit.o
+ .debug_frame   0x00000000000021e4       0x20 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
+ .debug_frame   0x0000000000002204       0x74 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_frame   0x0000000000002278      0x204 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+ .debug_frame   0x000000000000247c       0x88 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+ .debug_frame   0x0000000000002504       0xa4 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_frame   0x00000000000025a8       0xb8 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+ .debug_frame   0x0000000000002660       0x28 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
+ .debug_frame   0x0000000000002688      0x12c app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
+ .debug_frame   0x00000000000027b4       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00000000000027e0       0x34 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x0000000000002814       0x30 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-atoi.o)
+ .debug_frame   0x0000000000002844       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
+ .debug_frame   0x0000000000002870       0x28 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x0000000000002898       0x20 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
+ .debug_frame   0x00000000000028b8       0x74 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-printf.o)
+ .debug_frame   0x000000000000292c       0x20 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strcpy.o)
+ .debug_frame   0x000000000000294c       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strlwr.o)
+ .debug_frame   0x0000000000002978       0x84 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strtol.o)
+ .debug_frame   0x00000000000029fc       0x40 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wbuf.o)
+ .debug_frame   0x0000000000002a3c       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wsetup.o)
+ .debug_frame   0x0000000000002a68       0x68 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-fflush.o)
+ .debug_frame   0x0000000000002ad0      0x11c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
+ .debug_frame   0x0000000000002bec       0x54 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-fwalk.o)
+ .debug_frame   0x0000000000002c40       0x68 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-locale.o)
+ .debug_frame   0x0000000000002ca8       0x58 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-makebuf.o)
+ .debug_frame   0x0000000000002d00       0x48 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-mbtowc_r.o)
+ .debug_frame   0x0000000000002d48       0x38 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x0000000000002d80       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x0000000000002dac       0xac /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf.o)
+ .debug_frame   0x0000000000002e58       0x60 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf_i.o)
+ .debug_frame   0x0000000000002eb8       0x88 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-stdio.o)
+ .debug_frame   0x0000000000002f40       0x3c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wctomb_r.o)
+ .debug_frame   0x0000000000002f7c       0x30 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-mlock.o)
 
 Cross Reference Table
 
@@ -18084,6 +18085,7 @@ memset                                            /home/issam/CIAA/gcc-arm-none-
                                                   app/out/libs/freertos/source/stream_buffer.o
                                                   app/out/app/src/kernek.o
                                                   app/out/app/src/driver.o
+message                                           app/out/app/src/kernek.o
 mpu9250GetAccelX_mss                              app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_imu_mpu9250.o
 mpu9250GetAccelY_mss                              app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_imu_mpu9250.o
 mpu9250GetAccelZ_mss                              app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_imu_mpu9250.o
