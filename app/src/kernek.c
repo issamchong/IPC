@@ -86,6 +86,7 @@ void server(void){
 
 	printf("Server: Staring Stack size is %d \n", xTaskDetails.usStackHighWaterMark);
 	char MsgFromDriver[sizeof(AsciFrame)]="\0";
+	char MsgToDriver[sizeof(AsciFrame)]="\0";
 	char *f=MsgFromDriver;
 	char SizeData[3]="\0";
 
@@ -151,7 +152,8 @@ void driver(void){
 
 
 	//Interrupt service routine  when message is new frame is received
-	char data[sizeof(AsciFrame)]="\0";
+	char data_2Server[sizeof(AsciFrame)]="\0";
+	char data_FromServer[sizeof(AsciFrame)]="\0";
 	char op[2]="\0";
 	char SOF='{';
 	char EnOF='}';
@@ -165,7 +167,7 @@ void driver(void){
 		uartWriteString(UART_USB,"Driver: Invalid ASCII Frame format\n");
 		}else{
 			uartWriteString(UART_USB,"Driver: Valid ASCII  format\n");
-			if(!GetData(data,AsciFrame,sizeof(AsciFrame))){
+			if(!GetData(data_2Server,AsciFrame,sizeof(AsciFrame))){
 				uartWriteString(UART_USB,"Driver: Could not get message");
 			}
 		}
@@ -175,7 +177,7 @@ void driver(void){
 		if(!(xSemaphoreTake(MsgHandle_key,1000))){
 			uartWriteString(UART_USB,"Driver: Waiting key to send \n");
 		}else{
-			if(!(xQueueSend(MsgHandle,data,1000))){
+			if(!(xQueueSend(MsgHandle,data_2Server,1000))){
 				uartWriteString(UART_USB,"Driver: Could not send data to Server\n");
 			}else{
 				xSemaphoreGive(MsgHandle_key);
@@ -186,7 +188,7 @@ void driver(void){
 		if(!(xSemaphoreTake(MsgHandle_key,1000))){
 				uartWriteString(UART_USB,"Driver: Waiting Key to receive \n");
 			}else{
-				if(!(xQueueReceive(MsgHandle,data,1000))){
+				if(!(xQueueReceive(MsgHandle,data_FromServer,1000))){
 					//uartWriteString(UART_USB,"Driver: Could not receive data to Server\n");
 				}else{
 					uartWriteString(UART_USB,"Driver: Received data from Server\n");
