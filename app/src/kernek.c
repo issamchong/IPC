@@ -66,6 +66,7 @@ volatile QueueHandle_t QeueMinusculizador;
 volatile xSemaphoreHandle MsgHandle_key=0;
 volatile xSemaphoreHandle DataProcessed_key=0;
 volatile QueueHandle_t MsgHandle;
+volatile QueueHandle_t MsgHandle_2;
 volatile QueueHandle_t DataProcessed_handle;
 char HexFrame[110]="7B313530546869732069732052544F5320636F757273652054503120696E20746573742C616E6420697420697320776F726B696E67217D"; 														//The message will be stored in this buffer
 char AsciFrame[55]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
@@ -88,6 +89,9 @@ void server(void){
 	char MsgFromDriver[sizeof(AsciFrame)]="\0";
 	char MsgToDriver[sizeof(AsciFrame)]="\0";
 	char *f=MsgFromDriver;
+	char flag[2]="\0";
+
+
 	char SizeData[3]="\0";
 
 // Checking if new message is available and where to send it
@@ -98,6 +102,7 @@ void server(void){
     	}else{
     		SizeData[0]=MsgFromDriver[1];
     		SizeData[1]=MsgFromDriver[2];
+    		flag[0]=MsgFromDriver[0];
     		message.size= atoi(SizeData);
     		message.operation=	atoi(*f);
     		strcpy(message.data,MsgFromDriver+3);
@@ -131,8 +136,16 @@ void server(void){
 		        	if(!(xQueueReceive(DataProcessed_handle,message.dataProcessed,1000))){                          									//Important QueueReceive clears msg when called again
 		        		uartWriteString(UART_USB,"Server: Could not receive message from Task2\n");
 		        	}else{
-		        		printf("Server: Message processed by Task2 is > %s\n",message.dataProcessed);
-		        	}
+		        		strcat(MsgToDriver,flag);
+		        		strcpy(MsgToDriver+1,SizeData);
+		        		strcpy(MsgToDriver+3,message.dataProcessed);
+		        		if(!(xQueueSend(MsgHandle_2,MsgToDriver,1000))){
+		        			uartWriteString(UART_USB,"Server: Could not send data to Driver\n");
+		        			}else{
+				        		printf("Server: Message to Driver  is > %s\n",MsgToDriver);
+		        				vTaskDelay(4000);
+		        			}
+		        		}
 		        }
         	    break;
         	case '\0':
@@ -174,28 +187,19 @@ void driver(void){
 
 	while(1){
 
-		if(!(xSemaphoreTake(MsgHandle_key,1000))){
-			uartWriteString(UART_USB,"Driver: Waiting key to send \n");
-		}else{
+
 			if(!(xQueueSend(MsgHandle,data_2Server,1000))){
 				uartWriteString(UART_USB,"Driver: Could not send data to Server\n");
 			}else{
-				xSemaphoreGive(MsgHandle_key);
 				vTaskDelay(3000);
 			}
-		}
-
-		if(!(xSemaphoreTake(MsgHandle_key,1000))){
-				uartWriteString(UART_USB,"Driver: Waiting Key to receive \n");
+			if(!(xQueueReceive(MsgHandle_2,data_FromServer,1000))){
+				uartWriteString(UART_USB,"Driver: No new data from Server\n");
 			}else{
-				if(!(xQueueReceive(MsgHandle,data_FromServer,1000))){
-					//uartWriteString(UART_USB,"Driver: Could not receive data to Server\n");
-				}else{
-					uartWriteString(UART_USB,"Driver: Received data from Server\n");
-					xSemaphoreGive(MsgHandle_key);
-					vTaskDelay(3000);
+				printf("Driver: Received from Server %s\n",data_FromServer);
+				vTaskDelay(500);
+
 				}
-			}
 	}
 }
 
@@ -223,8 +227,6 @@ void task1(void){
 
 //This function converts to lower case letter the message
 void task2(void){
-
-
 
 	char Task2Buffer[sizeof(AsciFrame)]="\0";
 	while(1){
@@ -267,6 +269,7 @@ int main(void)
    DataProcessed_handle =xQueueCreate(1, sizeof(AsciFrame));
    DataProcessed_key=xSemaphoreCreateMutex();
    MsgHandle_key=xSemaphoreCreateMutex();
+   MsgHandle_2=xQueueCreate(1, sizeof(AsciFrame));
 
 
 #ifdef DRIVER_1
