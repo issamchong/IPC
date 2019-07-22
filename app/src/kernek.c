@@ -85,21 +85,21 @@ void server(void){
 	TaskStatus_t xTaskDetails;
 
 	printf("Server: Staring Stack size is %d \n", xTaskDetails.usStackHighWaterMark);
-	char msg[sizeof(AsciFrame)]="\0";
-	char *f=msg;
+	char MsgFromDriver[sizeof(AsciFrame)]="\0";
+	char *f=MsgFromDriver;
 	char SizeData[3]="\0";
 
 // Checking if new message is available and where to send it
     while(1){
 
-    	if(!(xQueueReceive(MsgHandle,msg,1000))){                          									//Important QueueReceive clears msg when called again
+    	if(!(xQueueReceive(MsgHandle,MsgFromDriver,1000))){                          									//Important QueueReceive clears msg when called again
     		uartWriteString(UART_USB,"Server: Could not access Queue shared with Driver\n");
     	}else{
-    		SizeData[0]=msg[1];
-    		SizeData[1]=msg[2];
+    		SizeData[0]=MsgFromDriver[1];
+    		SizeData[1]=MsgFromDriver[2];
     		message.size= atoi(SizeData);
     		message.operation=	atoi(*f);
-    		strcpy(message.data,msg);
+    		strcpy(message.data,MsgFromDriver+3);
     		printf("Server: Size of data is %d\n",message.size);
     		printf("Server: Message received from Driver is > %s\n",message.data);
     		vTaskDelay(500);
@@ -108,19 +108,17 @@ void server(void){
         switch(*f)
         {
         	case '0':
-    			printf("Server: Operation flag is %c,sending message to Task1\n",*f);
-        		if(!(xQueueSend(QeueMayusculizador,message.data,50))){
-        			uartWriteString(UART_USB,"Server: Could send to Task1\n");
-        		}else{
-        			vTaskDelay(1000);
-        		 	if(!(xQueueReceive(DataProcessed_handle,msg,1000))){                          									//Important QueueReceive clears msg when called again
-        		    	    uartWriteString(UART_USB,"Server: Could not receive message from Task1\n");
-        		    	}else{
-        		    		printf("Server: Message processed by Task1 is > %s\n",msg);
-        		    		vTaskDelay(500);
-        		    	}
-        		}
-
+        		printf("Server: Operation flag is %c,sending message to Task2\n",*f);
+                		if(!(xQueueSend(QeueMinusculizador,message.data,50))){
+                			uartWriteString(UART_USB,"Server: Could send to Task2\n");
+        		        }else{
+        		        	vTaskDelay(1000);
+        		        	if(!(xQueueReceive(DataProcessed_handle,message.dataProcessed,1000))){                          									//Important QueueReceive clears msg when called again
+        		        		uartWriteString(UART_USB,"Server: Could not receive message from Task2\n");
+        		        	}else{
+        		        		printf("Server: Message processed by Task2 is > %s\n",message.dataProcessed);
+        		        	}
+        		        }
         		break;
 
         	case '1':
@@ -129,10 +127,10 @@ void server(void){
         			uartWriteString(UART_USB,"Server: Could send to Task2\n");
 		        }else{
 		        	vTaskDelay(1000);
-		        	if(!(xQueueReceive(DataProcessed_handle,msg,1000))){                          									//Important QueueReceive clears msg when called again
+		        	if(!(xQueueReceive(DataProcessed_handle,message.dataProcessed,1000))){                          									//Important QueueReceive clears msg when called again
 		        		uartWriteString(UART_USB,"Server: Could not receive message from Task2\n");
 		        	}else{
-		        		printf("Server: Message processed by Task2 is > %s\n",msg);
+		        		printf("Server: Message processed by Task2 is > %s\n",message.dataProcessed);
 		        	}
 		        }
         	    break;
@@ -191,6 +189,7 @@ void driver(void){
 				if(!(xQueueReceive(MsgHandle,data,1000))){
 					//uartWriteString(UART_USB,"Driver: Could not receive data to Server\n");
 				}else{
+					uartWriteString(UART_USB,"Driver: Received data from Server\n");
 					xSemaphoreGive(MsgHandle_key);
 					vTaskDelay(3000);
 				}
@@ -238,7 +237,7 @@ void task2(void){
 						uartWriteString(UART_USB,"Task 2: Key is not available\n");
 					}else{
 						if(!(xQueueSend(DataProcessed_handle,Task2Buffer,50))){
-							uartWriteString(UART_USB,"Task2: Could send to message back to Server\n");
+							uartWriteString(UART_USB,"Task2: Unable to send message back \n");
 						}
 						xSemaphoreGive(DataProcessed_key);
 					}
