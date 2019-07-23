@@ -47,8 +47,8 @@
 
 
 /*==================[definiciones y macros]==================================*/
-#define TASK1_0
-#define TASK2_1
+#define TASK1_1
+#define TASK2_0
 #define SERVER_1
 #define DRIVER_1
 #define DRIVER_B1_1
@@ -68,7 +68,8 @@ volatile xSemaphoreHandle DataProcessed_key=0;
 volatile QueueHandle_t MsgHandle;
 volatile QueueHandle_t MsgHandle_2;
 volatile QueueHandle_t DataProcessed_handle;
-char HexFrame[110]="7B313530546869732069732052544F5320636F757273652054503120696E20746573742C616E6420697420697320776F726B696E67217D"; 														//The message will be stored in this buffer
+//char HexFrame[110]="7B313530546869732069732052544F5320636F757273652054503120696E20746573742C616E6420697420697320776F726B696E67217D";
+char HexFrame[110]="7B303530546869732069732052544F5320636F757273652054503120696E20746573742C616E6420697420697320776F726B696E67217D"; 														//The Frame will be stored in this buffer
 char AsciFrame[55]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 struct Program_Memory Report;
 struct Frame message;																					//Only Server has access to that structure
@@ -117,8 +118,8 @@ void server(void){
         {
         	case '0':
 
-        		printf("Server-> Flag- %s\n",*f);
-        		if(!(xQueueSend(QeueMinusculizador,message.data,50))){
+        		printf("Server-> Flag- %c\n",*f);
+        		if(!(xQueueSend(QeueMayusculizador,message.data,50))){
         			uartWriteString(UART_USB,"Server-> Task1: No sent\n");
         		}else{
         			vTaskDelay(1000);
@@ -219,29 +220,41 @@ void driver(void){
 //This task converts the message letters to upper case
 void task1(void){
 	
+	/* Inspect our own high water mark on entering the Server. */
+		volatile TaskStatus_t xTaskDetails;
+		vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);
+		Report.Task1StartStack=(const)xTaskDetails.usStackHighWaterMark;
+		Report.Task1StartHeap=(const)xPortGetFreeHeapSize();
 
-	char Task1Buffer[sizeof(AsciFrame)]="\0";
-	while(1){
-		if(QeueMayusculizador !=0){
-			if(!(xQueueReceive(QeueMayusculizador,Task1Buffer,3000))){
-			uartWriteString(UART_USB," Task1 <- Server : No received\n");
-		}else
-			if(!UperCase(Task1Buffer)){                           						  		  	  //convert message letters to upper case
-				uartWriteString(UART_USB,"Task1 -> Report: No lower case\n");
-			}else{
-				if(xSemaphoreTake(DataProcessed_key,1000)){
-					uartWriteString(UART_USB,"Task1-> Server: No key\n");
-				}else{
-					if(!(xQueueSend(DataProcessed_handle,Task1Buffer,50))){
-						uartWriteString(UART_USB,"Task1-> Server: No sent \n");
+		char Task1Buffer[sizeof(AsciFrame)]="\0";
+		while(1){
+			if(QeueMayusculizador !=0){
+				if(!(xQueueReceive(QeueMayusculizador,Task1Buffer,3000))){
+					uartWriteString(UART_USB," Task1 <- Server : No received\n");
+				}else
+					if(!UperCase(Task1Buffer)){                           						  		  	  //convert message letters to upper case
+						uartWriteString(UART_USB,"Task1 -> Report: No lower case\n");
+					}else{
+						if(xSemaphoreTake(DataProcessed_key,1000)){
+							uartWriteString(UART_USB,"Task1 -> Server: No key\n");
+						}else{
+							if(!(xQueueSend(DataProcessed_handle,Task1Buffer,50))){
+								uartWriteString(UART_USB,"Task1-> Server: No sent \n");
+							}
+							xSemaphoreGive(DataProcessed_key);
+						}
 					}
-					uartWriteString(UART_USB,"Task1-> Server: Sent \n");
-					xSemaphoreGive(DataProcessed_key);
-				}
+
+			}else{
+				EndTask(&Task1Handle,1);
 			}
-		}else
-			EndTask(&Task1Handle,1);
-	}
+			vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);
+			Report.Task1EndStack=(const)xTaskDetails.usStackHighWaterMark;
+			Report.Task1EndHeap=(const)xPortGetFreeHeapSize();
+			vTaskDelay(3000);
+
+			//printf("Task 1: available heap is %d\n",Report.Task1EndHeap);
+		}
 }
 
 //This function converts to lower case letter the message
@@ -269,7 +282,6 @@ void task2(void){
 							uartWriteString(UART_USB,"Task2-> Server: No sent \n");
 						}
 						xSemaphoreGive(DataProcessed_key);
-						vTaskDelay(2000);
 					}
 				}
 
@@ -279,6 +291,8 @@ void task2(void){
 		vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);
 		Report.Task2EndStack=(const)xTaskDetails.usStackHighWaterMark;
 		Report.Task2EndHeap=(const)xPortGetFreeHeapSize();
+		vTaskDelay(3000);
+
 	//	printf("Task 2: available heap is %d\n",Report.Task2EndHeap);
 	}
 }

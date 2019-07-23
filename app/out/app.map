@@ -490,8 +490,7 @@ Discarded input sections
  .text          0x0000000000000000        0x0 app/out/app/src/operations.o
  .data          0x0000000000000000        0x0 app/out/app/src/operations.o
  .bss           0x0000000000000000        0x0 app/out/app/src/operations.o
- .text.UperCase
-                0x0000000000000000       0x12 app/out/app/src/operations.o
+ .text.LwrCase  0x0000000000000000       0x14 app/out/app/src/operations.o
  .debug_macro   0x0000000000000000      0xa78 app/out/app/src/operations.o
  .group         0x0000000000000000        0xc app/out/app/src/kernek.o
  .group         0x0000000000000000        0xc app/out/app/src/kernek.o
@@ -619,11 +618,11 @@ Discarded input sections
  .text          0x0000000000000000        0x0 app/out/app/src/kernek.o
  .data          0x0000000000000000        0x0 app/out/app/src/kernek.o
  .bss           0x0000000000000000        0x0 app/out/app/src/kernek.o
- .text.task1    0x0000000000000000       0xcc app/out/app/src/kernek.o
- .bss.Task1Handle
+ .text.task2    0x0000000000000000      0x110 app/out/app/src/kernek.o
+ .bss.Task2Handle
                 0x0000000000000000        0x4 app/out/app/src/kernek.o
- .rodata.task1.str1.4
-                0x0000000000000000       0x8b app/out/app/src/kernek.o
+ .rodata.task2.str1.4
+                0x0000000000000000       0x76 app/out/app/src/kernek.o
  .debug_macro   0x0000000000000000      0xa78 app/out/app/src/kernek.o
  .debug_macro   0x0000000000000000       0x22 app/out/app/src/kernek.o
  .debug_macro   0x0000000000000000       0x56 app/out/app/src/kernek.o
@@ -14985,6 +14984,10 @@ Discarded input sections
  .text          0x0000000000000000        0x0 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strlwr.o)
  .data          0x0000000000000000        0x0 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strlwr.o)
  .bss           0x0000000000000000        0x0 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strlwr.o)
+ .text.strlwr   0x0000000000000000       0x28 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strlwr.o)
+ .debug_frame   0x0000000000000000       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strlwr.o)
+ .ARM.attributes
+                0x0000000000000000       0x34 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strlwr.o)
  .text          0x0000000000000000        0x0 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strtol.o)
  .data          0x0000000000000000        0x0 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strtol.o)
  .bss           0x0000000000000000        0x0 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strtol.o)
@@ -14995,10 +14998,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strupr.o)
  .data          0x0000000000000000        0x0 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strupr.o)
  .bss           0x0000000000000000        0x0 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strupr.o)
- .text.strupr   0x0000000000000000       0x2a /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strupr.o)
- .debug_frame   0x0000000000000000       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strupr.o)
- .ARM.attributes
-                0x0000000000000000       0x34 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strupr.o)
  .text          0x0000000000000000        0x0 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wbuf.o)
  .data          0x0000000000000000        0x0 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wbuf.o)
  .bss           0x0000000000000000        0x0 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wbuf.o)
@@ -15271,7 +15270,7 @@ END GROUP
  *(.rodata.$Flash2*)
  *(.rodata.$MFlashB512*)
 
-.text           0x000000001a000000     0x5a5c
+.text           0x000000001a000000     0x5a3c
  FILL mask 0xff
                 0x000000001a000000                __vectors_start__ = ABSOLUTE (.)
  *(.isr_vector)
@@ -15284,19 +15283,19 @@ END GROUP
                 0x000000001a000114                . = ALIGN (0x4)
                 0x000000001a000114                __section_table_start = .
                 0x000000001a000114                __data_section_table = .
-                0x000000001a000114        0x4 LONG 0x1a005a68 LOADADDR (.data)
+                0x000000001a000114        0x4 LONG 0x1a005a48 LOADADDR (.data)
                 0x000000001a000118        0x4 LONG 0x10000000 ADDR (.data)
                 0x000000001a00011c        0x4 LONG 0x300 SIZEOF (.data)
-                0x000000001a000120        0x4 LONG 0x1a005a68 LOADADDR (.data_RAM2)
+                0x000000001a000120        0x4 LONG 0x1a005a48 LOADADDR (.data_RAM2)
                 0x000000001a000124        0x4 LONG 0x10080000 ADDR (.data_RAM2)
                 0x000000001a000128        0x4 LONG 0x0 SIZEOF (.data_RAM2)
-                0x000000001a00012c        0x4 LONG 0x1a005a68 LOADADDR (.data_RAM3)
+                0x000000001a00012c        0x4 LONG 0x1a005a48 LOADADDR (.data_RAM3)
                 0x000000001a000130        0x4 LONG 0x20000000 ADDR (.data_RAM3)
                 0x000000001a000134        0x4 LONG 0x0 SIZEOF (.data_RAM3)
-                0x000000001a000138        0x4 LONG 0x1a005a68 LOADADDR (.data_RAM4)
+                0x000000001a000138        0x4 LONG 0x1a005a48 LOADADDR (.data_RAM4)
                 0x000000001a00013c        0x4 LONG 0x20008000 ADDR (.data_RAM4)
                 0x000000001a000140        0x4 LONG 0x0 SIZEOF (.data_RAM4)
-                0x000000001a000144        0x4 LONG 0x1a005a68 LOADADDR (.data_RAM5)
+                0x000000001a000144        0x4 LONG 0x1a005a48 LOADADDR (.data_RAM5)
                 0x000000001a000148        0x4 LONG 0x2000c000 ADDR (.data_RAM5)
                 0x000000001a00014c        0x4 LONG 0x0 SIZEOF (.data_RAM5)
                 0x000000001a000150                __data_section_table_end = .
@@ -15391,261 +15390,263 @@ END GROUP
                 0x000000001a000318                ASCI
  .text.EndTask  0x000000001a0003ec       0x48 app/out/app/src/service.o
                 0x000000001a0003ec                EndTask
- .text.LwrCase  0x000000001a000434       0x14 app/out/app/src/operations.o
-                0x000000001a000434                LwrCase
- .text.server   0x000000001a000448      0x248 app/out/app/src/kernek.o
+ .text.UperCase
+                0x000000001a000434       0x12 app/out/app/src/operations.o
+                0x000000001a000434                UperCase
+ *fill*         0x000000001a000446        0x2 ff
+ .text.server   0x000000001a000448      0x24c app/out/app/src/kernek.o
                 0x000000001a000448                server
- .text.driver   0x000000001a000690      0x140 app/out/app/src/kernek.o
-                0x000000001a000690                driver
- .text.task2    0x000000001a0007d0      0x11c app/out/app/src/kernek.o
-                0x000000001a0007d0                task2
- .text.main     0x000000001a0008ec       0xf0 app/out/app/src/kernek.o
-                0x000000001a0008ec                main
+ .text.driver   0x000000001a000694      0x140 app/out/app/src/kernek.o
+                0x000000001a000694                driver
+ .text.task1    0x000000001a0007d4      0x110 app/out/app/src/kernek.o
+                0x000000001a0007d4                task1
+ .text.main     0x000000001a0008e4       0xf0 app/out/app/src/kernek.o
+                0x000000001a0008e4                main
  .text.initialise_monitor_handles
-                0x000000001a0009dc        0x2 app/out/libs/cmsis_core//src/armv7m_startup.o
-                0x000000001a0009dc                initialise_monitor_handles
- *fill*         0x000000001a0009de        0x2 ff
+                0x000000001a0009d4        0x2 app/out/libs/cmsis_core//src/armv7m_startup.o
+                0x000000001a0009d4                initialise_monitor_handles
+ *fill*         0x000000001a0009d6        0x2 ff
  .text.Reset_Handler
-                0x000000001a0009e0       0x88 app/out/libs/cmsis_core//src/armv7m_startup.o
-                0x000000001a0009e0                Reset_Handler
- .text._fini    0x000000001a000a68        0x2 app/out/libs/cmsis_core//src/armv7m_startup.o
-                0x000000001a000a68                _fini
- .text._init    0x000000001a000a6a        0x2 app/out/libs/cmsis_core//src/armv7m_startup.o
-                0x000000001a000a6a                _init
+                0x000000001a0009d8       0x88 app/out/libs/cmsis_core//src/armv7m_startup.o
+                0x000000001a0009d8                Reset_Handler
+ .text._fini    0x000000001a000a60        0x2 app/out/libs/cmsis_core//src/armv7m_startup.o
+                0x000000001a000a60                _fini
+ .text._init    0x000000001a000a62        0x2 app/out/libs/cmsis_core//src/armv7m_startup.o
+                0x000000001a000a62                _init
  .text._close_r
-                0x000000001a000a6c        0xa app/out/libs/sys_newlib//src/system.o
-                0x000000001a000a6c                _close_r
+                0x000000001a000a64        0xa app/out/libs/sys_newlib//src/system.o
+                0x000000001a000a64                _close_r
  .text._fstat_r
-                0x000000001a000a76        0xa app/out/libs/sys_newlib//src/system.o
-                0x000000001a000a76                _fstat_r
+                0x000000001a000a6e        0xa app/out/libs/sys_newlib//src/system.o
+                0x000000001a000a6e                _fstat_r
  .text._isatty_r
-                0x000000001a000a80       0x12 app/out/libs/sys_newlib//src/system.o
-                0x000000001a000a80                _isatty_r
+                0x000000001a000a78       0x12 app/out/libs/sys_newlib//src/system.o
+                0x000000001a000a78                _isatty_r
  .text._lseek_r
-                0x000000001a000a92        0xa app/out/libs/sys_newlib//src/system.o
-                0x000000001a000a92                _lseek_r
- .text._read_r  0x000000001a000a9c       0x4e app/out/libs/sys_newlib//src/system.o
-                0x000000001a000a9c                _read_r
+                0x000000001a000a8a        0xa app/out/libs/sys_newlib//src/system.o
+                0x000000001a000a8a                _lseek_r
+ .text._read_r  0x000000001a000a94       0x4e app/out/libs/sys_newlib//src/system.o
+                0x000000001a000a94                _read_r
  .text._write_r
-                0x000000001a000aea       0x28 app/out/libs/sys_newlib//src/system.o
-                0x000000001a000aea                _write_r
- *fill*         0x000000001a000b12        0x2 ff
- .text._sbrk_r  0x000000001a000b14       0x20 app/out/libs/sys_newlib//src/system.o
-                0x000000001a000b14                _sbrk_r
+                0x000000001a000ae2       0x28 app/out/libs/sys_newlib//src/system.o
+                0x000000001a000ae2                _write_r
+ *fill*         0x000000001a000b0a        0x2 ff
+ .text._sbrk_r  0x000000001a000b0c       0x20 app/out/libs/sys_newlib//src/system.o
+                0x000000001a000b0c                _sbrk_r
  .text.pvPortMalloc
-                0x000000001a000b34       0x70 app/out/libs/freertos/MemMang/heap_1.o
-                0x000000001a000b34                pvPortMalloc
+                0x000000001a000b2c       0x70 app/out/libs/freertos/MemMang/heap_1.o
+                0x000000001a000b2c                pvPortMalloc
  .text.vPortFree
-                0x000000001a000ba4       0x16 app/out/libs/freertos/MemMang/heap_1.o
-                0x000000001a000ba4                vPortFree
- *fill*         0x000000001a000bba        0x2 ff
+                0x000000001a000b9c       0x16 app/out/libs/freertos/MemMang/heap_1.o
+                0x000000001a000b9c                vPortFree
+ *fill*         0x000000001a000bb2        0x2 ff
  .text.xPortGetFreeHeapSize
-                0x000000001a000bbc       0x10 app/out/libs/freertos/MemMang/heap_1.o
-                0x000000001a000bbc                xPortGetFreeHeapSize
+                0x000000001a000bb4       0x10 app/out/libs/freertos/MemMang/heap_1.o
+                0x000000001a000bb4                xPortGetFreeHeapSize
  .text.prvGetDisinheritPriorityAfterTimeout
-                0x000000001a000bcc       0x12 app/out/libs/freertos/source/queue.o
+                0x000000001a000bc4       0x12 app/out/libs/freertos/source/queue.o
  .text.prvIsQueueFull
-                0x000000001a000bde       0x1e app/out/libs/freertos/source/queue.o
+                0x000000001a000bd6       0x1e app/out/libs/freertos/source/queue.o
  .text.prvIsQueueEmpty
-                0x000000001a000bfc       0x1a app/out/libs/freertos/source/queue.o
+                0x000000001a000bf4       0x1a app/out/libs/freertos/source/queue.o
  .text.prvCopyDataToQueue
-                0x000000001a000c16       0x76 app/out/libs/freertos/source/queue.o
+                0x000000001a000c0e       0x76 app/out/libs/freertos/source/queue.o
  .text.prvCopyDataFromQueue
-                0x000000001a000c8c       0x24 app/out/libs/freertos/source/queue.o
+                0x000000001a000c84       0x24 app/out/libs/freertos/source/queue.o
  .text.prvUnlockQueue
-                0x000000001a000cb0       0x6e app/out/libs/freertos/source/queue.o
- *fill*         0x000000001a000d1e        0x2 ff
+                0x000000001a000ca8       0x6e app/out/libs/freertos/source/queue.o
+ *fill*         0x000000001a000d16        0x2 ff
  .text.xQueueGenericReset
-                0x000000001a000d20       0x84 app/out/libs/freertos/source/queue.o
-                0x000000001a000d20                xQueueGenericReset
+                0x000000001a000d18       0x84 app/out/libs/freertos/source/queue.o
+                0x000000001a000d18                xQueueGenericReset
  .text.prvInitialiseNewQueue
-                0x000000001a000da4       0x22 app/out/libs/freertos/source/queue.o
+                0x000000001a000d9c       0x22 app/out/libs/freertos/source/queue.o
  .text.xQueueGenericCreateStatic
-                0x000000001a000dc6       0x90 app/out/libs/freertos/source/queue.o
-                0x000000001a000dc6                xQueueGenericCreateStatic
+                0x000000001a000dbe       0x90 app/out/libs/freertos/source/queue.o
+                0x000000001a000dbe                xQueueGenericCreateStatic
  .text.xQueueGenericCreate
-                0x000000001a000e56       0x4e app/out/libs/freertos/source/queue.o
-                0x000000001a000e56                xQueueGenericCreate
+                0x000000001a000e4e       0x4e app/out/libs/freertos/source/queue.o
+                0x000000001a000e4e                xQueueGenericCreate
  .text.xQueueGenericSend
-                0x000000001a000ea4      0x17c app/out/libs/freertos/source/queue.o
-                0x000000001a000ea4                xQueueGenericSend
+                0x000000001a000e9c      0x17c app/out/libs/freertos/source/queue.o
+                0x000000001a000e9c                xQueueGenericSend
  .text.prvInitialiseMutex
-                0x000000001a001020       0x18 app/out/libs/freertos/source/queue.o
+                0x000000001a001018       0x18 app/out/libs/freertos/source/queue.o
  .text.xQueueCreateMutex
-                0x000000001a001038       0x16 app/out/libs/freertos/source/queue.o
-                0x000000001a001038                xQueueCreateMutex
+                0x000000001a001030       0x16 app/out/libs/freertos/source/queue.o
+                0x000000001a001030                xQueueCreateMutex
  .text.xQueueGenericSendFromISR
-                0x000000001a00104e       0xcc app/out/libs/freertos/source/queue.o
-                0x000000001a00104e                xQueueGenericSendFromISR
- *fill*         0x000000001a00111a        0x2 ff
+                0x000000001a001046       0xcc app/out/libs/freertos/source/queue.o
+                0x000000001a001046                xQueueGenericSendFromISR
+ *fill*         0x000000001a001112        0x2 ff
  .text.xQueueReceive
-                0x000000001a00111c      0x158 app/out/libs/freertos/source/queue.o
-                0x000000001a00111c                xQueueReceive
+                0x000000001a001114      0x158 app/out/libs/freertos/source/queue.o
+                0x000000001a001114                xQueueReceive
  .text.xQueueSemaphoreTake
-                0x000000001a001274      0x19c app/out/libs/freertos/source/queue.o
-                0x000000001a001274                xQueueSemaphoreTake
+                0x000000001a00126c      0x19c app/out/libs/freertos/source/queue.o
+                0x000000001a00126c                xQueueSemaphoreTake
  .text.vQueueAddToRegistry
-                0x000000001a001410       0x28 app/out/libs/freertos/source/queue.o
-                0x000000001a001410                vQueueAddToRegistry
+                0x000000001a001408       0x28 app/out/libs/freertos/source/queue.o
+                0x000000001a001408                vQueueAddToRegistry
  .text.vQueueWaitForMessageRestricted
-                0x000000001a001438       0x52 app/out/libs/freertos/source/queue.o
-                0x000000001a001438                vQueueWaitForMessageRestricted
+                0x000000001a001430       0x52 app/out/libs/freertos/source/queue.o
+                0x000000001a001430                vQueueWaitForMessageRestricted
  .text.vListInitialise
-                0x000000001a00148a       0x16 app/out/libs/freertos/source/list.o
-                0x000000001a00148a                vListInitialise
+                0x000000001a001482       0x16 app/out/libs/freertos/source/list.o
+                0x000000001a001482                vListInitialise
  .text.vListInitialiseItem
-                0x000000001a0014a0        0x6 app/out/libs/freertos/source/list.o
-                0x000000001a0014a0                vListInitialiseItem
+                0x000000001a001498        0x6 app/out/libs/freertos/source/list.o
+                0x000000001a001498                vListInitialiseItem
  .text.vListInsertEnd
-                0x000000001a0014a6       0x18 app/out/libs/freertos/source/list.o
-                0x000000001a0014a6                vListInsertEnd
+                0x000000001a00149e       0x18 app/out/libs/freertos/source/list.o
+                0x000000001a00149e                vListInsertEnd
  .text.vListInsert
-                0x000000001a0014be       0x34 app/out/libs/freertos/source/list.o
-                0x000000001a0014be                vListInsert
+                0x000000001a0014b6       0x34 app/out/libs/freertos/source/list.o
+                0x000000001a0014b6                vListInsert
  .text.uxListRemove
-                0x000000001a0014f2       0x28 app/out/libs/freertos/source/list.o
-                0x000000001a0014f2                uxListRemove
- *fill*         0x000000001a00151a        0x2 ff
+                0x000000001a0014ea       0x28 app/out/libs/freertos/source/list.o
+                0x000000001a0014ea                uxListRemove
+ *fill*         0x000000001a001512        0x2 ff
  .text.vApplicationGetIdleTaskMemory
-                0x000000001a00151c       0x18 app/out/libs/freertos/source/static_provider.o
-                0x000000001a00151c                vApplicationGetIdleTaskMemory
+                0x000000001a001514       0x18 app/out/libs/freertos/source/static_provider.o
+                0x000000001a001514                vApplicationGetIdleTaskMemory
  .text.vApplicationGetTimerTaskMemory
-                0x000000001a001534       0x18 app/out/libs/freertos/source/static_provider.o
-                0x000000001a001534                vApplicationGetTimerTaskMemory
+                0x000000001a00152c       0x18 app/out/libs/freertos/source/static_provider.o
+                0x000000001a00152c                vApplicationGetTimerTaskMemory
  .text.vApplicationStackOverflowHook
-                0x000000001a00154c        0x2 app/out/libs/freertos/source/hooks.o
-                0x000000001a00154c                vApplicationStackOverflowHook
+                0x000000001a001544        0x2 app/out/libs/freertos/source/hooks.o
+                0x000000001a001544                vApplicationStackOverflowHook
  .text.vApplicationMallocFailedHook
-                0x000000001a00154e        0x2 app/out/libs/freertos/source/hooks.o
-                0x000000001a00154e                vApplicationMallocFailedHook
+                0x000000001a001546        0x2 app/out/libs/freertos/source/hooks.o
+                0x000000001a001546                vApplicationMallocFailedHook
  .text.prvTaskCheckFreeStackSpace
-                0x000000001a001550       0x14 app/out/libs/freertos/source/tasks.o
+                0x000000001a001548       0x14 app/out/libs/freertos/source/tasks.o
  .text.prvResetNextTaskUnblockTime
-                0x000000001a001564       0x2c app/out/libs/freertos/source/tasks.o
+                0x000000001a00155c       0x2c app/out/libs/freertos/source/tasks.o
  .text.prvInitialiseNewTask
-                0x000000001a001590       0x92 app/out/libs/freertos/source/tasks.o
- *fill*         0x000000001a001622        0x2 ff
+                0x000000001a001588       0x92 app/out/libs/freertos/source/tasks.o
+ *fill*         0x000000001a00161a        0x2 ff
  .text.prvInitialiseTaskLists
-                0x000000001a001624       0x68 app/out/libs/freertos/source/tasks.o
+                0x000000001a00161c       0x68 app/out/libs/freertos/source/tasks.o
  .text.prvAddNewTaskToReadyList
-                0x000000001a00168c       0xac app/out/libs/freertos/source/tasks.o
+                0x000000001a001684       0xac app/out/libs/freertos/source/tasks.o
  .text.prvDeleteTCB
-                0x000000001a001738       0x38 app/out/libs/freertos/source/tasks.o
+                0x000000001a001730       0x38 app/out/libs/freertos/source/tasks.o
  .text.prvCheckTasksWaitingTermination
-                0x000000001a001770       0x4c app/out/libs/freertos/source/tasks.o
+                0x000000001a001768       0x4c app/out/libs/freertos/source/tasks.o
  .text.prvIdleTask
-                0x000000001a0017bc       0x28 app/out/libs/freertos/source/tasks.o
+                0x000000001a0017b4       0x28 app/out/libs/freertos/source/tasks.o
  .text.prvAddCurrentTaskToDelayedList
-                0x000000001a0017e4       0x98 app/out/libs/freertos/source/tasks.o
+                0x000000001a0017dc       0x98 app/out/libs/freertos/source/tasks.o
  .text.xTaskCreateStatic
-                0x000000001a00187c       0x72 app/out/libs/freertos/source/tasks.o
-                0x000000001a00187c                xTaskCreateStatic
+                0x000000001a001874       0x72 app/out/libs/freertos/source/tasks.o
+                0x000000001a001874                xTaskCreateStatic
  .text.xTaskCreate
-                0x000000001a0018ee       0x66 app/out/libs/freertos/source/tasks.o
-                0x000000001a0018ee                xTaskCreate
+                0x000000001a0018e6       0x66 app/out/libs/freertos/source/tasks.o
+                0x000000001a0018e6                xTaskCreate
  .text.eTaskGetState
-                0x000000001a001954       0x80 app/out/libs/freertos/source/tasks.o
-                0x000000001a001954                eTaskGetState
+                0x000000001a00194c       0x80 app/out/libs/freertos/source/tasks.o
+                0x000000001a00194c                eTaskGetState
  .text.vTaskStartScheduler
-                0x000000001a0019d4       0x94 app/out/libs/freertos/source/tasks.o
-                0x000000001a0019d4                vTaskStartScheduler
+                0x000000001a0019cc       0x94 app/out/libs/freertos/source/tasks.o
+                0x000000001a0019cc                vTaskStartScheduler
  .text.vTaskSuspendAll
-                0x000000001a001a68       0x10 app/out/libs/freertos/source/tasks.o
-                0x000000001a001a68                vTaskSuspendAll
+                0x000000001a001a60       0x10 app/out/libs/freertos/source/tasks.o
+                0x000000001a001a60                vTaskSuspendAll
  .text.xTaskGetTickCount
-                0x000000001a001a78        0xc app/out/libs/freertos/source/tasks.o
-                0x000000001a001a78                xTaskGetTickCount
+                0x000000001a001a70        0xc app/out/libs/freertos/source/tasks.o
+                0x000000001a001a70                xTaskGetTickCount
  .text.xTaskIncrementTick
-                0x000000001a001a84      0x118 app/out/libs/freertos/source/tasks.o
-                0x000000001a001a84                xTaskIncrementTick
+                0x000000001a001a7c      0x118 app/out/libs/freertos/source/tasks.o
+                0x000000001a001a7c                xTaskIncrementTick
  .text.xTaskResumeAll
-                0x000000001a001b9c       0xf4 app/out/libs/freertos/source/tasks.o
-                0x000000001a001b9c                xTaskResumeAll
+                0x000000001a001b94       0xf4 app/out/libs/freertos/source/tasks.o
+                0x000000001a001b94                xTaskResumeAll
  .text.vTaskDelay
-                0x000000001a001c90       0x4c app/out/libs/freertos/source/tasks.o
-                0x000000001a001c90                vTaskDelay
+                0x000000001a001c88       0x4c app/out/libs/freertos/source/tasks.o
+                0x000000001a001c88                vTaskDelay
  .text.vTaskSwitchContext
-                0x000000001a001cdc       0xc8 app/out/libs/freertos/source/tasks.o
-                0x000000001a001cdc                vTaskSwitchContext
+                0x000000001a001cd4       0xc8 app/out/libs/freertos/source/tasks.o
+                0x000000001a001cd4                vTaskSwitchContext
  .text.vTaskSuspend
-                0x000000001a001da4       0xec app/out/libs/freertos/source/tasks.o
-                0x000000001a001da4                vTaskSuspend
+                0x000000001a001d9c       0xec app/out/libs/freertos/source/tasks.o
+                0x000000001a001d9c                vTaskSuspend
  .text.vTaskPlaceOnEventList
-                0x000000001a001e90       0x30 app/out/libs/freertos/source/tasks.o
-                0x000000001a001e90                vTaskPlaceOnEventList
+                0x000000001a001e88       0x30 app/out/libs/freertos/source/tasks.o
+                0x000000001a001e88                vTaskPlaceOnEventList
  .text.vTaskPlaceOnEventListRestricted
-                0x000000001a001ec0       0x38 app/out/libs/freertos/source/tasks.o
-                0x000000001a001ec0                vTaskPlaceOnEventListRestricted
+                0x000000001a001eb8       0x38 app/out/libs/freertos/source/tasks.o
+                0x000000001a001eb8                vTaskPlaceOnEventListRestricted
  .text.xTaskRemoveFromEventList
-                0x000000001a001ef8       0x8c app/out/libs/freertos/source/tasks.o
-                0x000000001a001ef8                xTaskRemoveFromEventList
+                0x000000001a001ef0       0x8c app/out/libs/freertos/source/tasks.o
+                0x000000001a001ef0                xTaskRemoveFromEventList
  .text.vTaskInternalSetTimeOutState
-                0x000000001a001f84       0x18 app/out/libs/freertos/source/tasks.o
-                0x000000001a001f84                vTaskInternalSetTimeOutState
+                0x000000001a001f7c       0x18 app/out/libs/freertos/source/tasks.o
+                0x000000001a001f7c                vTaskInternalSetTimeOutState
  .text.xTaskCheckForTimeOut
-                0x000000001a001f9c       0x80 app/out/libs/freertos/source/tasks.o
-                0x000000001a001f9c                xTaskCheckForTimeOut
+                0x000000001a001f94       0x80 app/out/libs/freertos/source/tasks.o
+                0x000000001a001f94                xTaskCheckForTimeOut
  .text.vTaskMissedYield
-                0x000000001a00201c        0xc app/out/libs/freertos/source/tasks.o
-                0x000000001a00201c                vTaskMissedYield
+                0x000000001a002014        0xc app/out/libs/freertos/source/tasks.o
+                0x000000001a002014                vTaskMissedYield
  .text.vTaskGetInfo
-                0x000000001a002028       0x78 app/out/libs/freertos/source/tasks.o
-                0x000000001a002028                vTaskGetInfo
+                0x000000001a002020       0x78 app/out/libs/freertos/source/tasks.o
+                0x000000001a002020                vTaskGetInfo
  .text.xTaskGetSchedulerState
-                0x000000001a0020a0       0x20 app/out/libs/freertos/source/tasks.o
-                0x000000001a0020a0                xTaskGetSchedulerState
+                0x000000001a002098       0x20 app/out/libs/freertos/source/tasks.o
+                0x000000001a002098                xTaskGetSchedulerState
  .text.xTaskPriorityInherit
-                0x000000001a0020c0       0xb8 app/out/libs/freertos/source/tasks.o
-                0x000000001a0020c0                xTaskPriorityInherit
+                0x000000001a0020b8       0xb8 app/out/libs/freertos/source/tasks.o
+                0x000000001a0020b8                xTaskPriorityInherit
  .text.xTaskPriorityDisinherit
-                0x000000001a002178       0xb0 app/out/libs/freertos/source/tasks.o
-                0x000000001a002178                xTaskPriorityDisinherit
+                0x000000001a002170       0xb0 app/out/libs/freertos/source/tasks.o
+                0x000000001a002170                xTaskPriorityDisinherit
  .text.vTaskPriorityDisinheritAfterTimeout
-                0x000000001a002228       0xc0 app/out/libs/freertos/source/tasks.o
-                0x000000001a002228                vTaskPriorityDisinheritAfterTimeout
+                0x000000001a002220       0xc0 app/out/libs/freertos/source/tasks.o
+                0x000000001a002220                vTaskPriorityDisinheritAfterTimeout
  .text.pvTaskIncrementMutexHeldCount
-                0x000000001a0022e8       0x1c app/out/libs/freertos/source/tasks.o
-                0x000000001a0022e8                pvTaskIncrementMutexHeldCount
+                0x000000001a0022e0       0x1c app/out/libs/freertos/source/tasks.o
+                0x000000001a0022e0                pvTaskIncrementMutexHeldCount
  .text.prvGetNextExpireTime
-                0x000000001a002304       0x20 app/out/libs/freertos/source/timers.o
+                0x000000001a0022fc       0x20 app/out/libs/freertos/source/timers.o
  .text.prvInsertTimerInActiveList
-                0x000000001a002324       0x48 app/out/libs/freertos/source/timers.o
+                0x000000001a00231c       0x48 app/out/libs/freertos/source/timers.o
  .text.prvCheckForValidListAndQueue
-                0x000000001a00236c       0x70 app/out/libs/freertos/source/timers.o
+                0x000000001a002364       0x70 app/out/libs/freertos/source/timers.o
  .text.prvInitialiseNewTimer
-                0x000000001a0023dc       0x40 app/out/libs/freertos/source/timers.o
+                0x000000001a0023d4       0x40 app/out/libs/freertos/source/timers.o
  .text.xTimerCreateTimerTask
-                0x000000001a00241c       0x64 app/out/libs/freertos/source/timers.o
-                0x000000001a00241c                xTimerCreateTimerTask
+                0x000000001a002414       0x64 app/out/libs/freertos/source/timers.o
+                0x000000001a002414                xTimerCreateTimerTask
  .text.xTimerCreateStatic
-                0x000000001a002480       0x4c app/out/libs/freertos/source/timers.o
-                0x000000001a002480                xTimerCreateStatic
+                0x000000001a002478       0x4c app/out/libs/freertos/source/timers.o
+                0x000000001a002478                xTimerCreateStatic
  .text.xTimerGenericCommand
-                0x000000001a0024cc       0x6c app/out/libs/freertos/source/timers.o
-                0x000000001a0024cc                xTimerGenericCommand
+                0x000000001a0024c4       0x6c app/out/libs/freertos/source/timers.o
+                0x000000001a0024c4                xTimerGenericCommand
  .text.prvSwitchTimerLists
-                0x000000001a002538       0x78 app/out/libs/freertos/source/timers.o
+                0x000000001a002530       0x78 app/out/libs/freertos/source/timers.o
  .text.prvSampleTimeNow
-                0x000000001a0025b0       0x2c app/out/libs/freertos/source/timers.o
+                0x000000001a0025a8       0x2c app/out/libs/freertos/source/timers.o
  .text.prvProcessExpiredTimer
-                0x000000001a0025dc       0x60 app/out/libs/freertos/source/timers.o
+                0x000000001a0025d4       0x60 app/out/libs/freertos/source/timers.o
  .text.prvProcessTimerOrBlockTask
-                0x000000001a00263c       0x74 app/out/libs/freertos/source/timers.o
+                0x000000001a002634       0x74 app/out/libs/freertos/source/timers.o
  .text.prvProcessReceivedCommands
-                0x000000001a0026b0       0xfc app/out/libs/freertos/source/timers.o
+                0x000000001a0026a8       0xfc app/out/libs/freertos/source/timers.o
  .text.prvTimerTask
-                0x000000001a0027ac       0x16 app/out/libs/freertos/source/timers.o
- *fill*         0x000000001a0027c2        0x2 ff
+                0x000000001a0027a4       0x16 app/out/libs/freertos/source/timers.o
+ *fill*         0x000000001a0027ba        0x2 ff
  .text.prvTaskExitError
-                0x000000001a0027c4       0x40 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+                0x000000001a0027bc       0x40 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
  .text.prvPortStartFirstTask
-                0x000000001a002804       0x28 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+                0x000000001a0027fc       0x28 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
  .text.vPortEnableVFP
-                0x000000001a00282c       0x14 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+                0x000000001a002824       0x14 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
  .text.pxPortInitialiseStack
-                0x000000001a002840       0x2c app/out/libs/freertos/source/portable/ARM_CM4F/port.o
-                0x000000001a002840                pxPortInitialiseStack
- *fill*         0x000000001a00286c        0x4 ff
+                0x000000001a002838       0x2c app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+                0x000000001a002838                pxPortInitialiseStack
+ *fill*         0x000000001a002864        0xc ff
  .text.SVC_Handler
                 0x000000001a002870       0x24 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
                 0x000000001a002870                SVC_Handler
@@ -15904,90 +15905,91 @@ END GROUP
                 0x000000001a0041fc                strcat
  .text.strcpy   0x000000001a00421a       0x10 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strcpy.o)
                 0x000000001a00421a                strcpy
- .text.strlwr   0x000000001a00422a       0x28 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strlwr.o)
-                0x000000001a00422a                strlwr
  .text._strtol_l.isra.0
-                0x000000001a004252       0xf6 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strtol.o)
- .text.strtol   0x000000001a004348       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strtol.o)
-                0x000000001a004348                strtol
+                0x000000001a00422a       0xf6 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strtol.o)
+ .text.strtol   0x000000001a004320       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strtol.o)
+                0x000000001a004320                strtol
+ .text.strupr   0x000000001a00434c       0x2a /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strupr.o)
+                0x000000001a00434c                strupr
+ *fill*         0x000000001a004376        0x2 ff
  .text.__swbuf_r
-                0x000000001a004374       0xa4 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wbuf.o)
-                0x000000001a004374                __swbuf_r
+                0x000000001a004378       0xa4 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wbuf.o)
+                0x000000001a004378                __swbuf_r
  .text.__swsetup_r
-                0x000000001a004418       0xdc /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wsetup.o)
-                0x000000001a004418                __swsetup_r
+                0x000000001a00441c       0xdc /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wsetup.o)
+                0x000000001a00441c                __swsetup_r
  .text.__sflush_r
-                0x000000001a0044f4      0x10c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-fflush.o)
-                0x000000001a0044f4                __sflush_r
+                0x000000001a0044f8      0x10c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-fflush.o)
+                0x000000001a0044f8                __sflush_r
  .text._fflush_r
-                0x000000001a004600       0x54 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-fflush.o)
-                0x000000001a004600                _fflush_r
- .text.std      0x000000001a004654       0x48 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
+                0x000000001a004604       0x54 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-fflush.o)
+                0x000000001a004604                _fflush_r
+ .text.std      0x000000001a004658       0x48 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
  .text._cleanup_r
-                0x000000001a00469c        0xc /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
-                0x000000001a00469c                _cleanup_r
+                0x000000001a0046a0        0xc /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
+                0x000000001a0046a0                _cleanup_r
  .text.__sfmoreglue
-                0x000000001a0046a8       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
-                0x000000001a0046a8                __sfmoreglue
- .text.__sinit  0x000000001a0046d4       0x60 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
-                0x000000001a0046d4                __sinit
- .text.__sfp    0x000000001a004734       0x78 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
-                0x000000001a004734                __sfp
+                0x000000001a0046ac       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
+                0x000000001a0046ac                __sfmoreglue
+ .text.__sinit  0x000000001a0046d8       0x60 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
+                0x000000001a0046d8                __sinit
+ .text.__sfp    0x000000001a004738       0x78 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
+                0x000000001a004738                __sfp
  .text._fwalk_reent
-                0x000000001a0047ac       0x3c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-fwalk.o)
-                0x000000001a0047ac                _fwalk_reent
+                0x000000001a0047b0       0x3c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-fwalk.o)
+                0x000000001a0047b0                _fwalk_reent
  .text.__locale_ctype_ptr_l
-                0x000000001a0047e8        0x6 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-locale.o)
-                0x000000001a0047e8                __locale_ctype_ptr_l
- *fill*         0x000000001a0047ee        0x2 ff
+                0x000000001a0047ec        0x6 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-locale.o)
+                0x000000001a0047ec                __locale_ctype_ptr_l
+ *fill*         0x000000001a0047f2        0x2 ff
  .text.__locale_ctype_ptr
-                0x000000001a0047f0       0x1c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-locale.o)
-                0x000000001a0047f0                __locale_ctype_ptr
+                0x000000001a0047f4       0x1c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-locale.o)
+                0x000000001a0047f4                __locale_ctype_ptr
  .text.__swhatbuf_r
-                0x000000001a00480c       0x48 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-makebuf.o)
-                0x000000001a00480c                __swhatbuf_r
+                0x000000001a004810       0x48 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-makebuf.o)
+                0x000000001a004810                __swhatbuf_r
  .text.__smakebuf_r
-                0x000000001a004854       0x80 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-makebuf.o)
-                0x000000001a004854                __smakebuf_r
+                0x000000001a004858       0x80 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-makebuf.o)
+                0x000000001a004858                __smakebuf_r
  .text.__ascii_mbtowc
-                0x000000001a0048d4       0x24 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-mbtowc_r.o)
-                0x000000001a0048d4                __ascii_mbtowc
- .text._free_r  0x000000001a0048f8       0x9c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-freer.o)
-                0x000000001a0048f8                _free_r
+                0x000000001a0048d8       0x24 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-mbtowc_r.o)
+                0x000000001a0048d8                __ascii_mbtowc
+ .text._free_r  0x000000001a0048fc       0x9c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-freer.o)
+                0x000000001a0048fc                _free_r
  .text._malloc_r
-                0x000000001a004994       0xb4 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-mallocr.o)
-                0x000000001a004994                _malloc_r
+                0x000000001a004998       0xb4 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-mallocr.o)
+                0x000000001a004998                _malloc_r
  .text.__sfputc_r
-                0x000000001a004a48       0x2e /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf.o)
+                0x000000001a004a4c       0x2e /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf.o)
  .text.__sfputs_r
-                0x000000001a004a76       0x24 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf.o)
-                0x000000001a004a76                __sfputs_r
- *fill*         0x000000001a004a9a        0x2 ff
+                0x000000001a004a7a       0x24 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf.o)
+                0x000000001a004a7a                __sfputs_r
+ *fill*         0x000000001a004a9e        0x2 ff
  .text._vfprintf_r
-                0x000000001a004a9c      0x22c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf.o)
-                0x000000001a004a9c                _vfiprintf_r
-                0x000000001a004a9c                _vfprintf_r
+                0x000000001a004aa0      0x22c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf.o)
+                0x000000001a004aa0                _vfiprintf_r
+                0x000000001a004aa0                _vfprintf_r
  .text._printf_common
-                0x000000001a004cc8       0xea /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf_i.o)
-                0x000000001a004cc8                _printf_common
- *fill*         0x000000001a004db2        0x2 ff
+                0x000000001a004ccc       0xea /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x000000001a004ccc                _printf_common
+ *fill*         0x000000001a004db6        0x2 ff
  .text._printf_i
-                0x000000001a004db4      0x224 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf_i.o)
-                0x000000001a004db4                _printf_i
- .text.__sread  0x000000001a004fd8       0x22 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-stdio.o)
-                0x000000001a004fd8                __sread
+                0x000000001a004db8      0x224 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x000000001a004db8                _printf_i
+ .text.__sread  0x000000001a004fdc       0x22 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-stdio.o)
+                0x000000001a004fdc                __sread
  .text.__swrite
-                0x000000001a004ffa       0x38 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-stdio.o)
-                0x000000001a004ffa                __swrite
- .text.__sseek  0x000000001a005032       0x24 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-stdio.o)
-                0x000000001a005032                __sseek
+                0x000000001a004ffe       0x38 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-stdio.o)
+                0x000000001a004ffe                __swrite
+ .text.__sseek  0x000000001a005036       0x24 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-stdio.o)
+                0x000000001a005036                __sseek
  .text.__sclose
-                0x000000001a005056        0x8 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-stdio.o)
-                0x000000001a005056                __sclose
+                0x000000001a00505a        0x8 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-stdio.o)
+                0x000000001a00505a                __sclose
  .text.__ascii_wctomb
-                0x000000001a00505e       0x1a /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wctomb_r.o)
-                0x000000001a00505e                __ascii_wctomb
- *fill*         0x000000001a005078        0x8 ff
+                0x000000001a005062       0x1a /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wctomb_r.o)
+                0x000000001a005062                __ascii_wctomb
+ *fill*         0x000000001a00507c        0x4 ff
  .text          0x000000001a005080       0xa0 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memchr.o)
                 0x000000001a005080                memchr
  .text.__malloc_lock
@@ -16011,130 +16013,130 @@ END GROUP
  *fill*         0x000000001a005366        0x2 ff
  .rodata.server.str1.4
                 0x000000001a005368      0x18c app/out/app/src/kernek.o
- .rodata.task2.str1.4
-                0x000000001a0054f4       0x97 app/out/app/src/kernek.o
- *fill*         0x000000001a00558b        0x1 ff
+ .rodata.task1.str1.4
+                0x000000001a0054f4       0x76 app/out/app/src/kernek.o
+ *fill*         0x000000001a00556a        0x2 ff
  .rodata.vTaskStartScheduler.str1.4
-                0x000000001a00558c        0x5 app/out/libs/freertos/source/tasks.o
- *fill*         0x000000001a005591        0x3 ff
+                0x000000001a00556c        0x5 app/out/libs/freertos/source/tasks.o
+ *fill*         0x000000001a005571        0x3 ff
  .rodata.prvCheckForValidListAndQueue.str1.4
-                0x000000001a005594        0x5 app/out/libs/freertos/source/timers.o
- *fill*         0x000000001a005599        0x3 ff
+                0x000000001a005574        0x5 app/out/libs/freertos/source/timers.o
+ *fill*         0x000000001a005579        0x3 ff
  .rodata.xTimerCreateTimerTask.str1.4
-                0x000000001a00559c        0x8 app/out/libs/freertos/source/timers.o
+                0x000000001a00557c        0x8 app/out/libs/freertos/source/timers.o
  .rodata.ExtRateIn
-                0x000000001a0055a4        0x4 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
-                0x000000001a0055a4                ExtRateIn
+                0x000000001a005584        0x4 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+                0x000000001a005584                ExtRateIn
  .rodata.GpioButtons
-                0x000000001a0055a8        0x8 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+                0x000000001a005588        0x8 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
  .rodata.GpioLeds
-                0x000000001a0055b0        0xc app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+                0x000000001a005590        0xc app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
  .rodata.GpioPorts
-                0x000000001a0055bc       0x12 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
- *fill*         0x000000001a0055ce        0x2 ff
+                0x000000001a00559c       0x12 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+ *fill*         0x000000001a0055ae        0x2 ff
  .rodata.OscRateIn
-                0x000000001a0055d0        0x4 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
-                0x000000001a0055d0                OscRateIn
+                0x000000001a0055b0        0x4 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+                0x000000001a0055b0                OscRateIn
  .rodata.InitClkStates
-                0x000000001a0055d4        0x4 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+                0x000000001a0055b4        0x4 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
  .rodata.pinmuxing
-                0x000000001a0055d8       0x74 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+                0x000000001a0055b8       0x74 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
  .rodata.UART_BClock
-                0x000000001a00564c        0x8 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+                0x000000001a00562c        0x8 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
  .rodata.UART_PClock
-                0x000000001a005654        0x8 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
- .rodata        0x000000001a00565c        0x4 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+                0x000000001a005634        0x8 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .rodata        0x000000001a00563c        0x4 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
  .rodata.Chip_Clock_SetDivider.str1.4
-                0x000000001a005660        0x6 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
- *fill*         0x000000001a005666        0x2 ff
+                0x000000001a005640        0x6 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+ *fill*         0x000000001a005646        0x2 ff
  .rodata.periph_to_base
-                0x000000001a005668       0x6c app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+                0x000000001a005648       0x6c app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
  .rodata.InitClkStates
-                0x000000001a0056d4       0x48 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+                0x000000001a0056b4       0x48 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
  .rodata.UART2_IRQHandler.str1.4
-                0x000000001a00571c        0xa app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
- *fill*         0x000000001a005726        0x2 ff
+                0x000000001a0056fc        0xa app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+ *fill*         0x000000001a005706        0x2 ff
  .rodata.lpcUarts
-                0x000000001a005728       0x48 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+                0x000000001a005708       0x48 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
  .rodata.tickInit.str1.4
-                0x000000001a005770        0xc app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+                0x000000001a005750        0xc app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
  .rodata.gpioPinsInit
-                0x000000001a00577c      0x136 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
-                0x000000001a00577c                gpioPinsInit
- *fill*         0x000000001a0058b2        0x2 ff
+                0x000000001a00575c      0x136 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+                0x000000001a00575c                gpioPinsInit
+ *fill*         0x000000001a005892        0x2 ff
  .rodata.ultrasonicSensorsIrqMap
-                0x000000001a0058b4        0x3 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
- *fill*         0x000000001a0058b7        0x1 ff
+                0x000000001a005894        0x3 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
+ *fill*         0x000000001a005897        0x1 ff
  .rodata.__sf_fake_stderr
-                0x000000001a0058b8       0x20 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
-                0x000000001a0058b8                __sf_fake_stderr
+                0x000000001a005898       0x20 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
+                0x000000001a005898                __sf_fake_stderr
  .rodata.__sf_fake_stdin
-                0x000000001a0058d8       0x20 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
-                0x000000001a0058d8                __sf_fake_stdin
+                0x000000001a0058b8       0x20 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
+                0x000000001a0058b8                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x000000001a0058f8       0x20 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
-                0x000000001a0058f8                __sf_fake_stdout
+                0x000000001a0058d8       0x20 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-findfp.o)
+                0x000000001a0058d8                __sf_fake_stdout
  .rodata._global_impure_ptr
-                0x000000001a005918        0x4 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-impure.o)
-                0x000000001a005918                _global_impure_ptr
+                0x000000001a0058f8        0x4 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-impure.o)
+                0x000000001a0058f8                _global_impure_ptr
  .rodata._setlocale_r.str1.1
-                0x000000001a00591c        0x8 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-locale.o)
+                0x000000001a0058fc        0x8 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-locale.o)
                                           0x9 (size before relaxing)
  .rodata.str1.1
-                0x000000001a005924        0x2 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-locale.o)
+                0x000000001a005904        0x2 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-locale.o)
  .rodata._vfprintf_r.str1.1
-                0x000000001a005926       0x11 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf.o)
+                0x000000001a005906       0x11 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf.o)
  .rodata._printf_i.str1.1
-                0x000000001a005937       0x22 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x000000001a005917       0x22 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-nano-vfprintf_i.o)
  .rodata._ctype_
-                0x000000001a005959      0x101 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-ctype_.o)
-                0x000000001a005959                _ctype_
-                0x000000001a005a5c                . = ALIGN (0x4)
- *fill*         0x000000001a005a5a        0x2 ff
+                0x000000001a005939      0x101 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-ctype_.o)
+                0x000000001a005939                _ctype_
+                0x000000001a005a3c                . = ALIGN (0x4)
+ *fill*         0x000000001a005a3a        0x2 ff
 
-.glue_7         0x000000001a005a5c        0x0
- .glue_7        0x000000001a005a5c        0x0 linker stubs
+.glue_7         0x000000001a005a3c        0x0
+ .glue_7        0x000000001a005a3c        0x0 linker stubs
 
-.glue_7t        0x000000001a005a5c        0x0
- .glue_7t       0x000000001a005a5c        0x0 linker stubs
+.glue_7t        0x000000001a005a3c        0x0
+ .glue_7t       0x000000001a005a3c        0x0 linker stubs
 
-.vfp11_veneer   0x000000001a005a5c        0x0
- .vfp11_veneer  0x000000001a005a5c        0x0 linker stubs
+.vfp11_veneer   0x000000001a005a3c        0x0
+ .vfp11_veneer  0x000000001a005a3c        0x0 linker stubs
 
-.v4_bx          0x000000001a005a5c        0x0
- .v4_bx         0x000000001a005a5c        0x0 linker stubs
+.v4_bx          0x000000001a005a3c        0x0
+ .v4_bx         0x000000001a005a3c        0x0 linker stubs
 
-.iplt           0x000000001a005a5c        0x0
- .iplt          0x000000001a005a5c        0x0 app/out/app/src/driver.o
-                0x000000001a005a5c                . = ALIGN (0x4)
+.iplt           0x000000001a005a3c        0x0
+ .iplt          0x000000001a005a3c        0x0 app/out/app/src/driver.o
+                0x000000001a005a3c                . = ALIGN (0x4)
 
-.preinit_array  0x000000001a005a5c        0x0
-                0x000000001a005a5c                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x000000001a005a3c        0x0
+                0x000000001a005a3c                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x000000001a005a5c                PROVIDE (__preinit_array_end = .)
+                0x000000001a005a3c                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x000000001a005a5c        0x4
-                0x000000001a005a5c                PROVIDE (__init_array_start = .)
+.init_array     0x000000001a005a3c        0x4
+                0x000000001a005a3c                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x000000001a005a5c        0x4 app/out/libs/sys_newlib//src/system.o
-                0x000000001a005a60                PROVIDE (__init_array_end = .)
-                0x000000001a005a60                . = ALIGN (0x4)
+ .init_array    0x000000001a005a3c        0x4 app/out/libs/sys_newlib//src/system.o
+                0x000000001a005a40                PROVIDE (__init_array_end = .)
+                0x000000001a005a40                . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000000001a005a60                __exidx_start = .
+                0x000000001a005a40                __exidx_start = .
 
-.ARM.exidx      0x000000001a005a60        0x8
+.ARM.exidx      0x000000001a005a40        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x000000001a005a60        0x8 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
-                0x000000001a005a68                __exidx_end = .
-                0x000000001a005a68                _etext = .
+ .ARM.exidx     0x000000001a005a40        0x8 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
+                0x000000001a005a48                __exidx_end = .
+                0x000000001a005a48                _etext = .
 
-.rel.dyn        0x000000001a005a68        0x0
- .rel.iplt      0x000000001a005a68        0x0 app/out/app/src/driver.o
+.rel.dyn        0x000000001a005a48        0x0
+ .rel.iplt      0x000000001a005a48        0x0 app/out/app/src/driver.o
 
-.data_RAM2      0x0000000010080000        0x0 load address 0x000000001a005a68
+.data_RAM2      0x0000000010080000        0x0 load address 0x000000001a005a48
  FILL mask 0xff
  *(.ramfunc.$RAM2)
  *(.ramfunc.$RamLoc40)
@@ -16142,7 +16144,7 @@ END GROUP
  *(.data.$RamLoc40*)
                 0x0000000010080000                . = ALIGN (0x4)
 
-.data_RAM3      0x0000000020000000        0x0 load address 0x000000001a005a68
+.data_RAM3      0x0000000020000000        0x0 load address 0x000000001a005a48
  FILL mask 0xff
  *(.ramfunc.$RAM3)
  *(.ramfunc.$RamAHB32)
@@ -16150,7 +16152,7 @@ END GROUP
  *(.data.$RamAHB32*)
                 0x0000000020000000                . = ALIGN (0x4)
 
-.data_RAM4      0x0000000020008000        0x0 load address 0x000000001a005a68
+.data_RAM4      0x0000000020008000        0x0 load address 0x000000001a005a48
  FILL mask 0xff
  *(.ramfunc.$RAM4)
  *(.ramfunc.$RamAHB16)
@@ -16158,7 +16160,7 @@ END GROUP
  *(.data.$RamAHB16*)
                 0x0000000020008000                . = ALIGN (0x4)
 
-.data_RAM5      0x000000002000c000        0x0 load address 0x000000001a005a68
+.data_RAM5      0x000000002000c000        0x0 load address 0x000000001a005a48
  FILL mask 0xff
  *(.ramfunc.$RAM5)
  *(.ramfunc.$RamAHB_ETB16)
@@ -16172,7 +16174,7 @@ END GROUP
                 0x0000000010000000                . = ALIGN (0x4)
                 0x0000000010000000                _end_uninit_RESERVED = .
 
-.data           0x0000000010000000      0x300 load address 0x000000001a005a68
+.data           0x0000000010000000      0x300 load address 0x000000001a005a48
  FILL mask 0xff
                 0x0000000010000000                _data = .
  *(vtable)
@@ -16204,7 +16206,7 @@ END GROUP
                 0x0000000010000300                . = ALIGN (0x4)
                 0x0000000010000300                _edata = .
 
-.igot.plt       0x0000000010000300        0x0 load address 0x000000001a005d68
+.igot.plt       0x0000000010000300        0x0 load address 0x000000001a005d48
  .igot.plt      0x0000000010000300        0x0 app/out/app/src/driver.o
 
 .bss_RAM2       0x0000000010080000        0x0
@@ -16242,9 +16244,9 @@ END GROUP
  .bss.ServHandle
                 0x000000001000030c        0x4 app/out/app/src/kernek.o
                 0x000000001000030c                ServHandle
- .bss.Task2Handle
+ .bss.Task1Handle
                 0x0000000010000310        0x4 app/out/app/src/kernek.o
-                0x0000000010000310                Task2Handle
+                0x0000000010000310                Task1Handle
  .bss.heap_end.5778
                 0x0000000010000314        0x4 app/out/libs/sys_newlib//src/system.o
  .bss.pucAlignedHeap.11438
@@ -16399,80 +16401,80 @@ END GROUP
                 0x0000000010003d78                _end_noinit = .
                 0x0000000010003d78                PROVIDE (_pvHeapStart = .)
                 0x0000000010008000                PROVIDE (_vStackTop = (__top_RamLoc32 - 0x0))
-                0xffffffff53ff6eae                PROVIDE (__valid_user_code_checksum = (0x0 - ((((((_vStackTop + (Reset_Handler + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
+                0xffffffff53ff6eb6                PROVIDE (__valid_user_code_checksum = (0x0 - ((((((_vStackTop + (Reset_Handler + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
 OUTPUT(app/out/app.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000    0x2c36f
+.debug_info     0x0000000000000000    0x2c3b4
  .debug_info    0x0000000000000000     0x26b0 app/out/app/src/driver.o
  .debug_info    0x00000000000026b0     0x2030 app/out/app/src/service.o
  .debug_info    0x00000000000046e0      0x15a app/out/app/src/operations.o
- .debug_info    0x000000000000483a     0x3398 app/out/app/src/kernek.o
- .debug_info    0x0000000000007bd2      0x301 app/out/libs/cmsis_core//src/armv7m_startup.o
- .debug_info    0x0000000000007ed3      0xf43 app/out/libs/sys_newlib//src/system.o
- .debug_info    0x0000000000008e16      0xf30 app/out/libs/freertos/MemMang/heap_1.o
- .debug_info    0x0000000000009d46     0x3147 app/out/libs/freertos/source/queue.o
- .debug_info    0x000000000000ce8d      0xb09 app/out/libs/freertos/source/list.o
- .debug_info    0x000000000000d996      0x346 app/out/libs/freertos/source/static_provider.o
- .debug_info    0x000000000000dcdc      0x135 app/out/libs/freertos/source/hooks.o
- .debug_info    0x000000000000de11     0x3956 app/out/libs/freertos/source/tasks.o
- .debug_info    0x0000000000011767     0x2476 app/out/libs/freertos/source/timers.o
- .debug_info    0x0000000000013bdd      0xa5e app/out/libs/freertos/source/portable/ARM_CM4F/port.o
- .debug_info    0x000000000001463b     0x2130 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
- .debug_info    0x000000000001676b     0x14c3 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
- .debug_info    0x0000000000017c2e     0x164f app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
- .debug_info    0x000000000001927d      0xaef app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
- .debug_info    0x0000000000019d6c     0x18ed app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
- .debug_info    0x000000000001b659      0xc3d app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
- .debug_info    0x000000000001c296      0xab0 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
- .debug_info    0x000000000001cd46      0x219 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
- .debug_info    0x000000000001cf5f     0x1606 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
- .debug_info    0x000000000001e565     0x1366 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
- .debug_info    0x000000000001f8cb       0x3f app/out/libs/lpc_open/lpc_startup/src/crp.o
- .debug_info    0x000000000001f90a      0xbbd app/out/libs/lpc_open/lpc_startup/src/sysinit.o
- .debug_info    0x00000000000204c7       0x74 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
- .debug_info    0x000000000002053b      0xeaf app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
- .debug_info    0x00000000000213ea     0x24c6 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
- .debug_info    0x00000000000238b0     0x1136 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
- .debug_info    0x00000000000249e6     0x1a90 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
- .debug_info    0x0000000000026476     0x330e app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
- .debug_info    0x0000000000029784      0xdb2 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
- .debug_info    0x000000000002a536     0x1e39 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
+ .debug_info    0x000000000000483a     0x33dd app/out/app/src/kernek.o
+ .debug_info    0x0000000000007c17      0x301 app/out/libs/cmsis_core//src/armv7m_startup.o
+ .debug_info    0x0000000000007f18      0xf43 app/out/libs/sys_newlib//src/system.o
+ .debug_info    0x0000000000008e5b      0xf30 app/out/libs/freertos/MemMang/heap_1.o
+ .debug_info    0x0000000000009d8b     0x3147 app/out/libs/freertos/source/queue.o
+ .debug_info    0x000000000000ced2      0xb09 app/out/libs/freertos/source/list.o
+ .debug_info    0x000000000000d9db      0x346 app/out/libs/freertos/source/static_provider.o
+ .debug_info    0x000000000000dd21      0x135 app/out/libs/freertos/source/hooks.o
+ .debug_info    0x000000000000de56     0x3956 app/out/libs/freertos/source/tasks.o
+ .debug_info    0x00000000000117ac     0x2476 app/out/libs/freertos/source/timers.o
+ .debug_info    0x0000000000013c22      0xa5e app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+ .debug_info    0x0000000000014680     0x2130 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+ .debug_info    0x00000000000167b0     0x14c3 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+ .debug_info    0x0000000000017c73     0x164f app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_info    0x00000000000192c2      0xaef app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
+ .debug_info    0x0000000000019db1     0x18ed app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_info    0x000000000001b69e      0xc3d app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .debug_info    0x000000000001c2db      0xab0 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_info    0x000000000001cd8b      0x219 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
+ .debug_info    0x000000000001cfa4     0x1606 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
+ .debug_info    0x000000000001e5aa     0x1366 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
+ .debug_info    0x000000000001f910       0x3f app/out/libs/lpc_open/lpc_startup/src/crp.o
+ .debug_info    0x000000000001f94f      0xbbd app/out/libs/lpc_open/lpc_startup/src/sysinit.o
+ .debug_info    0x000000000002050c       0x74 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
+ .debug_info    0x0000000000020580      0xeaf app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_info    0x000000000002142f     0x24c6 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+ .debug_info    0x00000000000238f5     0x1136 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+ .debug_info    0x0000000000024a2b     0x1a90 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_info    0x00000000000264bb     0x330e app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+ .debug_info    0x00000000000297c9      0xdb2 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
+ .debug_info    0x000000000002a57b     0x1e39 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
 
-.debug_abbrev   0x0000000000000000     0x58cf
+.debug_abbrev   0x0000000000000000     0x58e9
  .debug_abbrev  0x0000000000000000      0x361 app/out/app/src/driver.o
  .debug_abbrev  0x0000000000000361      0x2d7 app/out/app/src/service.o
  .debug_abbrev  0x0000000000000638       0xd1 app/out/app/src/operations.o
- .debug_abbrev  0x0000000000000709      0x367 app/out/app/src/kernek.o
- .debug_abbrev  0x0000000000000a70      0x10d app/out/libs/cmsis_core//src/armv7m_startup.o
- .debug_abbrev  0x0000000000000b7d      0x2b7 app/out/libs/sys_newlib//src/system.o
- .debug_abbrev  0x0000000000000e34      0x302 app/out/libs/freertos/MemMang/heap_1.o
- .debug_abbrev  0x0000000000001136      0x404 app/out/libs/freertos/source/queue.o
- .debug_abbrev  0x000000000000153a      0x223 app/out/libs/freertos/source/list.o
- .debug_abbrev  0x000000000000175d       0xff app/out/libs/freertos/source/static_provider.o
- .debug_abbrev  0x000000000000185c       0xbb app/out/libs/freertos/source/hooks.o
- .debug_abbrev  0x0000000000001917      0x3dc app/out/libs/freertos/source/tasks.o
- .debug_abbrev  0x0000000000001cf3      0x389 app/out/libs/freertos/source/timers.o
- .debug_abbrev  0x000000000000207c      0x284 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
- .debug_abbrev  0x0000000000002300      0x47e app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
- .debug_abbrev  0x000000000000277e      0x2f8 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
- .debug_abbrev  0x0000000000002a76      0x3b7 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
- .debug_abbrev  0x0000000000002e2d      0x1f9 app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
- .debug_abbrev  0x0000000000003026      0x379 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
- .debug_abbrev  0x000000000000339f      0x1c3 app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
- .debug_abbrev  0x0000000000003562      0x203 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
- .debug_abbrev  0x0000000000003765      0x100 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
- .debug_abbrev  0x0000000000003865      0x352 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
- .debug_abbrev  0x0000000000003bb7      0x344 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
- .debug_abbrev  0x0000000000003efb       0x36 app/out/libs/lpc_open/lpc_startup/src/crp.o
- .debug_abbrev  0x0000000000003f31      0x221 app/out/libs/lpc_open/lpc_startup/src/sysinit.o
- .debug_abbrev  0x0000000000004152       0x74 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
- .debug_abbrev  0x00000000000041c6      0x232 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
- .debug_abbrev  0x00000000000043f8      0x48f app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
- .debug_abbrev  0x0000000000004887      0x2e2 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
- .debug_abbrev  0x0000000000004b69      0x389 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
- .debug_abbrev  0x0000000000004ef2      0x3d9 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
- .debug_abbrev  0x00000000000052cb      0x216 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
- .debug_abbrev  0x00000000000054e1      0x3ee app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
+ .debug_abbrev  0x0000000000000709      0x381 app/out/app/src/kernek.o
+ .debug_abbrev  0x0000000000000a8a      0x10d app/out/libs/cmsis_core//src/armv7m_startup.o
+ .debug_abbrev  0x0000000000000b97      0x2b7 app/out/libs/sys_newlib//src/system.o
+ .debug_abbrev  0x0000000000000e4e      0x302 app/out/libs/freertos/MemMang/heap_1.o
+ .debug_abbrev  0x0000000000001150      0x404 app/out/libs/freertos/source/queue.o
+ .debug_abbrev  0x0000000000001554      0x223 app/out/libs/freertos/source/list.o
+ .debug_abbrev  0x0000000000001777       0xff app/out/libs/freertos/source/static_provider.o
+ .debug_abbrev  0x0000000000001876       0xbb app/out/libs/freertos/source/hooks.o
+ .debug_abbrev  0x0000000000001931      0x3dc app/out/libs/freertos/source/tasks.o
+ .debug_abbrev  0x0000000000001d0d      0x389 app/out/libs/freertos/source/timers.o
+ .debug_abbrev  0x0000000000002096      0x284 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+ .debug_abbrev  0x000000000000231a      0x47e app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+ .debug_abbrev  0x0000000000002798      0x2f8 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+ .debug_abbrev  0x0000000000002a90      0x3b7 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_abbrev  0x0000000000002e47      0x1f9 app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
+ .debug_abbrev  0x0000000000003040      0x379 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_abbrev  0x00000000000033b9      0x1c3 app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .debug_abbrev  0x000000000000357c      0x203 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_abbrev  0x000000000000377f      0x100 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
+ .debug_abbrev  0x000000000000387f      0x352 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
+ .debug_abbrev  0x0000000000003bd1      0x344 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
+ .debug_abbrev  0x0000000000003f15       0x36 app/out/libs/lpc_open/lpc_startup/src/crp.o
+ .debug_abbrev  0x0000000000003f4b      0x221 app/out/libs/lpc_open/lpc_startup/src/sysinit.o
+ .debug_abbrev  0x000000000000416c       0x74 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
+ .debug_abbrev  0x00000000000041e0      0x232 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_abbrev  0x0000000000004412      0x48f app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+ .debug_abbrev  0x00000000000048a1      0x2e2 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+ .debug_abbrev  0x0000000000004b83      0x389 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_abbrev  0x0000000000004f0c      0x3d9 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+ .debug_abbrev  0x00000000000052e5      0x216 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
+ .debug_abbrev  0x00000000000054fb      0x3ee app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
 
 .debug_loc      0x0000000000000000     0xae31
  .debug_loc     0x0000000000000000      0x26d app/out/app/src/driver.o
@@ -16791,41 +16793,41 @@ OUTPUT(app/out/app.elf elf32-littlearm)
  .debug_macro   0x000000000000f83a      0x474 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
  .debug_macro   0x000000000000fcae      0x4a2 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
 
-.debug_line     0x0000000000000000    0x136c9
+.debug_line     0x0000000000000000    0x136ce
  .debug_line    0x0000000000000000      0xe1c app/out/app/src/driver.o
  .debug_line    0x0000000000000e1c      0xdd4 app/out/app/src/service.o
  .debug_line    0x0000000000001bf0       0x7d app/out/app/src/operations.o
- .debug_line    0x0000000000001c6d      0xe96 app/out/app/src/kernek.o
- .debug_line    0x0000000000002b03       0xfa app/out/libs/cmsis_core//src/armv7m_startup.o
- .debug_line    0x0000000000002bfd      0x4a6 app/out/libs/sys_newlib//src/system.o
- .debug_line    0x00000000000030a3      0x8bd app/out/libs/freertos/MemMang/heap_1.o
- .debug_line    0x0000000000003960     0x10bd app/out/libs/freertos/source/queue.o
- .debug_line    0x0000000000004a1d      0x8c3 app/out/libs/freertos/source/list.o
- .debug_line    0x00000000000052e0      0x7e5 app/out/libs/freertos/source/static_provider.o
- .debug_line    0x0000000000005ac5      0x7e3 app/out/libs/freertos/source/hooks.o
- .debug_line    0x00000000000062a8     0x13e2 app/out/libs/freertos/source/tasks.o
- .debug_line    0x000000000000768a      0xb97 app/out/libs/freertos/source/timers.o
- .debug_line    0x0000000000008221      0x95b app/out/libs/freertos/source/portable/ARM_CM4F/port.o
- .debug_line    0x0000000000008b7c      0xa6b app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
- .debug_line    0x00000000000095e7      0x86e app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
- .debug_line    0x0000000000009e55      0x9dd app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
- .debug_line    0x000000000000a832      0x824 app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
- .debug_line    0x000000000000b056      0xb35 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
- .debug_line    0x000000000000bb8b      0x73f app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
- .debug_line    0x000000000000c2ca      0x79c app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
- .debug_line    0x000000000000ca66      0x6fd app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
- .debug_line    0x000000000000d163      0xb87 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
- .debug_line    0x000000000000dcea      0x9e2 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
- .debug_line    0x000000000000e6cc       0x44 app/out/libs/lpc_open/lpc_startup/src/crp.o
- .debug_line    0x000000000000e710      0x80b app/out/libs/lpc_open/lpc_startup/src/sysinit.o
- .debug_line    0x000000000000ef1b       0x61 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
- .debug_line    0x000000000000ef7c      0x8b5 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
- .debug_line    0x000000000000f831      0xc2c app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
- .debug_line    0x000000000001045d      0x9e1 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
- .debug_line    0x0000000000010e3e      0x9a8 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
- .debug_line    0x00000000000117e6      0xb4f app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
- .debug_line    0x0000000000012335      0x91d app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
- .debug_line    0x0000000000012c52      0xa77 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
+ .debug_line    0x0000000000001c6d      0xe9b app/out/app/src/kernek.o
+ .debug_line    0x0000000000002b08       0xfa app/out/libs/cmsis_core//src/armv7m_startup.o
+ .debug_line    0x0000000000002c02      0x4a6 app/out/libs/sys_newlib//src/system.o
+ .debug_line    0x00000000000030a8      0x8bd app/out/libs/freertos/MemMang/heap_1.o
+ .debug_line    0x0000000000003965     0x10bd app/out/libs/freertos/source/queue.o
+ .debug_line    0x0000000000004a22      0x8c3 app/out/libs/freertos/source/list.o
+ .debug_line    0x00000000000052e5      0x7e5 app/out/libs/freertos/source/static_provider.o
+ .debug_line    0x0000000000005aca      0x7e3 app/out/libs/freertos/source/hooks.o
+ .debug_line    0x00000000000062ad     0x13e2 app/out/libs/freertos/source/tasks.o
+ .debug_line    0x000000000000768f      0xb97 app/out/libs/freertos/source/timers.o
+ .debug_line    0x0000000000008226      0x95b app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+ .debug_line    0x0000000000008b81      0xa6b app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+ .debug_line    0x00000000000095ec      0x86e app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+ .debug_line    0x0000000000009e5a      0x9dd app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_line    0x000000000000a837      0x824 app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
+ .debug_line    0x000000000000b05b      0xb35 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_line    0x000000000000bb90      0x73f app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .debug_line    0x000000000000c2cf      0x79c app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_line    0x000000000000ca6b      0x6fd app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
+ .debug_line    0x000000000000d168      0xb87 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
+ .debug_line    0x000000000000dcef      0x9e2 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
+ .debug_line    0x000000000000e6d1       0x44 app/out/libs/lpc_open/lpc_startup/src/crp.o
+ .debug_line    0x000000000000e715      0x80b app/out/libs/lpc_open/lpc_startup/src/sysinit.o
+ .debug_line    0x000000000000ef20       0x61 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
+ .debug_line    0x000000000000ef81      0x8b5 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_line    0x000000000000f836      0xc2c app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+ .debug_line    0x0000000000010462      0x9e1 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+ .debug_line    0x0000000000010e43      0x9a8 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_line    0x00000000000117eb      0xb4f app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+ .debug_line    0x000000000001233a      0x91d app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
+ .debug_line    0x0000000000012c57      0xa77 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
 
 .debug_str      0x0000000000000000    0x2f49d
  .debug_str     0x0000000000000000    0x266e9 app/out/app/src/driver.o
@@ -17025,9 +17027,9 @@ OUTPUT(app/out/app.elf elf32-littlearm)
  .ARM.attributes
                 0x0000000000000942       0x34 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strcpy.o)
  .ARM.attributes
-                0x0000000000000976       0x34 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strlwr.o)
+                0x0000000000000976       0x34 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strtol.o)
  .ARM.attributes
-                0x00000000000009aa       0x34 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strtol.o)
+                0x00000000000009aa       0x34 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strupr.o)
  .ARM.attributes
                 0x00000000000009de       0x34 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wbuf.o)
  .ARM.attributes
@@ -17108,8 +17110,8 @@ OUTPUT(app/out/app.elf elf32-littlearm)
  .debug_frame   0x00000000000028bc       0x74 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-printf.o)
  .debug_frame   0x0000000000002930       0x28 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strcat.o)
  .debug_frame   0x0000000000002958       0x20 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strcpy.o)
- .debug_frame   0x0000000000002978       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strlwr.o)
- .debug_frame   0x00000000000029a4       0x84 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strtol.o)
+ .debug_frame   0x0000000000002978       0x84 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strtol.o)
+ .debug_frame   0x00000000000029fc       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-strupr.o)
  .debug_frame   0x0000000000002a28       0x40 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wbuf.o)
  .debug_frame   0x0000000000002a68       0x2c /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-wsetup.o)
  .debug_frame   0x0000000000002a94       0x68 /home/issam/CIAA/gcc-arm-none-eabi-7-2018-q2-update/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-fflush.o)
