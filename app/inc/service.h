@@ -34,12 +34,25 @@ typedef  struct Frame{
 	volatile char* dataProcessed[55];
 };
 
-typedef  struct Tasks_Stack{
+typedef  struct Program_Memory{
 
-	volatile  uint8_t ServerStack;
-	volatile  uint8_t DriverStack;
-	volatile  uint8_t Task1Stack;
-	volatile  uint8_t Task2Stack;
+	volatile  uint8_t ServerStartStack;
+	volatile  uint8_t DriverStartStack;
+	volatile  uint8_t Task1StartStack;
+	volatile  uint8_t Task2StartStack;
+	volatile  uint8_t ServerStartHeap;
+	volatile  uint8_t DriverStartHeap;
+	volatile  uint8_t Task1StartHeap;
+	volatile  uint8_t Task2StartHeap;
+
+	volatile  uint8_t ServerEndStack;
+	volatile  uint8_t DriverEndStack;
+	volatile  uint8_t Task1EndStack;
+	volatile  uint8_t Task2EndStack;
+	volatile  uint8_t ServerEndHeap;
+	volatile  uint8_t DriverEndHeap;
+	volatile  uint8_t Task1EndHeap;
+	volatile  uint8_t Task2EndHeap;
 
 };
 /*==================[external data declaration]==============================*/
