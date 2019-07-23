@@ -48,7 +48,7 @@
 
 /*==================[definiciones y macros]==================================*/
 #define TASK1_1
-#define TASK2_0
+#define TASK2_1
 #define SERVER_1
 #define DRIVER_1
 #define DRIVER_B1_1
