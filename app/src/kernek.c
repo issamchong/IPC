@@ -67,7 +67,7 @@ volatile QueueHandle_t MsgHandle;
 volatile QueueHandle_t MsgHandle_2;
 volatile QueueHandle_t DataProcessed_handle;
 //char HexFrame[110]="7B313530546869732069732052544F5320636F757273652054503120696E20746573742C616E6420697420697320776F726B696E67217D";
-char HexFrame[110]="7B323530546869732069732052544F5320636F757273652054503120696E20746573742C616E6420697420697320776F726B696E67217D"; 														//The Frame will be stored in this buffer
+char HexFrame[110]="7B313530546869732069732052544F5320636F757273652054503120696E20746573742C616E6420697420697320776F726B696E67217D"; 														//The Frame will be stored in this buffer
 char AsciFrame[55]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 struct Program_Memory Report;
 struct Frame message;																					//Only Server has access to that structure
@@ -232,7 +232,7 @@ void task1(void){
 		char Task1Buffer[sizeof(AsciFrame)]="\0";
 		while(1){
 			if(QeueMayusculizador !=0){
-				if(!(xQueueReceive(QeueMayusculizador,Task1Buffer,3000))){
+				if(!(xQueueReceive(QeueMayusculizador,Task1Buffer,1000))){
 					uartWriteString(UART_USB," Task1 <- Server : No received\n");
 				}else
 					if(!UperCase(Task1Buffer)){                           						  		  	  //convert message letters to upper case
