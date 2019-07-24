@@ -44,8 +44,6 @@
 
 
 
-
-
 /*==================[definiciones y macros]==================================*/
 #define TASK1_1
 #define TASK2_1
@@ -69,7 +67,7 @@ volatile QueueHandle_t MsgHandle;
 volatile QueueHandle_t MsgHandle_2;
 volatile QueueHandle_t DataProcessed_handle;
 //char HexFrame[110]="7B313530546869732069732052544F5320636F757273652054503120696E20746573742C616E6420697420697320776F726B696E67217D";
-char HexFrame[110]="7B303530546869732069732052544F5320636F757273652054503120696E20746573742C616E6420697420697320776F726B696E67217D"; 														//The Frame will be stored in this buffer
+char HexFrame[110]="7B323530546869732069732052544F5320636F757273652054503120696E20746573742C616E6420697420697320776F726B696E67217D"; 														//The Frame will be stored in this buffer
 char AsciFrame[55]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 struct Program_Memory Report;
 struct Frame message;																					//Only Server has access to that structure
@@ -152,6 +150,11 @@ void server(void){
 		        			}
 		        		}
 		        }
+        	    break;
+        	case '2':
+    			printf("Server-> Report: Flag  %c\n",*f);
+        		printf("Server -> Report: Total remaining stack size is %d\n",Report.DriverEndStack +Report.ServerEndStack+Report.Task1EndStack+Report.Task2EndStack);
+
         	    break;
         	case '\0':
         		uartWriteString(UART_USB,"Server -> Report: No Flag \n");
@@ -269,7 +272,7 @@ void task2(void){
 	char Task2Buffer[sizeof(AsciFrame)]="\0";
 	while(1){
 		if(QeueMinusculizador !=0){
-			if(!(xQueueReceive(QeueMinusculizador,Task2Buffer,3000))){
+			if(!(xQueueReceive(QeueMinusculizador,Task2Buffer,2000))){
 				uartWriteString(UART_USB," Task2 <- Server : No received\n");
 			}else
 				if(!LwrCase(Task2Buffer)){                           						  		  	  //convert message letters to upper case
