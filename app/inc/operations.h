@@ -1,8 +1,8 @@
 /*============================================================================
  * License: BSD-3-Clause
- * Copyright 2018, Eric Pernia <ericpernia@gmail.com>
+ * Copyright 2019, Issam Almustafa <Lssam.almustafa@gmail.com>
  * All rights reserved.
- * Date: 2018/10/04
+ * Date: 2019/07/25
  *===========================================================================*/
 
 #ifndef _OPERATIONS_H_
@@ -25,9 +25,9 @@ extern "C" {
 /*==================[external functions declaration]=========================*/
 
 
-int UperCase(char *buffer);  //This function takes the pointer to the buffer and coverts the msg letters to upper case
+int UperCase(char *buffer);  //This function takes the pointer to the buffer and converts  the message  letters to upper case
 
-int LwrCase(char *buffer);  //This function takes the pointer to the buffer and coverts the msg letters to lower  case
+int LwrCase(char *buffer);  //This function takes the pointer to the buffer and converts  the message  letters to lower  case
 
 /*==================[cplusplus]==============================================*/
 

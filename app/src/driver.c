@@ -1,8 +1,8 @@
 /*============================================================================
  * License: BSD-3-Clause
- * Copyright 2018, Eric Pernia <ericpernia@gmail.com>
+ * Copyright 2019, Issam Almustafa <Lssam.almustafa@gmail.com>
  * All rights reserved.
- * Date: 2018/10/04
+ * Date: 2019/07/25
  *===========================================================================*/
 
 /*==================[inclusions]=============================================*/
@@ -51,16 +51,16 @@ int Send2Qu(QueueHandle_t *handler,const  char* Msg_Only,const char* Msg_Op){
 }
 int ASCI(char *frame, uint8_t  size, char *buf){
 
-char buffer[111]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+char buffer[111]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";			//This buffer stores the data received in Hex representation
 int newval, j=0;
-char msg[60]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+char msg[60]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";								//This is where the final ASCCI readable letters are stored
 
     for (int i = 0; i < size; i+=2)
     {
         int firstvalue = frame[i] - '0';
         int secondvalue;
-        //if RecvData[i+1] is a letter convert it to integer, otherwise use it.
-            switch(frame[i+1])
+
+            switch(frame[i+1])																				//if RecvData[i+1] is a letter convert it to integer, otherwise use it.
         {
             case 'A':
             {
@@ -91,16 +91,15 @@ char msg[60]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
                 secondvalue = frame[i+1] - '0';
             break;
         }
-        //convert the two values into decimal form
-        newval =  16 * firstvalue + secondvalue;
-        //change newval into a character
-          // cast type newval into character, save itin ptrBuffer :buffer[0]='G' only for the first element
-	buffer[i]=(char)newval;
+
+        newval =  16 * firstvalue + secondvalue;						 									//convert the two values into decimal form
+        buffer[i]=(char)newval;																				// cast type newval into character, save in ptrBuffer :buffer[0]='G' only for the first element
+
     }
-	for(int j=0;j<=sizeof(msg);j++){
+	for(int j=0;j<=sizeof(msg);j++){																		//Assign new value for every element in msg array from the converted buffer
 		msg[j]=buffer[j*2];
 	 }
-	strcpy(buf,msg);
+	strcpy(buf,msg);																						//Copy the converted result into the buffer
     return 0;
 }
 

@@ -1,8 +1,8 @@
 /*============================================================================
  * License: BSD-3-Clause
- * Copyright 2018, Eric Pernia <ericpernia@gmail.com>
+ * Copyright 2019, Issam Almustafa <Lssam.almustafa@gmail.com>
  * All rights reserved.
- * Date: 2018/10/04
+ * Date: 2019/07/25
  *===========================================================================*/
 
 #ifndef _SERVICE_H_
@@ -58,9 +58,9 @@ typedef  struct Program_Memory{
 /*==================[external data declaration]==============================*/
 
 /*==================[external functions declaration]=========================*/
-int GetOp(char *op,const  char* buffer );
-int GetMsg(char *data,const  char* buffer,uint8_t size );
-int  EndTask(TaskHandle_t *handle, const uint8_t i);
+int GetOp(char *op,const  char* buffer );										//This function extracts the operation flag from the  data
+int GetMsg(char *data,const  char* buffer,uint8_t size );						//This function removes Start Of Frame and End Of Frame from data since it is not needed
+int  EndTask(TaskHandle_t *handle, const uint8_t i);							//This function ends suspends the task and prompts a message
 /*==================[cplusplus]==============================================*/
 
 #ifdef __cplusplus

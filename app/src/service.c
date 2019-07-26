@@ -1,8 +1,8 @@
 /*============================================================================
  * License: BSD-3-Clause
- * Copyright 2018, Eric Pernia <ericpernia@gmail.com>
+ * Copyright 2019, Issam Almustafa <Lssam.almustafa@gmail.com>
  * All rights reserved.
- * Date: 2018/10/04
+ * Date: 2019/07/25
  *===========================================================================*/
 
 /*==================[inclusions]=============================================*/
@@ -25,7 +25,6 @@
 
 
 
-// This function suspends the task, it takes the task handle and the task number, the number to decide the message
 int GetMsg(char *data, const char* buffer,uint8_t size ){
 
 	memcpy(data,buffer+2,size-2);
@@ -37,11 +36,12 @@ int GetOp(char *op, const char* buffer ){
 
 	return 1;
 }
-int EndTask(TaskHandle_t *handle,const uint8_t i){
+int EndTask(TaskHandle_t *handle,const uint8_t i){										// This function suspends the task, it takes the task handle and the task number, the number to decide the message
+
 
 
       vTaskDelay(500);
-      switch (i)
+      switch (i)																		//Verify the task number
       {
       case 1:
     	  uartWriteString(UART_USB,"Task 1 suspended, no Queue created.  \n");
