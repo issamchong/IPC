@@ -1,4 +1,4 @@
-app/out/libs/freertos/MemMang/heap_1.o: libs/freertos/MemMang/heap_1.c \
+app/out/libs/freertos/MemMang/heap_2.o: libs/freertos/MemMang/heap_2.c \
  libs/freertos/include/FreeRTOS.h app/inc/FreeRTOSConfig.h \
  libs/lpc_open/lpc_chip_43xx/inc/chip.h \
  libs/lpc_open/lpc_chip_43xx/inc/sys_config.h \

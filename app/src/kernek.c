@@ -1,8 +1,7 @@
 /* Copyright 2019-2020, Issam ALmustafa
  * All rights reserved.
  *
- *
- *
+
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -41,8 +40,6 @@
 #include "queue.h"
 #include "semphr.h"
 
-
-
 /*==================[definitions and  macros]==================================*/
 #define TASK1_1
 #define TASK2_1
@@ -52,8 +49,7 @@
 #define DRIVER_B2_1
 #define Task2_Test_0
 /*==================[Definition of internal data]=========================*/
-
-																														// List of variable to be created first before executing any task
+																											// List of variable to be created first before executing any task
 volatile TaskHandle_t ServHandle = NULL;
 volatile TaskHandle_t DrivHandle = NULL;
 volatile TaskHandle_t Task1Handle = NULL;
@@ -69,29 +65,25 @@ char AsciFrame[55]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 struct Program_Memory Report;
 struct Frame message;																									//Only Server has access to that structure
 
-
 /*==================[Definition of external data]=========================*/
 
 /*==================[Declaration of internal functions ]====================*/
 
-
 void server(void){																										// The server assigns the messages to the correct task based on the operation byte, it also creates queues for each task
 
-
-	/* Inspect our own high water mark on entering the Server. */
 	volatile TaskStatus_t xTaskDetails;																					// This variable stores the information about the stack available
 	vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);																// This function stores in the variable declared above the information about the stack, it also requires the task handle as a parameter
 	Report.ServerStartStack=(const)xTaskDetails.usStackHighWaterMark;													// The current stack size available is stored in the ServerStartStack of  Report structure and cast type it to read only
 	Report.ServerStartHeap=(const)xPortGetFreeHeapSize();																// Get the current available heap size and assign to the ServerStartHeap member of the Report structure and cast type it to read only
 
 	char MsgFromDriver[sizeof(AsciFrame)]="\0";																			// Declaring variable that will store the data from the driver, this variable of size AssciFrame define above
-	char MsgToDriver[sizeof(AsciFrame)]="\0";																			// Declaring variable that will store the data to be sent to the driver, this variable of size AssciFrame define above
+	char *MsgToDriver=(char *)pvPortMalloc(sizeof(AsciFrame));																			// Declaring variable that will store the data to be sent to the driver, this variable of size AssciFrame define above
 	char *f=MsgFromDriver;																								// This pointer holds the first operation byte in order to determine the proper operation
 	char flag[2]="\0";																									// This string is used to put together the message and the operation before sending back to the Driver
 	char SizeData[3]="\0";																								// This string is used to store the size bytes of the data
 
-// Checking if new message is available and where to send it
     while(1){
+
 
     	if(!(xQueueReceive(MsgHandle,MsgFromDriver,1000))){                          									// Check if any message was received and store it in MsgFromDriver buffer, important QueueReceive clears buffer  when called again
     		uartWriteString(UART_USB,"Server <-Driver: No received\n");													// Error capture if message was not received
@@ -166,29 +158,28 @@ void server(void){																										// The server assigns the messages t
     	vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);																															// Get available information about the stack
     	Report.ServerEndStack=(const)xTaskDetails.usStackHighWaterMark;																													//Set  entry for Server start stack of Report state machine and cast type it to read only
     	Report.ServerEndHeap=(const)xPortGetFreeHeapSize();																																//Set entry for Server start heap of Report state machine and cast type it to read only
+    	//printf("available heap is %d\n",Report.ServerEndHeap );
+      	//printf("available stack is %d\n",Report.ServerEndStack );
+    	//vPortFree(MsgToDriver);                                                                                                                                                       //Since data gets removed by it self after receiving, no need for free here
     }
+
 }
 
 void driver(void){
-
-
 																																														/* Inspect our own high water mark on entering the Server. */
 	volatile TaskStatus_t xTaskDetails;																																					//This variable stores the information about the stack and if of type volatile since  it changes and should not optimized
 	vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);																																//Get current stack size and save it in the variable declared above
 	Report.DriverStartStack=(const)xTaskDetails.usStackHighWaterMark;                                                                                                                   // Set  DriverStartStack value of Report machine state and cast type it to read only
 	Report.DriverStartHeap=(const)xPortGetFreeHeapSize();																																//Set DriverStartHeap value of Report machine state
 
-
 	char data_2Server[sizeof(AsciFrame)]="\0";																																			//Buffer to store data to be sent to Server
 	char data_FromServer[sizeof(AsciFrame)]="\0";																																		//Buffer to store data received from Server
 	char op[2]="\0";																																									// String to store the operation flag
 	char SOF='{';																																										// This  variable holds the Start Of Frame (SOF) to validate the frame
 	char EnOF='}';																																										//This variable holds the End Of Frame (EOF) used to validate the frame as well
-
 																																														// Initialize local variables
 	ASCI(HexFrame,sizeof(HexFrame),AsciFrame);																																			//This function converts the data to ASCII readable characters
 	printf("Driver-> Report: Frame received - %s \n",AsciFrame);																														//Show received message from Server
-
 																																														//validate the AsciFrame format
 	if(!((AsciFrame[0]==SOF) && (AsciFrame[sizeof(AsciFrame)-1]==EnOF))){																												// Verify if either start of frame or end of frame is not valid
 		uartWriteString(UART_USB,"Driver-> Report: Invalid Frame \n");																													// Error handle if any of the two is not valid
@@ -200,7 +191,6 @@ void driver(void){
 		}
 
 	while(1){
-
 
 			if(!(xQueueSend(MsgHandle,data_2Server,1000))){																																//Sending data to Server via MsgHandle queue
 				uartWriteString(UART_USB,"Driver-> Server: No sent\n");																													// Error handle if message was not sent
@@ -255,15 +245,10 @@ void task1(void){
 			Report.Task1EndStack=(const)xTaskDetails.usStackHighWaterMark;																												//Set Task1  entry for end stack size of Report state machine and cast type it to  read only
 			Report.Task1EndHeap=(const)xPortGetFreeHeapSize();																															//Set Task1  entry for end heap size of Report state machine and cast type it to  read only
 			vTaskDelay(3000);
-
-
 		}
 }
-
 																																														//This function converts the message to lower case
 void task2(void){
-
-
 																																														/* Inspect our own high water mark on entering the Server. */
 	volatile TaskStatus_t xTaskDetails;																																					//Variable to store current stack information
 	vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);																																//Get current stack size and store the variable declared above;																																//Set task1 entry  for starting heap size of Report state machine and cast type to read only
@@ -297,89 +282,80 @@ void task2(void){
 		Report.Task2EndHeap=(const)xPortGetFreeHeapSize();																																//Set task2 entry for End stack size of  Report state machine and cast type to read only
 		vTaskDelay(3000);
 
-	//	printf("Task 2: available heap is %d\n",Report.Task2EndHeap);
 	}
 }
 /*==================[External function declaration ]====================*/
 
 /*==================[Principal function ]======================================*/
-
-																																													// Principal function that runs after reseting or starting up
+																																														// Principal function that runs after reseting or starting up
 int main(void)
 {
-   // ---------- CONFIGURACIONES ------------------------------
-   // Inicializar y configurar la plataforma
 
-   boardConfig();																																									//Configure the board
-   uart_config(9600,0);           																																					//This function sets the baud rate and turns on uart interruption
-
-   //Create Mutex and Queues
-   QeueMayusculizador =xQueueCreate(1, sizeof(AsciFrame));																															//Create a queue and assign to QeueMayusculizador handler
-   QeueMinusculizador =xQueueCreate(1, sizeof(AsciFrame));																															//Create a queue and assign to QeueMinusculizador handler
-   MsgHandle =xQueueCreate(1, sizeof(AsciFrame));																																	// Create a queue and assign to MsgHandle to it
+   boardConfig();																																										//Configure the board
+   uart_config(9600,0);           																																						//This function sets the baud rate and turns on uart interruption
+   QeueMayusculizador =xQueueCreate(1, sizeof(AsciFrame));																																//Create a queue and assign to QeueMayusculizador handler
+   QeueMinusculizador =xQueueCreate(1, sizeof(AsciFrame));																																//Create a queue and assign to QeueMinusculizador handler
+   MsgHandle =xQueueCreate(1, sizeof(AsciFrame));																																		// Create a queue and assign to MsgHandle to it
    MsgHandle_2=xQueueCreate(1, sizeof(AsciFrame));
-   DataProcessed_handle =xQueueCreate(1, sizeof(AsciFrame));																														// Create a queue and assign DataProcessed_handle to it
-   DataProcessed_key=xSemaphoreCreateMutex();																																		// Create a mutex and assign  DataProcessed_key to it
-
-
+   DataProcessed_handle =xQueueCreate(1, sizeof(AsciFrame));																															// Create a queue and assign DataProcessed_handle to it
+   DataProcessed_key=xSemaphoreCreateMutex();																																			// Create a mutex and assign  DataProcessed_key to it
 
 #ifdef DRIVER_1
-   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	// Create Driver task
+   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   		// Create Driver task
    xTaskCreate(
-      driver,                     																																					// The name of the function to be executed when the task is called
-      (const char *)"driver",     																																					// The name of the task given by the user
-      configMINIMAL_STACK_SIZE*2, 																																					// The amount of stack assigned for this task
-      0,                          																																					// Task parameters
-      tskIDLE_PRIORITY+2,         																																					// Task priority
-      DrivHandle                 																																					// Pointer to the task handler
+      driver,                     																																						// The name of the function to be executed when the task is called
+      (const char *)"driver",     																																						// The name of the task given by the user
+      configMINIMAL_STACK_SIZE*2, 																																						// The amount of stack assigned for this task
+      0,                          																																						// Task parameters
+      tskIDLE_PRIORITY+2,         																																						// Task priority
+      DrivHandle                 																																						// Pointer to the task handler
    );
 #endif DRIVER_1
 
 
 #ifdef SERVER_1
-   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	// Create the Server task
+   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   		// Create the Server task
    xTaskCreate(
-      server,                     																																					// The name of the function to be executed when task is called
-      (const char *)"server",     	 																																				// The name of the task given by the user
-      configMINIMAL_STACK_SIZE*2, 	 																																				// The amount of stack assigned for this task
-      0,                          																																					// Task parameters
-      tskIDLE_PRIORITY+1,         																																					// Task priority
-      0                 																																							// Pointer to the task handler
+      server,                     																																						// The name of the function to be executed when task is called
+      (const char *)"server",     	 																																					// The name of the task given by the user
+      configMINIMAL_STACK_SIZE*2, 	 																																					// The amount of stack assigned for this task
+      0,                          																																						// Task parameters
+      tskIDLE_PRIORITY+1,         																																						// Task priority
+      0                 																																								// Pointer to the task handler
    );
 
 #endif SERVER_1
 
 #ifdef TASK1_1
-   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	// Create Task1
+   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   		// Create Task1
    xTaskCreate(
-      task1,                     																																					// The name of the function to be executed when task is called
-      (const char *)"task1",     																																					// The name of the task given by the user
-      configMINIMAL_STACK_SIZE*2, 																																					// The amount of stack assigned to this task
-      0,                          																																					// Task parameters
-      tskIDLE_PRIORITY+1,        																																					// Task priority
-      Task1Handle                  																																					// Pointers to the task handler
+      task1,                     																																						// The name of the function to be executed when task is called
+      (const char *)"task1",     																																						// The name of the task given by the user
+      configMINIMAL_STACK_SIZE*2, 																																						// The amount of stack assigned to this task
+      0,                          																																						// Task parameters
+      tskIDLE_PRIORITY+1,        																																						// Task priority
+      Task1Handle                  																																						// Pointers to the task handler
    );
 #endif
 
 #ifdef TASK2_1
-   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	// Crear Task2
+   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   		// Create Task2
    xTaskCreate(
-      task2,                     																																					// The name of the function to be executed when task is called
-      (const char *)"task2",     																																					// The name of the task given
-      configMINIMAL_STACK_SIZE*2, 																																					// The amount of stack assigned to this task
-      0,                          																																					// Task parameters
-      tskIDLE_PRIORITY+1,         																																					// Task priority
-      Task2Handle                  																																					// Pointer to the task handler
+      task2,                     																																						// The name of the function to be executed when task is called
+      (const char *)"task2",     																																						// The name of the task given
+      configMINIMAL_STACK_SIZE*2, 																																						// The amount of stack assigned to this task
+      0,                          																																						// Task parameters
+      tskIDLE_PRIORITY+1,         																																						// Task priority
+      Task2Handle                  																																						// Pointer to the task handler
    );
  #endif
-   // Iniciar scheduler
    vTaskStartScheduler();
 
 }
 
-/*==================[definiciones de funciones internas]=====================*/
+/*==================[Internal function definition]=====================*/
 
-/*==================[definiciones de funciones externas]=====================*/
+/*==================[External function definition]=====================*/
 
 
-/*==================[fin del archivo]========================================*/
+/*==================[End of file]========================================*/
