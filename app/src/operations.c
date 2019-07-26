@@ -25,7 +25,8 @@
 
 int UperCase(char *data){
 
-	strcpy(data,strupr(data));   							 				// convert to lower case
+	strcpy(data,strupr(data));
+	return 1;
 }
 int LwrCase(char *data){
 

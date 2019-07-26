@@ -31,6 +31,7 @@ uint8_t v;
 int GetData(char *data, const char* buffer,uint8_t size ){
 
 	memcpy(data,buffer+1,size-2);
+	return 1;
 }
 
 // This functions sets the baud rate of the USB UART
@@ -45,7 +46,8 @@ int Send2Qu(QueueHandle_t *handler,const  char* Msg_Only,const char* Msg_Op){
 
 	strcat(Msg_Op,Msg_Only);
 	printf("Message with operation flag   is %s\r\n",Msg_Op);
-	//xQueueSend(,MsgBuffer,50)
+	return 1;
+
 }
 int ASCI(char *frame, uint8_t  size, char *buf){
 
