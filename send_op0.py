@@ -2,7 +2,7 @@
 import serial
 import time
 ser= serial.Serial("/dev/ttyUSB1", 9600,timeout=1)
-ser.write("7B3135305468697")
+ser.write("7B3035305468697")
 time.sleep(1)
 ser.write("32069732052544F")
 time.sleep(1)
@@ -22,11 +22,4 @@ ser.close
 
 
 
-#7B3135305468697
-#32069732052544F
-#5320636F7572736
-#52054503120696E
-#20746573742C616
-#E64206974206973
-#20776F726B696E6
-#7217D
+

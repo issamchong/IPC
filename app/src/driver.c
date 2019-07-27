@@ -33,22 +33,6 @@ int GetData(char *data, const char* buffer,uint8_t size ){
 	memcpy(data,buffer+1,size-2);
 	return 1;
 }
-
-// This functions sets the baud rate of the USB UART
-void uart_config(int baud,bool_t state )
-{
-     uartConfig(UART_USB,baud);
-	 //uartInterrupt( UART_USB, state); 				// Enable UART interrupt
-}
-
-
-int Send2Qu(QueueHandle_t *handler,const  char* Msg_Only,const char* Msg_Op){
-
-	strcat(Msg_Op,Msg_Only);
-	printf("Message with operation flag   is %s\r\n",Msg_Op);
-	return 1;
-
-}
 int ASCI(char *frame, uint8_t  size, char *buf){
 
 char buffer[111]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";			//This buffer stores the data received in Hex representation
