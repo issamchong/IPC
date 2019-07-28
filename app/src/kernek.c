@@ -49,7 +49,7 @@
 #define DRIVER_B2_1
 #define Task2_Test_0
 /*==================[Definition of internal data]=========================*/
-														// List of variable to be created first before executing any task
+																							// List of variable to be created first before executing any task
 volatile TaskHandle_t ServHandle = NULL;
 volatile TaskHandle_t DrivHandle = NULL;
 volatile TaskHandle_t Task1Handle = NULL;
@@ -61,7 +61,6 @@ volatile QueueHandle_t MsgHandle;
 volatile QueueHandle_t MsgHandle_2;
 volatile QueueHandle_t DataProcessed_handle;
 static char HexFrame[110]; 																														//The Frame will be stored in this buffer
-//char HexFrame[110]="7B313530546869732069732052544F5320636F757273652054503120696E20746573742C616E6420697420697320776F726B696E67217D"; 														//The Frame will be stored in this buffer
 static char AsciFrame[55]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 static struct Program_Memory Report;
 static struct Frame message;
@@ -172,7 +171,7 @@ void server(void){																	// The server assigns the messages to the cor
                 		printf("Server -> Report: Total available Heap size is %d\n",Report.DriverEndHeap +Report.ServerEndHeap+Report.Task1EndHeap+Report.Task2EndHeap);				//Report the total Heap size
                 		*f='\0';
                 		InterruptCounter=0;
-        				uartInterrupt(UART_USB, true);														  //Enable USB interrupt
+        				uartInterrupt(UART_USB, true);						    //Enable USB interrupt
                 	    break;
         	case '\0':
         		uartWriteString(UART_USB,"Server -> Report: No Flag \n");		//Error handle if operation flag is not available
@@ -195,8 +194,8 @@ void driver(void){
 	Report.DriverStartStack=(const)xTaskDetails.usStackHighWaterMark;           // Set  DriverStartStack value of Report machine state and cast type it to read only
 	Report.DriverStartHeap=(const)xPortGetFreeHeapSize();						//Set DriverStartHeap value of Report machine state
 
-	static char data_2Server[sizeof(AsciFrame)]="\0";									//Buffer to store data to be sent to Server
-	static char data_FromServer[sizeof(AsciFrame)]="\0";								//Buffer to store data received from Server
+	static char data_2Server[sizeof(AsciFrame)]="\0";							//Buffer to store data to be sent to Server
+	static char data_FromServer[sizeof(AsciFrame)]="\0";						//Buffer to store data received from Server
 	char op[2]="\0";															// String to store the operation flag
 	char SOF='{';																// This  variable holds the Start Of Frame (SOF) to validate the frame
 	char EnOF='}';																//This variable holds the End Of Frame (EOF) used to validate the frame as well
@@ -205,10 +204,10 @@ void driver(void){
 	while(1){
 
 			if( sizeof(HexFrame)>=109){
-				uartInterrupt(UART_USB, false);														  //Enable USB interrupt
+				uartInterrupt(UART_USB, false);												//Enable USB interrupt
 				ASCI(HexFrame,sizeof(HexFrame),AsciFrame);
 				if(!((AsciFrame[0]==SOF) && (AsciFrame[sizeof(AsciFrame)-1]==EnOF))){		// Verify if either start of frame or end of frame is not valid
-					uartInterrupt(UART_USB, true);														  //Enable USB interrupt
+					uartInterrupt(UART_USB, true);											//Enable USB interrupt
 					uartWriteString(UART_USB,"Driver-> Report: Invalid Frame \n");			// Error handle if any of the two is not valid
 					}else{
 						uartWriteString(UART_USB,"Driver-> Report: Valid Frame \n");		//Report valid if all good
@@ -226,7 +225,7 @@ void driver(void){
 				//uartWriteString(UART_USB,"Driver <- Server: No Received\n");	//Error handle if nothing  received
 			}else{
 				uartWriteString(UART_USB,"Driver <- Server: Received\n");		//Report received if successful
-				uartInterrupt(UART_USB, true);														  //Enable USB interrupt
+				uartInterrupt(UART_USB, true);									//Enable USB interrupt
 				vTaskDelay(500);
 
 				}
@@ -244,23 +243,23 @@ void task1(void){
 		vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);					// Get current stack size and store the variable declared above
 		Report.Task1StartStack=(const)xTaskDetails.usStackHighWaterMark;		//Set task1 entry for staring stack size of  Report state machine and cast type to read only
 		Report.Task1StartHeap=(const)xPortGetFreeHeapSize();					//Set task1 entry  for starting heap size of Report state machine and cast type to read only
-		static char Task1Buffer[sizeof(AsciFrame)]="\0";								//Declaring local buffer to store data to be  sent and received
+		static char Task1Buffer[sizeof(AsciFrame)]="\0";						//Declaring local buffer to store data to be  sent and received
 
 		while(1){
-			if(QeueMayusculizador !=0){													  //Verify if QeueMayusculizador was created
-				if(!(xQueueReceive(QeueMayusculizador,Task1Buffer,1000))){				  // Check if anything was received from the queue
-					//uartWriteString(UART_USB," Task1 <- Server : No received\n");		  //Error handle if not
+			if(QeueMayusculizador !=0){													 	 //Verify if QeueMayusculizador was created
+				if(!(xQueueReceive(QeueMayusculizador,Task1Buffer,1000))){				 	 // Check if anything was received from the queue
+					//uartWriteString(UART_USB," Task1 <- Server : No received\n");		     //Error handle if not
 				}else
-					if(!UperCase(Task1Buffer)){											  //Send message to UpperCase function to set letters to capital
-						//uartWriteString(UART_USB,"Task1 -> Report: No lower case\n");	  //Error handle if message was not sent
+					if(!UperCase(Task1Buffer)){											 	 //Send message to UpperCase function to set letters to capital
+						//uartWriteString(UART_USB,"Task1 -> Report: No lower case\n");	  	 //Error handle if message was not sent
 					}else{
-						if(xSemaphoreTake(DataProcessed_key,1000)){						  //Check if key is available to send processed data to Server
+						if(xSemaphoreTake(DataProcessed_key,1000)){						 	 //Check if key is available to send processed data to Server
 							//uartWriteString(UART_USB,"Task1 -> Server: No key\n");		  //Report if key is not available
 						}else{
-							if(!(xQueueSend(DataProcessed_handle,Task1Buffer,50))){		  //Send processed data if all good
+							if(!(xQueueSend(DataProcessed_handle,Task1Buffer,50))){		  	  //Send processed data if all good
 								//uartWriteString(UART_USB,"Task1-> Server: No sent \n");	  // Error handle if data was not sent
 							}
-							xSemaphoreGive(DataProcessed_key);							  //Release key after  sending message processed to Server
+							xSemaphoreGive(DataProcessed_key);							  	  //Release key after  sending message processed to Server
 						}
 					}
 
@@ -280,7 +279,7 @@ void task2(void){
 	vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);								  //Get current stack size and store the variable declared above;																																//Set task1 entry  for starting heap size of Report state machine and cast type to read only
 	Report.Task2StartStack=(const)xTaskDetails.usStackHighWaterMark;					  //Set task2 entry for staring stack size of  Report state machine and cast type to read only
 	Report.Task2StartHeap=(const)xPortGetFreeHeapSize();								  //Set task2 entry for staring heap size of  Report state machine and cast type to read only
-	static char Task2Buffer[sizeof(AsciFrame)]="\0";											  //Declaring local buffer to store data to be  sent and received
+	static char Task2Buffer[sizeof(AsciFrame)]="\0";									 //Declaring local buffer to store data to be  sent and received
 
 	while(1){
 		if(QeueMinusculizador !=0){														 //Verify if QeueMinusculizador was created
@@ -291,10 +290,10 @@ void task2(void){
 					//uartWriteString(UART_USB,"Task2 -> Report: No lower case\n");		 //Error handle if conversion did not happen
 				}else{
 					if(xSemaphoreTake(DataProcessed_key,1000)){							 //Check if key is available to access queue
-						//uartWriteString(UART_USB,"Task2 -> Server: No key\n");			 //Error handle if key was not available
+						//uartWriteString(UART_USB,"Task2 -> Server: No key\n");		 //Error handle if key was not available
 					}else{
 						if(!(xQueueSend(DataProcessed_handle,Task2Buffer,50))){			 //Check if message was sent
-							//uartWriteString(UART_USB,"Task2-> Server: No sent \n");		 //Error handle if message was not sent
+							//uartWriteString(UART_USB,"Task2-> Server: No sent \n");	 //Error handle if message was not sent
 						}
 						xSemaphoreGive(DataProcessed_key);								 //Release semaphore  key
 					}
@@ -326,7 +325,7 @@ int main(void)
    DataProcessed_handle =xQueueCreate(1, sizeof(AsciFrame));							  // Create a queue and assign DataProcessed_handle to it
    DataProcessed_key=xSemaphoreCreateMutex();											  // Create a mutex and assign  DataProcessed_key to it
    uartInterrupt(UART_USB, true);														  //Enable USB interrupt
-   uartCallbackSet(UART_USB, UART_RECEIVE, Port_Interrupt, NULL);                                 //Specify the task and when interrupt happens and the interrupt type
+   uartCallbackSet(UART_USB, UART_RECEIVE, Port_Interrupt, NULL);                         //Specify the task and when interrupt happens and the interrupt type
 #ifdef DRIVER_1
    	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	   	  // Create Driver task
    xTaskCreate(
