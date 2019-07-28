@@ -17,6 +17,7 @@ time.sleep(1)
 ser.write("20776F726B696E6")
 time.sleep(1)
 ser.write("7217D")
+time.sleep(5)
 ser.close
 
 
