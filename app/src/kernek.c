@@ -62,10 +62,10 @@ volatile QueueHandle_t MsgHandle_2;
 volatile QueueHandle_t DataProcessed_handle;
 static char HexFrame[110]; 																														//The Frame will be stored in this buffer
 //char HexFrame[110]="7B313530546869732069732052544F5320636F757273652054503120696E20746573742C616E6420697420697320776F726B696E67217D"; 														//The Frame will be stored in this buffer
-char AsciFrame[55]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-struct Program_Memory Report;
-struct Frame message;
-int InterruptCounter=0;
+static char AsciFrame[55]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+static struct Program_Memory Report;
+static struct Frame message;
+static int InterruptCounter=0;
 
 /*==================[Definition of external data]=========================*/
 
@@ -129,6 +129,7 @@ void server(void){																	// The server assigns the messages to the cor
 		        			}else{
 				        		printf("Server -> Driver: Sent msg:\n%s\n",MsgToDriver);		//If sent successfully, report  the message that was sent
 								InterruptCounter=0;
+						        vPortFree(MsgToDriver);
 								vTaskDelay(2000);
 		        			}
 		        		}
@@ -194,8 +195,8 @@ void driver(void){
 	Report.DriverStartStack=(const)xTaskDetails.usStackHighWaterMark;           // Set  DriverStartStack value of Report machine state and cast type it to read only
 	Report.DriverStartHeap=(const)xPortGetFreeHeapSize();						//Set DriverStartHeap value of Report machine state
 
-	char data_2Server[sizeof(AsciFrame)]="\0";									//Buffer to store data to be sent to Server
-	char data_FromServer[sizeof(AsciFrame)]="\0";								//Buffer to store data received from Server
+	static char data_2Server[sizeof(AsciFrame)]="\0";									//Buffer to store data to be sent to Server
+	static char data_FromServer[sizeof(AsciFrame)]="\0";								//Buffer to store data received from Server
 	char op[2]="\0";															// String to store the operation flag
 	char SOF='{';																// This  variable holds the Start Of Frame (SOF) to validate the frame
 	char EnOF='}';																//This variable holds the End Of Frame (EOF) used to validate the frame as well
@@ -243,7 +244,7 @@ void task1(void){
 		vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);					// Get current stack size and store the variable declared above
 		Report.Task1StartStack=(const)xTaskDetails.usStackHighWaterMark;		//Set task1 entry for staring stack size of  Report state machine and cast type to read only
 		Report.Task1StartHeap=(const)xPortGetFreeHeapSize();					//Set task1 entry  for starting heap size of Report state machine and cast type to read only
-		char Task1Buffer[sizeof(AsciFrame)]="\0";								//Declaring local buffer to store data to be  sent and received
+		static char Task1Buffer[sizeof(AsciFrame)]="\0";								//Declaring local buffer to store data to be  sent and received
 
 		while(1){
 			if(QeueMayusculizador !=0){													  //Verify if QeueMayusculizador was created
@@ -279,7 +280,7 @@ void task2(void){
 	vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);								  //Get current stack size and store the variable declared above;																																//Set task1 entry  for starting heap size of Report state machine and cast type to read only
 	Report.Task2StartStack=(const)xTaskDetails.usStackHighWaterMark;					  //Set task2 entry for staring stack size of  Report state machine and cast type to read only
 	Report.Task2StartHeap=(const)xPortGetFreeHeapSize();								  //Set task2 entry for staring heap size of  Report state machine and cast type to read only
-	char Task2Buffer[sizeof(AsciFrame)]="\0";											  //Declaring local buffer to store data to be  sent and received
+	static char Task2Buffer[sizeof(AsciFrame)]="\0";											  //Declaring local buffer to store data to be  sent and received
 
 	while(1){
 		if(QeueMinusculizador !=0){														 //Verify if QeueMinusculizador was created
