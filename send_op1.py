@@ -1,6 +1,6 @@
 import serial
 import time
-ser= serial.Serial("/dev/ttyUSB2", 9600,timeout=1)
+ser= serial.Serial("/dev/ttyUSB1", 9600,timeout=1)
 ser.write("7B3135305468697")
 time.sleep(0.1)
 ser.write("32069732052544F")

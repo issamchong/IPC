@@ -127,8 +127,8 @@ void server(void){																	// The server assigns the messages to the cor
 		        			uartWriteString(UART_USB,"Server -> Driver: No sent\n");			//Error handle if not sent
 		        			}else{
 				        		printf("Server -> Driver: Sent msg:\n%s\n",MsgToDriver);		//If sent successfully, report  the message that was sent
-								InterruptCounter=0;
-						        vPortFree(MsgToDriver);
+								InterruptCounter=0;												//Reset the interrupt counter to start from zero the buffer
+						        vPortFree(MsgToDriver);											//Clear hte heap using heap_2
 								vTaskDelay(2000);
 		        			}
 		        		}
@@ -152,8 +152,9 @@ void server(void){																	// The server assigns the messages to the cor
 		        			uartWriteString(UART_USB,"Server -> Driver: No sent\n");			//Error handle if not sent
 		        			}else{
 				        		printf("Server -> Driver: Sent msg:\n%s\n",MsgToDriver);		//If sent successfully, report  the message that was sent
-								InterruptCounter=0;
-								vTaskDelay(2000);
+				        		InterruptCounter=0;												//Reset the interrupt counter to be able to start the buffer from 0
+						        vPortFree(MsgToDriver);											//Clear  the heap
+				        		vTaskDelay(2000);
 		        			}
 		        		}
 		        }
@@ -163,7 +164,7 @@ void server(void){																	// The server assigns the messages to the cor
         		printf("Server -> Report: Total available stack size is %d\n",Report.DriverEndStack +Report.ServerEndStack+Report.Task1EndStack+Report.Task2EndStack);					// Report the total available stack
         		*f='\0';
         		InterruptCounter=0;
-				uartInterrupt(UART_USB, true);														  //Enable USB interrupt
+				uartInterrupt(UART_USB, true);									//Enable USB interrupt
 
         	    break;
         	case '3':
