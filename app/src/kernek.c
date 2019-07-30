@@ -225,7 +225,8 @@ void driver(void){
 			}else{
 				data_FromServer[0]='{';
 				strcat(data_FromServer,"}");
-				printf("Driver <- Server: Received %s\n",data_FromServer);		//Report received if successful
+				printf("Driver <- Server: Received \n%s\n",data_FromServer);		//Report received if successful
+				strcpy(data_FromServer,"\0");
 				uartInterrupt(UART_USB, true);									//Enable USB interrupt
 				vTaskDelay(1000);
 
