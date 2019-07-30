@@ -89,7 +89,6 @@ void server(void){																	// The server assigns the messages to the cor
 	char MsgFromDriver[sizeof(AsciFrame)]="\0";										// Declaring variable that will store the data from the driver, this variable of size AssciFrame define above
 	char *MsgToDriver=(char *)pvPortMalloc(sizeof(AsciFrame));						// Declaring variable that will store the data to be sent to the driver, this variable of size AssciFrame define above
 	char *f=MsgFromDriver;															// This pointer holds the first operation byte in order to determine the proper operation
-	char flag[2]="\0";																// This string is used to put together the message and the operation before sending back to the Driver
 	char SizeData[3]="\0";															// This string is used to store the size bytes of the data
     while(1){
 
@@ -98,7 +97,6 @@ void server(void){																	// The server assigns the messages to the cor
     	}else{
     		SizeData[0]=MsgFromDriver[1];											// Storing the information about the message size  which correspond to byte 1 and 2
     		SizeData[1]=MsgFromDriver[2];
-    		flag[0]=MsgFromDriver[0];												// Copy the the operation byte to flag variable
     		message.size= atoi(SizeData);											// Convert the Size string to integer and assign it to the size entry of the message structure
     		message.operation=	atoi(*f);											// Convert the flag to integer and assign to the operation entry of the message structure
     		strcpy(message.data,MsgFromDriver+3);									// Copy the data portion only to the data entry of the message structure
@@ -120,9 +118,9 @@ void server(void){																	// The server assigns the messages to the cor
 		        	if(!(xQueueReceive(DataProcessed_handle,message.dataProcessed,1000))){		//Receive processed data from task2 and save it in the message.DataProcessed entry
 		        		uartWriteString(UART_USB,"Server <- Task2: No received\n");				// Error report of nothing  received
 		        	}else{																		//Server is putting all back together to send processed data back to Driver
-		        		strcat(MsgToDriver,flag);												//Add the flag to the beginning  of the buffer MsgToDrive
-		        		strcpy(MsgToDriver+1,SizeData);											// Add the data size
-		        		strcpy(MsgToDriver+3,message.dataProcessed);							//Finally add the message after processing to the same buffer
+		        		MsgToDriver[1]=*f;
+		        	    strcpy(MsgToDriver+2,SizeData);											// Add the data size
+		        		strcpy(MsgToDriver+4,message.dataProcessed);
 		        		if(!(xQueueSend(MsgHandle_2,(const)MsgToDriver,1000))){					//Send the data to Driver
 		        			uartWriteString(UART_USB,"Server -> Driver: No sent\n");			//Error handle if not sent
 		        			}else{
@@ -145,9 +143,10 @@ void server(void){																	// The server assigns the messages to the cor
 		        	if(!(xQueueReceive(DataProcessed_handle,message.dataProcessed,1000))){		//Receive processed data from task2 and save it in the message.DataProcessed entry
 		        		uartWriteString(UART_USB,"Server <- Task2: No received\n");				// Error report of nothing  received
 		        	}else{																		//Server is putting all back together to send processed data back to Driver
-		        		strcat(MsgToDriver,flag);												//Add the flag to the beginning  of the buffer MsgToDrive
-		        		strcpy(MsgToDriver+1,SizeData);											// Add the data size
-		        		strcpy(MsgToDriver+3,message.dataProcessed);							//Finally add the message after processing to the same buffer
+
+		        		MsgToDriver[1]=*f;
+		        		strcpy(MsgToDriver+2,SizeData);											// Add the data size
+		        		strcpy(MsgToDriver+4,message.dataProcessed);							//Finally add the message after processing to the same buffer
 		        		if(!(xQueueSend(MsgHandle_2,(const)MsgToDriver,1000))){					//Send the data to Driver
 		        			uartWriteString(UART_USB,"Server -> Driver: No sent\n");			//Error handle if not sent
 		        			}else{
@@ -162,18 +161,16 @@ void server(void){																	// The server assigns the messages to the cor
         	case '2':															//Report the operation flag
     			printf("Server-> Report: Flag  %c\n",*f);
         		printf("Server -> Report: Total available stack size is %d\n",Report.DriverEndStack +Report.ServerEndStack+Report.Task1EndStack+Report.Task2EndStack);					// Report the total available stack
-        		*f='\0';
         		InterruptCounter=0;
 				uartInterrupt(UART_USB, true);									//Enable USB interrupt
 
         	    break;
         	case '3':
-            			printf("Server-> Report: Flag  %c\n",*f);																														//Report the operation flag
-                		printf("Server -> Report: Total available Heap size is %d\n",Report.DriverEndHeap +Report.ServerEndHeap+Report.Task1EndHeap+Report.Task2EndHeap);				//Report the total Heap size
-                		*f='\0';
-                		InterruptCounter=0;
-        				uartInterrupt(UART_USB, true);						    //Enable USB interrupt
-                	    break;
+            	printf("Server-> Report: Flag  %c\n",*f);																														//Report the operation flag
+                printf("Server -> Report: Total available Heap size is %d\n",Report.DriverEndHeap +Report.ServerEndHeap+Report.Task1EndHeap+Report.Task2EndHeap);				//Report the total Heap size
+                InterruptCounter=0;
+        		uartInterrupt(UART_USB, true);						    //Enable USB interrupt
+                break;
         	case '\0':
         		uartWriteString(UART_USB,"Server -> Report: No Flag \n");		//Error handle if operation flag is not available
         		break;
@@ -197,6 +194,7 @@ void driver(void){
 
 	static char data_2Server[sizeof(AsciFrame)]="\0";							//Buffer to store data to be sent to Server
 	static char data_FromServer[sizeof(AsciFrame)]="\0";						//Buffer to store data received from Server
+	static char data_2Port[sizeof(AsciFrame)]="\0";						//Buffer to store data received from Server
 	char op[2]="\0";															// String to store the operation flag
 	char SOF='{';																// This  variable holds the Start Of Frame (SOF) to validate the frame
 	char EnOF='}';																//This variable holds the End Of Frame (EOF) used to validate the frame as well
@@ -225,9 +223,11 @@ void driver(void){
 			if(!(xQueueReceive(MsgHandle_2,data_FromServer,1000))){				//Check if any message is received from the Server from MsgHandle_2 queue
 				//uartWriteString(UART_USB,"Driver <- Server: No Received\n");	//Error handle if nothing  received
 			}else{
-				uartWriteString(UART_USB,"Driver <- Server: Received\n");		//Report received if successful
+				data_FromServer[0]='{';
+				strcat(data_FromServer,"}");
+				printf("Driver <- Server: Received %s\n",data_FromServer);		//Report received if successful
 				uartInterrupt(UART_USB, true);									//Enable USB interrupt
-				vTaskDelay(500);
+				vTaskDelay(1000);
 
 				}
 			vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);				//Get current stack size information
