@@ -56,6 +56,14 @@ int EndTask(TaskHandle_t *handle,const uint8_t i){										// This function sus
 	  return 1;
 }
 
+int fsmMesurePerformance(Token_pt  t){
+
+
+
+
+
+}
+
 
 
 

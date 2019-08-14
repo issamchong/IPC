@@ -34,6 +34,22 @@ typedef  struct Frame{
 	volatile char* dataProcessed[55];
 };
 
+typedef  struct MedirPerformance{
+
+	volatile  uint8_t estado ;
+	volatile  uint32_t id_of_package;
+	volatile  uint8_t * payload;
+	volatile  uint32_t tiempo_de_llegada;
+	volatile  uint32_t tiempo_de_recepcion;
+	volatile  uint32_t tiempo_de_inicio;
+	volatile  uint32_t tiempo_de_fin;
+	volatile  uint32_t tiempo_de_salida;
+	volatile  uint32_t tiempo_de_transmision;
+	volatile  uint16_t package_length;
+	volatile  uint16_t  alocated_memory;
+
+};
+
 typedef  struct Program_Memory{
 
 	volatile  uint8_t ServerStartStack;
@@ -55,12 +71,16 @@ typedef  struct Program_Memory{
 	volatile  uint8_t Task2EndHeap;
 
 };
+
+typedef struct MedirPerformance *Token_pt;
+Token_pt t;
 /*==================[external data declaration]==============================*/
 
 /*==================[external functions declaration]=========================*/
 int GetOp(char *op,const  char* buffer );										//This function extracts the operation flag from the  data
 int GetMsg(char *data,const  char* buffer,uint8_t size );						//This function removes Start Of Frame and End Of Frame from data since it is not needed
 int  EndTask(TaskHandle_t *handle, const uint8_t i);							//This function ends suspends the task and prompts a message
+int fsmMesurePerformance(t);
 /*==================[cplusplus]==============================================*/
 
 #ifdef __cplusplus
