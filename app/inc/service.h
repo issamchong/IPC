@@ -72,15 +72,16 @@ typedef  struct Program_Memory{
 
 };
 
-typedef struct MedirPerformance *Token_pt;
-Token_pt t;
+typedef struct MedirPerformance *Token_pt;									//Define a pointer type that can only points at this type of structure
+
 /*==================[external data declaration]==============================*/
 
 /*==================[external functions declaration]=========================*/
 int GetOp(char *op,const  char* buffer );										//This function extracts the operation flag from the  data
 int GetMsg(char *data,const  char* buffer,uint8_t size );						//This function removes Start Of Frame and End Of Frame from data since it is not needed
 int  EndTask(TaskHandle_t *handle, const uint8_t i);							//This function ends suspends the task and prompts a message
-int fsmMesurePerformance(t);
+int fsmMesurePerformance(Token_pt t, uint8_t *pLoad,uint16_t memSize);
+int CompileToken(Token_pt pt, char *msg);													//This function compiles the token message in a string form from the integer fields of the token structure
 /*==================[cplusplus]==============================================*/
 
 #ifdef __cplusplus
