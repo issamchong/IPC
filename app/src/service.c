@@ -26,6 +26,10 @@
 
 int CompileToken(Token_pt pt,char *msg){
 
+	//sprintf(msg,"\0{5ID%dPLD%dT0%dT1%dT2%dT3%dT4%dT5%dLEN%dMEM%d}",pt->id_of_package,pt->payload,
+			//	pt->tiempo_de_llegada,pt->tiempo_de_recepcion,pt->tiempo_de_inicio,pt->tiempo_de_fin,pt->tiempo_de_salida,
+				//pt->tiempo_de_transmision,pt->package_length,pt->alocated_memory);
+
 	char id[10];
 	char pload[20];
 	char Tllegar[10];
@@ -48,6 +52,7 @@ int CompileToken(Token_pt pt,char *msg){
 	itoa(pt->package_length,len,10);
 	itoa(pt->alocated_memory,mem,10);
 
+	strcat(msg,"\0");
     strcat(msg,"{5ID");
     strcat(msg,id);
 
@@ -81,8 +86,6 @@ int CompileToken(Token_pt pt,char *msg){
     strcat(msg,"}");
 
 
-    puts(msg);
-    bzero(msg,sizeof(msg));
 }
 
 
