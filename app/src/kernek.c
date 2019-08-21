@@ -111,7 +111,6 @@ void server(void){																	// The server assigns the messages to the cor
 	char *MsgToDriver=(char *)pvPortMalloc(sizeof(AsciFrame));						// Declaring variable that will store the data to be sent to the driver, this variable of size AssciFrame define above
 	char *f=MsgFromDriver;															// This pointer holds the first operation byte in order to determine the proper operation
 	char SizeData[3]="\0";															// This string is used to store the size bytes of the data
-	uint32_t notify2;
 	while(1){
 
     	if(!(xQueueReceive(MsgHandle,MsgFromDriver,500))){                     		// Check if any message was received and store it in MsgFromDriver buffer, important QueueReceive clears buffer  when called again
@@ -198,17 +197,21 @@ void server(void){																	// The server assigns the messages to the cor
     		        							uartWriteString(UART_USB,"Server -> Driver: No sent\n");	//Error handle if not sent
     		        							}else{
     		        								vTaskDelay(3000);										//important delay for send task to comlete copying from buffer
-    		        								//puts("Server -> Driver: Processed");                      				//If sent successfully, report  the message that was sent
+    		        								puts("Server -> Driver: Processed");                      				//If sent successfully, report  the message that was sent
+            			    		                printf("Server -> Report: Total available Heap size is %d\n",Report.DriverEndHeap +Report.ServerEndHeap+Report.Task1EndHeap+Report.Task2EndHeap);				//Report the total Heap size
     		        								vPortFree(MsgToDriver);									 				//Clear the  heap using heap_2 algorithm
     		        								bzero(MsgToDriver,strlen(MsgToDriver));
     		        								if(xSemaphoreTake(key,(TickType_t) portMAX_DELAY)){
     		        									if(!(xQueueReceive(QueueMedirPerformance,MsgToDriver,50))){
 
     		        									}else{
-    		        											puts(MsgToDriver);
+    		        										vTaskDelay(1000);
+    		        										if(!(xQueueSend(MsgHandle_2,(const)MsgToDriver,500))){			//Send the data to Driver
+    		        											uartWriteString(UART_USB,"Server -> Driver: No sent\n");	//Error handle if not sent
+    		        											}
+    		        											//puts(MsgToDriver);
     		        											vPortFree(MsgToDriver);									 				//Clear the  heap using heap_2 algorithm
     		        											bzero(MsgToDriver,strlen(MsgToDriver));
-    		            			    		                printf("Server -> Report: Total available Heap size is %d\n",Report.DriverEndHeap +Report.ServerEndHeap+Report.Task1EndHeap+Report.Task2EndHeap);				//Report the total Heap size
     		        											xSemaphoreGive(key);
     		        										}
     		        								}
@@ -274,25 +277,31 @@ void driver(void){
 				vTaskDelay(5000);
 				if(!(xQueueReceive(MsgHandle_2,data_FromServer,500))){					//Check if any message is received from the Server from MsgHandle_2 queue
 					puts("Driver: Nothing received");
-				}else{
+				}else
 					data_FromServer[0]='{';
 					strcat(data_FromServer,"}");
-					puts("Driver <- Server: Received");
+					puts("Driver <- Server: Received data");
 					puts(data_FromServer);											  //Report received if successful
-					vTaskDelay(3000);
 					bzero(data_FromServer,strlen(data_FromServer));
+					vTaskDelay(3000);
+					if(!(xQueueReceive(MsgHandle_2,data_FromServer,500))){					//Check if any message is received from the Server from MsgHandle_2 queue
+						puts("Driver <- Server: No Token");
+					}else{
+						puts("Driver <- Server: Received Token");
+						puts(data_FromServer);											  //Report received if successful
+						bzero(data_FromServer,strlen(data_FromServer));					  //Clear
+					}
+
 					uartInterrupt(UART_USB, true);										//Enable USB interrupt
 					InterruptCounter=0;													//Reset the interrupt counter to start from zero the buffer
 				    fsmMesurePerformance(PerfPt,NULL,NULL);							    //This call resets estado to 0
-					puts("Driver-> Report: Ready for interrupt");													//Check if it was reset to zero
 					vTaskDelay(8000);
-					uartWriteByte(UART_USB,27);
-					//clear screen
+					uartWriteByte(UART_USB,27);											//clear screen
 					uartWriteString(UART_USB,"[2J");
-					uartWriteByte(UART_USB,27);
-				    // start move cursor to the begining
+					uartWriteByte(UART_USB,27);											//clear screen
 					uartWriteString(UART_USB,"[H");
-				}
+					puts("Driver-> Report: Ready for new package");						//Check if it was reset to zero
+
 			}else{
 					vTaskDelay(100);
 					//puts("Drive <- Serial: No new message");
@@ -315,6 +324,7 @@ void task1(void){
 
 		while(1){
 			if(QeueMayusculizador !=0){													 	 //Verify if QeueMayusculizador was created
+				while(1){
 				if(!(xQueueReceive(QeueMayusculizador,Task1Buffer,500))){				 	 // Check if anything was received from the queue
 					//uartWriteString(UART_USB," Task1 <- Server : No received\n");		     //Error handle if not
 				}else
@@ -324,17 +334,18 @@ void task1(void){
 						if(!(xQueueSend(DataProcessed_handle,Task1Buffer,50))){		  	  	//Send processed data if all good
 							uartWriteString(UART_USB,"Task1-> Server: No sent \n");	  	  	// Error handle if data was not sent
 							}
+						vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);						  //Get current task stack size
+						Report.Task1EndStack=(const)xTaskDetails.usStackHighWaterMark;				  //Set Task1  entry for end stack size of Report state machine and cast type it to  read only
+						Report.Task1EndHeap=(const)xPortGetFreeHeapSize();							  //Set Task1  entry for end heap size of Report state machine and cast type it to  read only
 						vTaskDelay(1000);
 						}
+				}
 
 
 			}else{
 				EndTask(&Task1Handle,1);												  //End task if no handle was never created
 			}
-			vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);						  //Get current task stack size
-			Report.Task1EndStack=(const)xTaskDetails.usStackHighWaterMark;				  //Set Task1  entry for end stack size of Report state machine and cast type it to  read only
-			Report.Task1EndHeap=(const)xPortGetFreeHeapSize();							  //Set Task1  entry for end heap size of Report state machine and cast type it to  read only
-			vTaskDelay(3000);
+
 		}
 }
 
@@ -351,6 +362,7 @@ void taskMedirPerformance(void){
 		uint32_t notify1;
 		while(1){
 			if(QueueTask4 !=0){													//Verify if QeueMayusculizador was created
+				while(1){
 				if(!(xQueueReceive(QueueTask4,Task4Buffer,500))){				// Check if anything was received from the queue
 					//uartWriteString(UART_USB," Task1 <- Server : No received\n");		    //Error handle if not
 				}else{
@@ -382,6 +394,7 @@ void taskMedirPerformance(void){
 							}
 					}
 				}
+				}
 
 			}else{
 				EndTask(&Task4Handle,1);												   //End task if no handle was never created
@@ -404,25 +417,29 @@ void task2(void){
 
 	while(1){
 		if(QeueMinusculizador !=0){														 //Verify if QeueMinusculizador was created
+			while(1){
 			if(!(xQueueReceive(QeueMinusculizador,Task2Buffer,2000))){					 // Check if anything was received from the queue
 				//uartWriteString(UART_USB," Task2 <- Server : No received\n");			 //Error handle if not
-			}else
+			}else{
 				if(!LwrCase(Task2Buffer)){  											 //convert message letters to lower case and check if if it was successful
 					//uartWriteString(UART_USB,"Task2 -> Report: No lower case\n");		 //Error handle if conversion did not happen
 				}else{
 					if(!(xQueueSend(DataProcessed_handle,Task2Buffer,50))){			 	//Check if message was sent
 							//uartWriteString(UART_USB,"Task2-> Server: No sent \n");	 //Error handle if message was not sent
 						}
+						vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);							 //Get current task stack size
+						Report.Task2EndStack=(const)xTaskDetails.usStackHighWaterMark;					 //Set task2 entry for End stack size of  Report state machine and cast type to read only
+						Report.Task2EndHeap=(const)xPortGetFreeHeapSize();							     //Set task2 entry for End stack size of  Report state machine and cast type to read only
+						vTaskDelay(1000);
 					}
-		}else{
-			EndTask(&Task2Handle,2);													 //End task if handler was never created
-		}
-		vTaskGetInfo(ServHandle,&xTaskDetails,pdTRUE,eInvalid);							 //Get current task stack size
-		Report.Task2EndStack=(const)xTaskDetails.usStackHighWaterMark;					 //Set task2 entry for End stack size of  Report state machine and cast type to read only
-		Report.Task2EndHeap=(const)xPortGetFreeHeapSize();							     //Set task2 entry for End stack size of  Report state machine and cast type to read only
-		vTaskDelay(3000);
+			}
+			}
+			}else{
+				EndTask(&Task2Handle,2);																 //End task if handler was never created
 
-	}
+			}
+		}
+
 }
 /*==================[External function declaration ]====================*/
 
@@ -430,7 +447,6 @@ void task2(void){
 																					      // Principal function that runs after reseting or starting up
 int main(void)
 {
-
    PerfPt=&performance;
    PerfPt->estado=0;
    PerfPt->id_of_package=0;
@@ -439,6 +455,8 @@ int main(void)
    uartConfig(UART_USB,9600);          													  //This function sets the baud rate and turns on uart interruption
    uartInterrupt(UART_USB, true);														  //Enable USB interrupt
    uartCallbackSet(UART_USB, UART_RECEIVE, Port_Interrupt, NULL);                         //Specify the task and when interrupt happens and the interrupt type
+
+   puts("Welcome to RTOSII IPC,send a package....\n");										//Welcome message
 
    QeueMayusculizador =xQueueCreate(1, sizeof(AsciFrame));								  //Create a queue and assign to QeueMayusculizador handler
    QeueMinusculizador =xQueueCreate(1, sizeof(AsciFrame));								  //Create a queue and assign to QeueMinusculizador handler
