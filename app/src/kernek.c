@@ -130,6 +130,7 @@ void server(void){																	// The server assigns the messages to the cor
     		{
     		case '0':
     			printf("\nServer-> Report: Flag  %c\n",*f);										// Print the operation flag
+        		printf("Server -> Report: Total available stack size is %d\n",Report.DriverEndStack +Report.ServerEndStack+Report.Task1EndStack+Report.Task2EndStack);					// Report the total available stack
     			if(!(xQueueSend(QeueMayusculizador,message.data,50))){							//Send data to QeueMinusculizador for task2 to read it
     				uartWriteString(UART_USB,"Server-> Task2: No sent\n");						//Error report if not sent
     				}else{
@@ -145,7 +146,8 @@ void server(void){																	// The server assigns the messages to the cor
     				        			}else{
     						        		puts("Server -> Driver: Processed");							//If sent successfully, report  the message that was sent
     								        vPortFree(MsgToDriver);											//Clear hte heap using heap_2
-    							        	vTaskDelay(500);
+    			    		                printf("Server -> Report: Total available Heap size is %d\n",Report.DriverEndHeap +Report.ServerEndHeap+Report.Task1EndHeap+Report.Task2EndHeap);				//Report the total Heap size
+    								        vTaskDelay(500);
     				        			}
     				        		}
     				        }
@@ -153,7 +155,8 @@ void server(void){																	// The server assigns the messages to the cor
 
     		        	case '1':
     		    			printf("\nServer-> Report: Flag  %c\n",*f);										// Print the operation flag
-    		        		if(!(xQueueSend(QeueMinusculizador,message.data,50))){							//Send data to QeueMinusculizador for task2 to read it
+    		        		printf("Server -> Report: Total available stack size is %d\n",Report.DriverEndStack +Report.ServerEndStack+Report.Task1EndStack+Report.Task2EndStack);					// Report the total available stack
+    		    			if(!(xQueueSend(QeueMinusculizador,message.data,50))){							//Send data to QeueMinusculizador for task2 to read it
     		        			uartWriteString(UART_USB,"Server-> Task2: No sent\n");						//Error report if not sent
     				        }else{
     				        	vTaskDelay(3000);
@@ -168,27 +171,16 @@ void server(void){																	// The server assigns the messages to the cor
     				        			}else{
     						        		puts("Server -> Driver: Processed");							//If sent successfully, report  the message that was sent
     								        vPortFree(MsgToDriver);											//Clear  the heap
-    							        	vTaskDelay(2000);
+    			    		                printf("Server -> Report: Total available Heap size is %d\n",Report.DriverEndHeap +Report.ServerEndHeap+Report.Task1EndHeap+Report.Task2EndHeap);				//Report the total Heap size
+    								        vTaskDelay(2000);
     				        			}
     				        		}
     				        }
     		        	    break;
-    		        	case '2':																			//Report the operation flag
-    		    			printf("\nServer-> Report: Flag  %c\n",*f);
-    		        		printf("Server -> Report: Total available stack size is %d\n",Report.DriverEndStack +Report.ServerEndStack+Report.Task1EndStack+Report.Task2EndStack);					// Report the total available stack
-    		        		InterruptCounter=0;
-    						uartInterrupt(UART_USB, true);													//Enable USB interrupt
-
-    		        	    break;
-    		        	case '3':
-    		            	printf("\nServer-> Report: Flag  %c\n",*f);																														//Report the operation flag
-    		                printf("Server -> Report: Total available Heap size is %d\n",Report.DriverEndHeap +Report.ServerEndHeap+Report.Task1EndHeap+Report.Task2EndHeap);				//Report the total Heap size
-    		                InterruptCounter=0;
-    		        		uartInterrupt(UART_USB, true);						   							 //Enable USB interrupt
-    		                break;
     		        	case '4':
 
     		        		printf("Server-> Report: Flag  %c\n",*f);										// Print the operation flag
+    		        		printf("Server -> Report: Total available stack size is %d\n",Report.DriverEndStack +Report.ServerEndStack+Report.Task1EndStack+Report.Task2EndStack);					// Report the total available stack
     		        		if(!(xQueueSend(QueueTask4,message.data,50))){						//Send data to QeueMinusculizador for task2 to read it
     		        			uartWriteString(UART_USB,"Server-> Task4: No sent\n");						//Error report if not sent
     		        			}else{
@@ -216,6 +208,7 @@ void server(void){																	// The server assigns the messages to the cor
     		        											puts(MsgToDriver);
     		        											vPortFree(MsgToDriver);									 				//Clear the  heap using heap_2 algorithm
     		        											bzero(MsgToDriver,strlen(MsgToDriver));
+    		            			    		                printf("Server -> Report: Total available Heap size is %d\n",Report.DriverEndHeap +Report.ServerEndHeap+Report.Task1EndHeap+Report.Task2EndHeap);				//Report the total Heap size
     		        											xSemaphoreGive(key);
     		        										}
     		        								}
@@ -292,7 +285,14 @@ void driver(void){
 					InterruptCounter=0;													//Reset the interrupt counter to start from zero the buffer
 				    fsmMesurePerformance(PerfPt,NULL,NULL);							    //This call resets estado to 0
 					puts("Driver-> Report: Ready for interrupt");													//Check if it was reset to zero
-					}
+					vTaskDelay(8000);
+					uartWriteByte(UART_USB,27);
+					//clear screen
+					uartWriteString(UART_USB,"[2J");
+					uartWriteByte(UART_USB,27);
+				    // start move cursor to the begining
+					uartWriteString(UART_USB,"[H");
+				}
 			}else{
 					vTaskDelay(100);
 					//puts("Drive <- Serial: No new message");
@@ -363,7 +363,7 @@ void taskMedirPerformance(void){
 						if(!(xQueueSend(DataProcessed_handle,Task4Buffer,50))){		  	  	//Send processed data if all good
 								//puts("Task1-> Server: No sent "); 						// Error handle if data was not sent
 							}else{
-								vTaskDelay(1000);
+								vTaskDelay(2000);
 								vPortFree(Task4Buffer);										//Clear dynamic memory
 								bzero(Task4Buffer,strlen(Task4Buffer));
 								CompileToken(PerfPt,Task4Buffer);
