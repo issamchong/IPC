@@ -12,8 +12,8 @@
 /*==================[macros and definitions]=================================*/
 
 /*==================[internal data declaration]==============================*/
-	uint16_t  time1;
-	uint16_t  time2;
+	volatile uint16_t  time1=0;
+	volatile uint16_t  time2=0;
 /*==================[internal functions declaration]=========================*/
 
 /*==================[internal data definition]===============================*/
@@ -53,34 +53,34 @@ int CompileToken(Token_pt pt,char *msg){
 	itoa(pt->alocated_memory,mem,10);
 
 	strcat(msg,"\0");
-    strcat(msg,"{5ID");
+    strcat(msg,"{5ID:");
     strcat(msg,id);
 
-    strcat(msg,"PLD");
+    strcat(msg,"PLoad:");
     strcat(msg,pload);
 
-    strcat(msg,"T0");
+    strcat(msg,"Tlleg:");
     strcat(msg,Tllegar);
 
-    strcat(msg,"T1");
+    strcat(msg,"TRec:");
     strcat(msg,Trecp);
 
-    strcat(msg,"T3");
+    strcat(msg,"TIn:");
     strcat(msg,Tinicio);
 
-    strcat(msg,"T4");
+    strcat(msg,"TFn:");
     strcat(msg,Tfin);
 
-    strcat(msg,"T5");
+    strcat(msg,"TSal:");
     strcat(msg,Tsalida);
 
-    strcat(msg,"T6");
+    strcat(msg,"TTran:");
     strcat(msg,Ttrans);
 
-    strcat(msg,"LEN");
+    strcat(msg,"LEN:");
     strcat(msg,len);
 
-    strcat(msg,"MEM");
+    strcat(msg,"MEM:");
     strcat(msg,mem);
 
     strcat(msg,"}");
@@ -127,28 +127,27 @@ int fsmMesurePerformance(Token_pt  t, uint8_t *pload, uint16_t AloMem){
 	switch(t->estado)
 	{
 	case 0:
-		time1=xTaskGetTickCount();
 		t->estado=1;
-		t->id_of_package++;											//Increment the package ID
-		t->tiempo_de_llegada=0;
-
+		t->id_of_package++;
+		t->tiempo_de_llegada=time1;
+		time2=xTaskGetTickCount();
+		t->tiempo_de_recepcion=(uint32_t)(time2-time1);					//Save of receiving last byte
+		time1=time2;									   	   	   	   	//Increment the package ID
+		time2=0;
 		break;
 	case 1:
-		time2=xTaskGetTickCount();
-		t->estado=2;													//Update the FSM state
-		t->payload=pload;												//Update payload field
-		t->tiempo_de_recepcion=(uint32_t)(time2-time1);
-		time1=time2;
-
-
+		t->package_length=strlen(pload);
+		t->payload=pload;
+		t->alocated_memory=AloMem;
+		t->estado=2;
 		break;
 
 	case 2:
-
 		time2=xTaskGetTickCount();
-		t->estado=3;													//R4.3 satisfy requirement 4.3
 		t->tiempo_de_inicio=(uint32_t)(time2-time1);					//Update the corresponding time
 		time1=time2;
+		time2=0;
+		t->estado=3;													//R4.3 satisfy requirement 4.3
 
 		break;
 	case 3:
@@ -157,6 +156,7 @@ int fsmMesurePerformance(Token_pt  t, uint8_t *pload, uint16_t AloMem){
 		t->estado=4;												 // R4.4 satisfy requirement 4.4
 		t->tiempo_de_fin=(uint32_t)(time2-time1);					 //Update the corresponding time
 		time1=time2;
+		time2=0;
 		//printf("TIME last byte in  is %p\n",t->tiempo_de_fin);
 
 		break;
@@ -166,6 +166,7 @@ int fsmMesurePerformance(Token_pt  t, uint8_t *pload, uint16_t AloMem){
 		t->estado=5;														// R4.5 Update the FSM state
 		t->tiempo_de_salida=(uint32_t)(time2-time1);						//Update the corresponding time
 		time1=time2;
+		time2=0;
 		//printf("TIME last byte in  is %p\n",t->tiempo_de_salida);
 
 		break;
@@ -173,8 +174,7 @@ int fsmMesurePerformance(Token_pt  t, uint8_t *pload, uint16_t AloMem){
 		time2=xTaskGetTickCount();											//Get current tick count
 		t->estado=6;
 		t->tiempo_de_transmision=(uint32_t)(time2-time1);					//Update the corresponding time
-		t->package_length=strlen(pload);									//Set package length
-		t->alocated_memory=AloMem;											//Set size of allocated memory
+										//Set package length
 		break;
 
 	default:
