@@ -186,6 +186,48 @@ int fsmMesurePerformance(Token_pt  t, uint8_t *pload, uint16_t AloMem){
 
 }
 
+void GetHeap(char *frame){
+
+	   uint8_t Heap =xPortGetFreeHeapSize();
+	   char sizeHeap[10];
+	   char pload_len[3];
+	   char data[100];
+
+	   itoa(Heap,sizeHeap,10);              //Convert Heap variable into string and save it in sizeHeap
+	   strcpy(data," Heap size is ");		//Add text to data
+	   itoa(strlen(data),pload_len,10);		//Get data buffer length and save it in pload_len
+	   strcat(data,sizeHeap);				//Add heap size to data
+	   strcpy(frame,"{");					//Add SOF
+	   strcat(frame,"3");					//Add operation number to the frame as a string
+	   strcat(frame,pload_len);				//Add the payload length to the frame
+	   strcat(frame,data);					//Add the actual data to be displayed
+	   strcat(frame,"}");					//Add the EOF
+	   puts(frame);							//Display the frame
+	   bzero(frame,105);					//clear the frame
+}
+
+void GetStack(char *frame,TaskHandle_t *TaskHandler){
+
+
+	  	   char sizeStack[10];
+		   char pload_len[3];
+		   char data[100];
+	   	   volatile TaskStatus_t xTaskDetails;							// This variable stores the information about the stack available
+		   vTaskGetInfo(TaskHandler,&xTaskDetails,pdTRUE,eInvalid);		// This function stores in the variable declared above the information about the stack, it also requires the task handle as a parameter
+		   xTaskDetails.usStackHighWaterMark;							//Access the structure field to get stack size of current task
+
+		   itoa(xTaskDetails.usStackHighWaterMark,sizeStack,10);        //Convert stack variable into string and save it in sizeHeap
+		   strcpy(data," Stack  size is ");								//Add text
+		   itoa(strlen(data),pload_len,10);		 						//Get data buffer length and save it in pload_len
+		   strcat(data,sizeStack);										//Add heap size to data
+		   strcpy(frame,"{");											//Add SOF
+		   strcat(frame,"2");											//Add operation number to the frame as a string
+		   strcat(frame,pload_len);										//Add the payload length to the frame
+		   strcat(frame,data);											//Add the actual data to be displayed
+		   strcat(frame,"}");											//Add the EOF
+
+}
+
 
 
 

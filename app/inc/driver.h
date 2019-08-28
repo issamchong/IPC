@@ -35,7 +35,7 @@ extern "C" {
 int GetData(char *data,const  char* buffer,uint8_t size );
 //This function gets the operation byte and saves it into operation buffer
 int ASCI(char *frame,uint8_t size,char *buf);
-
+void ClearScreen(void);
 
 
 /*==================[cplusplus]==============================================*/

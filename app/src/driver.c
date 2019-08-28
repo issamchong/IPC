@@ -33,11 +33,11 @@ int GetData(char *data, const char* buffer,uint8_t size ){
 	memcpy(data,buffer+1,size-2);
 	return 1;
 }
-int ASCI(char *frame, uint8_t  size, char *buf){
+int ASCI(char *frame, uint8_t  size, char *buf){															//This function converts Hex to ASCII
 
-char buffer[111]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";			//This buffer stores the data received in Hex representation
+char buffer[105];																							//This buffer stores the data received in Hex representation
 int newval, j=0;
-char msg[60]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";								//This is where the final ASCCI readable letters are stored
+char msg[60];																			//This is where the final ASCCI readable letters are stored
 
     for (int i = 0; i < size; i+=2)
     {
@@ -87,7 +87,15 @@ char msg[60]="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";		
     return 0;
 }
 
+void ClearScreen(void){
 
+	uartWriteByte(UART_USB,27);											//clear screen
+	uartWriteString(UART_USB,"[2J");
+	uartWriteByte(UART_USB,27);											//clear screen
+	uartWriteString(UART_USB,"[H");
+
+
+}
 
 
 

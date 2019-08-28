@@ -82,6 +82,11 @@ int GetMsg(char *data,const  char* buffer,uint8_t size );						//This function r
 int  EndTask(TaskHandle_t *handle, const uint8_t i);							//This function ends suspends the task and prompts a message
 int fsmMesurePerformance(Token_pt t, uint8_t *pLoad,uint16_t memSize);
 int CompileToken(Token_pt pt, char *msg);													//This function compiles the token message in a string form from the integer fields of the token structure
+void send_op(char *frame, uint8_t op_num);													//This function compiles the token message in a string form from the integer fields of the token structure
+void GetHeap(char *frame);																	//Get Heap size
+void GetStack(char *frame,TaskHandle_t *TaskHandler);										//Get stack size of current task
+void GetOpError(char *frame,char op);
+void GetDataError(char *frame,char op);
 /*==================[cplusplus]==============================================*/
 
 #ifdef __cplusplus
