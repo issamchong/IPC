@@ -136,34 +136,32 @@ int fsmMesurePerformance(Token_pt  t, uint8_t *pload, uint16_t AloMem){
 		time2=0;
 		break;
 	case 1:
-		t->package_length=strlen(pload);
-		t->payload=pload;
-		t->alocated_memory=AloMem;
 		t->estado=2;
+		t->payload=pload;
+		t->package_length=strlen(pload);
+		t->alocated_memory=AloMem;
 		break;
 
 	case 2:
+		t->estado=3;													//R4.3 satisfy requirement 4.3
 		time2=xTaskGetTickCount();
 		t->tiempo_de_inicio=(uint32_t)(time2-time1);					//Update the corresponding time
 		time1=time2;
 		time2=0;
-		t->estado=3;													//R4.3 satisfy requirement 4.3
 
 		break;
 	case 3:
 
-		time2=xTaskGetTickCount();
 		t->estado=4;												 // R4.4 satisfy requirement 4.4
+		time2=xTaskGetTickCount();
 		t->tiempo_de_fin=(uint32_t)(time2-time1);					 //Update the corresponding time
 		time1=time2;
 		time2=0;
-		//printf("TIME last byte in  is %p\n",t->tiempo_de_fin);
 
 		break;
 	case 4:
-
-		time2=xTaskGetTickCount();											//Set time2 to current tick count in ms
 		t->estado=5;														// R4.5 Update the FSM state
+		time2=xTaskGetTickCount();											//Set time2 to current tick count in ms
 		t->tiempo_de_salida=(uint32_t)(time2-time1);						//Update the corresponding time
 		time1=time2;
 		time2=0;
@@ -171,8 +169,8 @@ int fsmMesurePerformance(Token_pt  t, uint8_t *pload, uint16_t AloMem){
 
 		break;
 	case 5:																	// R4.6 starts
-		time2=xTaskGetTickCount();											//Get current tick count
 		t->estado=6;
+		time2=xTaskGetTickCount();											//Get current tick count
 		t->tiempo_de_transmision=(uint32_t)(time2-time1);					//Update the corresponding time
 										//Set package length
 		break;

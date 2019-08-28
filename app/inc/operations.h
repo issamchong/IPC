@@ -9,7 +9,9 @@
 #define _OPERATIONS_H_
 
 /*==================[inclusions]=============================================*/
-
+#include <stdint.h>
+#include<stdio.h>
+#include <string.h>
 /*==================[cplusplus]==============================================*/
 
 #ifdef __cplusplus

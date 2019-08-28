@@ -491,10 +491,60 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x8c app/out/app/src/service.o
  .debug_macro   0x0000000000000000       0x8d app/out/app/src/service.o
  .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/operations.o
  .text          0x0000000000000000        0x0 app/out/app/src/operations.o
  .data          0x0000000000000000        0x0 app/out/app/src/operations.o
  .bss           0x0000000000000000        0x0 app/out/app/src/operations.o
  .debug_macro   0x0000000000000000      0xa78 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x22 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x56 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x51 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0xef app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x6a app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000      0x1df app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x5e app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x18 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x35 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x34 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x16 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x97 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0xf6 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x10 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x58 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x1f app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x43 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x20 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000      0x18e app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x10 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0xb6 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000       0x16 app/out/app/src/operations.o
+ .debug_macro   0x0000000000000000      0x129 app/out/app/src/operations.o
+ .group         0x0000000000000000        0xc app/out/app/src/kernek.o
  .group         0x0000000000000000        0xc app/out/app/src/kernek.o
  .group         0x0000000000000000        0xc app/out/app/src/kernek.o
  .group         0x0000000000000000        0xc app/out/app/src/kernek.o
@@ -686,6 +736,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x35 app/out/app/src/kernek.o
  .debug_macro   0x0000000000000000       0x34 app/out/app/src/kernek.o
  .debug_macro   0x0000000000000000       0x16 app/out/app/src/kernek.o
+ .debug_macro   0x0000000000000000       0x35 app/out/app/src/kernek.o
  .debug_macro   0x0000000000000000      0x34d app/out/app/src/kernek.o
  .debug_macro   0x0000000000000000       0x10 app/out/app/src/kernek.o
  .debug_macro   0x0000000000000000       0x58 app/out/app/src/kernek.o
@@ -697,6 +748,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xb6 app/out/app/src/kernek.o
  .debug_macro   0x0000000000000000       0x16 app/out/app/src/kernek.o
  .debug_macro   0x0000000000000000      0x129 app/out/app/src/kernek.o
+ .debug_macro   0x0000000000000000       0x16 app/out/app/src/kernek.o
  .debug_macro   0x0000000000000000       0x20 app/out/app/src/kernek.o
  .debug_macro   0x0000000000000000       0xee app/out/app/src/kernek.o
  .debug_macro   0x0000000000000000       0x52 app/out/app/src/kernek.o
@@ -826,6 +878,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x20 app/out/libs/sys_newlib//src/system.o
  .debug_macro   0x0000000000000000      0x18e app/out/libs/sys_newlib//src/system.o
  .debug_macro   0x0000000000000000       0x35 app/out/libs/sys_newlib//src/system.o
+ .debug_macro   0x0000000000000000      0x353 app/out/libs/sys_newlib//src/system.o
  .debug_macro   0x0000000000000000       0x10 app/out/libs/sys_newlib//src/system.o
  .debug_macro   0x0000000000000000       0x6a app/out/libs/sys_newlib//src/system.o
  .debug_macro   0x0000000000000000       0xb6 app/out/libs/sys_newlib//src/system.o
@@ -1344,6 +1397,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x18e app/out/libs/freertos/source/queue.o
  .debug_macro   0x0000000000000000      0x353 app/out/libs/freertos/source/queue.o
  .debug_macro   0x0000000000000000       0x22 app/out/libs/freertos/source/queue.o
+ .debug_macro   0x0000000000000000       0x16 app/out/libs/freertos/source/queue.o
  .debug_macro   0x0000000000000000       0x35 app/out/libs/freertos/source/queue.o
  .debug_macro   0x0000000000000000       0xef app/out/libs/freertos/source/queue.o
  .debug_macro   0x0000000000000000       0x6a app/out/libs/freertos/source/queue.o
@@ -16295,13 +16349,13 @@ END GROUP
  .bss.ServHandle
                 0x000000001000026c        0x4 app/out/app/src/kernek.o
                 0x000000001000026c                ServHandle
- .bss.Task1Buffer.14041
+ .bss.Task1Buffer.14119
                 0x0000000010000270       0x69 app/out/app/src/kernek.o
  *fill*         0x00000000100002d9        0x3 
  .bss.Task1Handle
                 0x00000000100002dc        0x4 app/out/app/src/kernek.o
                 0x00000000100002dc                Task1Handle
- .bss.Task2Buffer.14054
+ .bss.Task2Buffer.14131
                 0x00000000100002e0       0x69 app/out/app/src/kernek.o
  *fill*         0x0000000010000349        0x3 
  .bss.Task2Handle
@@ -16310,10 +16364,10 @@ END GROUP
  .bss.Task3Handle
                 0x0000000010000350        0x4 app/out/app/src/kernek.o
                 0x0000000010000350                Task3Handle
- .bss.data_2Server.14028
+ .bss.data_2Server.14108
                 0x0000000010000354       0x69 app/out/app/src/kernek.o
  *fill*         0x00000000100003bd        0x3 
- .bss.data_FromServer.14029
+ .bss.data_FromServer.14109
                 0x00000000100003c0       0x69 app/out/app/src/kernek.o
  *fill*         0x0000000010000429        0x3 
  .bss.frame     0x000000001000042c       0x69 app/out/app/src/kernek.o
@@ -16485,106 +16539,106 @@ END GROUP
                 0xffffffff53ff677e                PROVIDE (__valid_user_code_checksum = (0x0 - ((((((_vStackTop + (Reset_Handler + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
 OUTPUT(app/out/app.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000    0x2dbdd
+.debug_info     0x0000000000000000    0x2e307
  .debug_info    0x0000000000000000     0x25e0 app/out/app/src/driver.o
- .debug_info    0x00000000000025e0     0x2f21 app/out/app/src/service.o
- .debug_info    0x0000000000005501      0x15a app/out/app/src/operations.o
- .debug_info    0x000000000000565b     0x3ca0 app/out/app/src/kernek.o
- .debug_info    0x00000000000092fb      0x301 app/out/libs/cmsis_core//src/armv7m_startup.o
- .debug_info    0x00000000000095fc      0xf43 app/out/libs/sys_newlib//src/system.o
- .debug_info    0x000000000000a53f     0x1075 app/out/libs/freertos/MemMang/heap_2.o
- .debug_info    0x000000000000b5b4     0x3147 app/out/libs/freertos/source/queue.o
- .debug_info    0x000000000000e6fb      0xb09 app/out/libs/freertos/source/list.o
- .debug_info    0x000000000000f204      0x346 app/out/libs/freertos/source/static_provider.o
- .debug_info    0x000000000000f54a      0x135 app/out/libs/freertos/source/hooks.o
- .debug_info    0x000000000000f67f     0x3956 app/out/libs/freertos/source/tasks.o
- .debug_info    0x0000000000012fd5     0x2476 app/out/libs/freertos/source/timers.o
- .debug_info    0x000000000001544b      0xa5e app/out/libs/freertos/source/portable/ARM_CM4F/port.o
- .debug_info    0x0000000000015ea9     0x2130 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
- .debug_info    0x0000000000017fd9     0x14c3 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
- .debug_info    0x000000000001949c     0x164f app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
- .debug_info    0x000000000001aaeb      0xaef app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
- .debug_info    0x000000000001b5da     0x18ed app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
- .debug_info    0x000000000001cec7      0xc3d app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
- .debug_info    0x000000000001db04      0xab0 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
- .debug_info    0x000000000001e5b4      0x219 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
- .debug_info    0x000000000001e7cd     0x1606 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
- .debug_info    0x000000000001fdd3     0x1366 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
- .debug_info    0x0000000000021139       0x3f app/out/libs/lpc_open/lpc_startup/src/crp.o
- .debug_info    0x0000000000021178      0xbbd app/out/libs/lpc_open/lpc_startup/src/sysinit.o
- .debug_info    0x0000000000021d35       0x74 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
- .debug_info    0x0000000000021da9      0xeaf app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
- .debug_info    0x0000000000022c58     0x24c6 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
- .debug_info    0x000000000002511e     0x1136 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
- .debug_info    0x0000000000026254     0x1a90 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
- .debug_info    0x0000000000027ce4     0x330e app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
- .debug_info    0x000000000002aff2      0xdb2 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
- .debug_info    0x000000000002bda4     0x1e39 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
+ .debug_info    0x00000000000025e0     0x2f22 app/out/app/src/service.o
+ .debug_info    0x0000000000005502      0x96f app/out/app/src/operations.o
+ .debug_info    0x0000000000005e71     0x3bb4 app/out/app/src/kernek.o
+ .debug_info    0x0000000000009a25      0x301 app/out/libs/cmsis_core//src/armv7m_startup.o
+ .debug_info    0x0000000000009d26      0xf43 app/out/libs/sys_newlib//src/system.o
+ .debug_info    0x000000000000ac69     0x1075 app/out/libs/freertos/MemMang/heap_2.o
+ .debug_info    0x000000000000bcde     0x3147 app/out/libs/freertos/source/queue.o
+ .debug_info    0x000000000000ee25      0xb09 app/out/libs/freertos/source/list.o
+ .debug_info    0x000000000000f92e      0x346 app/out/libs/freertos/source/static_provider.o
+ .debug_info    0x000000000000fc74      0x135 app/out/libs/freertos/source/hooks.o
+ .debug_info    0x000000000000fda9     0x3956 app/out/libs/freertos/source/tasks.o
+ .debug_info    0x00000000000136ff     0x2476 app/out/libs/freertos/source/timers.o
+ .debug_info    0x0000000000015b75      0xa5e app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+ .debug_info    0x00000000000165d3     0x2130 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+ .debug_info    0x0000000000018703     0x14c3 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+ .debug_info    0x0000000000019bc6     0x164f app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_info    0x000000000001b215      0xaef app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
+ .debug_info    0x000000000001bd04     0x18ed app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_info    0x000000000001d5f1      0xc3d app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .debug_info    0x000000000001e22e      0xab0 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_info    0x000000000001ecde      0x219 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
+ .debug_info    0x000000000001eef7     0x1606 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
+ .debug_info    0x00000000000204fd     0x1366 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
+ .debug_info    0x0000000000021863       0x3f app/out/libs/lpc_open/lpc_startup/src/crp.o
+ .debug_info    0x00000000000218a2      0xbbd app/out/libs/lpc_open/lpc_startup/src/sysinit.o
+ .debug_info    0x000000000002245f       0x74 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
+ .debug_info    0x00000000000224d3      0xeaf app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_info    0x0000000000023382     0x24c6 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+ .debug_info    0x0000000000025848     0x1136 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+ .debug_info    0x000000000002697e     0x1a90 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_info    0x000000000002840e     0x330e app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+ .debug_info    0x000000000002b71c      0xdb2 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
+ .debug_info    0x000000000002c4ce     0x1e39 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
 
-.debug_abbrev   0x0000000000000000     0x59a3
+.debug_abbrev   0x0000000000000000     0x5ab6
  .debug_abbrev  0x0000000000000000      0x361 app/out/app/src/driver.o
  .debug_abbrev  0x0000000000000361      0x36a app/out/app/src/service.o
- .debug_abbrev  0x00000000000006cb       0xd1 app/out/app/src/operations.o
- .debug_abbrev  0x000000000000079c      0x3a6 app/out/app/src/kernek.o
- .debug_abbrev  0x0000000000000b42      0x10d app/out/libs/cmsis_core//src/armv7m_startup.o
- .debug_abbrev  0x0000000000000c4f      0x2b7 app/out/libs/sys_newlib//src/system.o
- .debug_abbrev  0x0000000000000f06      0x304 app/out/libs/freertos/MemMang/heap_2.o
- .debug_abbrev  0x000000000000120a      0x404 app/out/libs/freertos/source/queue.o
- .debug_abbrev  0x000000000000160e      0x223 app/out/libs/freertos/source/list.o
- .debug_abbrev  0x0000000000001831       0xff app/out/libs/freertos/source/static_provider.o
- .debug_abbrev  0x0000000000001930       0xbb app/out/libs/freertos/source/hooks.o
- .debug_abbrev  0x00000000000019eb      0x3dc app/out/libs/freertos/source/tasks.o
- .debug_abbrev  0x0000000000001dc7      0x389 app/out/libs/freertos/source/timers.o
- .debug_abbrev  0x0000000000002150      0x284 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
- .debug_abbrev  0x00000000000023d4      0x47e app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
- .debug_abbrev  0x0000000000002852      0x2f8 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
- .debug_abbrev  0x0000000000002b4a      0x3b7 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
- .debug_abbrev  0x0000000000002f01      0x1f9 app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
- .debug_abbrev  0x00000000000030fa      0x379 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
- .debug_abbrev  0x0000000000003473      0x1c3 app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
- .debug_abbrev  0x0000000000003636      0x203 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
- .debug_abbrev  0x0000000000003839      0x100 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
- .debug_abbrev  0x0000000000003939      0x352 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
- .debug_abbrev  0x0000000000003c8b      0x344 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
- .debug_abbrev  0x0000000000003fcf       0x36 app/out/libs/lpc_open/lpc_startup/src/crp.o
- .debug_abbrev  0x0000000000004005      0x221 app/out/libs/lpc_open/lpc_startup/src/sysinit.o
- .debug_abbrev  0x0000000000004226       0x74 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
- .debug_abbrev  0x000000000000429a      0x232 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
- .debug_abbrev  0x00000000000044cc      0x48f app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
- .debug_abbrev  0x000000000000495b      0x2e2 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
- .debug_abbrev  0x0000000000004c3d      0x389 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
- .debug_abbrev  0x0000000000004fc6      0x3d9 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
- .debug_abbrev  0x000000000000539f      0x216 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
- .debug_abbrev  0x00000000000055b5      0x3ee app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
+ .debug_abbrev  0x00000000000006cb      0x1f9 app/out/app/src/operations.o
+ .debug_abbrev  0x00000000000008c4      0x391 app/out/app/src/kernek.o
+ .debug_abbrev  0x0000000000000c55      0x10d app/out/libs/cmsis_core//src/armv7m_startup.o
+ .debug_abbrev  0x0000000000000d62      0x2b7 app/out/libs/sys_newlib//src/system.o
+ .debug_abbrev  0x0000000000001019      0x304 app/out/libs/freertos/MemMang/heap_2.o
+ .debug_abbrev  0x000000000000131d      0x404 app/out/libs/freertos/source/queue.o
+ .debug_abbrev  0x0000000000001721      0x223 app/out/libs/freertos/source/list.o
+ .debug_abbrev  0x0000000000001944       0xff app/out/libs/freertos/source/static_provider.o
+ .debug_abbrev  0x0000000000001a43       0xbb app/out/libs/freertos/source/hooks.o
+ .debug_abbrev  0x0000000000001afe      0x3dc app/out/libs/freertos/source/tasks.o
+ .debug_abbrev  0x0000000000001eda      0x389 app/out/libs/freertos/source/timers.o
+ .debug_abbrev  0x0000000000002263      0x284 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+ .debug_abbrev  0x00000000000024e7      0x47e app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+ .debug_abbrev  0x0000000000002965      0x2f8 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+ .debug_abbrev  0x0000000000002c5d      0x3b7 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_abbrev  0x0000000000003014      0x1f9 app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
+ .debug_abbrev  0x000000000000320d      0x379 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_abbrev  0x0000000000003586      0x1c3 app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .debug_abbrev  0x0000000000003749      0x203 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_abbrev  0x000000000000394c      0x100 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
+ .debug_abbrev  0x0000000000003a4c      0x352 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
+ .debug_abbrev  0x0000000000003d9e      0x344 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
+ .debug_abbrev  0x00000000000040e2       0x36 app/out/libs/lpc_open/lpc_startup/src/crp.o
+ .debug_abbrev  0x0000000000004118      0x221 app/out/libs/lpc_open/lpc_startup/src/sysinit.o
+ .debug_abbrev  0x0000000000004339       0x74 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
+ .debug_abbrev  0x00000000000043ad      0x232 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_abbrev  0x00000000000045df      0x48f app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+ .debug_abbrev  0x0000000000004a6e      0x2e2 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+ .debug_abbrev  0x0000000000004d50      0x389 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_abbrev  0x00000000000050d9      0x3d9 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+ .debug_abbrev  0x00000000000054b2      0x216 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
+ .debug_abbrev  0x00000000000056c8      0x3ee app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
 
-.debug_loc      0x0000000000000000     0xb299
+.debug_loc      0x0000000000000000     0xb29c
  .debug_loc     0x0000000000000000      0x19c app/out/app/src/driver.o
- .debug_loc     0x000000000000019c      0x31d app/out/app/src/service.o
- .debug_loc     0x00000000000004b9       0x3c app/out/app/src/operations.o
- .debug_loc     0x00000000000004f5      0x16a app/out/app/src/kernek.o
- .debug_loc     0x000000000000065f      0x206 app/out/libs/cmsis_core//src/armv7m_startup.o
- .debug_loc     0x0000000000000865      0x586 app/out/libs/sys_newlib//src/system.o
- .debug_loc     0x0000000000000deb      0x205 app/out/libs/freertos/MemMang/heap_2.o
- .debug_loc     0x0000000000000ff0     0x140a app/out/libs/freertos/source/queue.o
- .debug_loc     0x00000000000023fa       0x70 app/out/libs/freertos/source/list.o
- .debug_loc     0x000000000000246a     0x1c42 app/out/libs/freertos/source/tasks.o
- .debug_loc     0x00000000000040ac      0xbcb app/out/libs/freertos/source/timers.o
- .debug_loc     0x0000000000004c77       0xdc app/out/libs/freertos/source/portable/ARM_CM4F/port.o
- .debug_loc     0x0000000000004d53      0x5b0 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
- .debug_loc     0x0000000000005303       0xf5 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
- .debug_loc     0x00000000000053f8      0xd25 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
- .debug_loc     0x000000000000611d      0x67e app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
- .debug_loc     0x000000000000679b     0x123c app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
- .debug_loc     0x00000000000079d7      0x1b5 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
- .debug_loc     0x0000000000007b8c      0xd56 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
- .debug_loc     0x00000000000088e2      0xc9a app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
- .debug_loc     0x000000000000957c       0x13 app/out/libs/lpc_open/lpc_startup/src/sysinit.o
- .debug_loc     0x000000000000958f       0xed app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
- .debug_loc     0x000000000000967c      0xb6c app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
- .debug_loc     0x000000000000a1e8       0xc1 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
- .debug_loc     0x000000000000a2a9      0x7e4 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
- .debug_loc     0x000000000000aa8d      0x34f app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
- .debug_loc     0x000000000000addc      0x4bd app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
+ .debug_loc     0x000000000000019c      0x320 app/out/app/src/service.o
+ .debug_loc     0x00000000000004bc       0x3c app/out/app/src/operations.o
+ .debug_loc     0x00000000000004f8      0x16a app/out/app/src/kernek.o
+ .debug_loc     0x0000000000000662      0x206 app/out/libs/cmsis_core//src/armv7m_startup.o
+ .debug_loc     0x0000000000000868      0x586 app/out/libs/sys_newlib//src/system.o
+ .debug_loc     0x0000000000000dee      0x205 app/out/libs/freertos/MemMang/heap_2.o
+ .debug_loc     0x0000000000000ff3     0x140a app/out/libs/freertos/source/queue.o
+ .debug_loc     0x00000000000023fd       0x70 app/out/libs/freertos/source/list.o
+ .debug_loc     0x000000000000246d     0x1c42 app/out/libs/freertos/source/tasks.o
+ .debug_loc     0x00000000000040af      0xbcb app/out/libs/freertos/source/timers.o
+ .debug_loc     0x0000000000004c7a       0xdc app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+ .debug_loc     0x0000000000004d56      0x5b0 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+ .debug_loc     0x0000000000005306       0xf5 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+ .debug_loc     0x00000000000053fb      0xd25 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_loc     0x0000000000006120      0x67e app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
+ .debug_loc     0x000000000000679e     0x123c app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_loc     0x00000000000079da      0x1b5 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_loc     0x0000000000007b8f      0xd56 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
+ .debug_loc     0x00000000000088e5      0xc9a app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
+ .debug_loc     0x000000000000957f       0x13 app/out/libs/lpc_open/lpc_startup/src/sysinit.o
+ .debug_loc     0x0000000000009592       0xed app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_loc     0x000000000000967f      0xb6c app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+ .debug_loc     0x000000000000a1eb       0xc1 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+ .debug_loc     0x000000000000a2ac      0x7e4 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_loc     0x000000000000aa90      0x34f app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+ .debug_loc     0x000000000000addf      0x4bd app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
 
 .debug_aranges  0x0000000000000000      0xff0
  .debug_aranges
@@ -16656,42 +16710,42 @@ OUTPUT(app/out/app.elf elf32-littlearm)
  .debug_aranges
                 0x0000000000000f80       0x70 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
 
-.debug_ranges   0x0000000000000000     0x1170
+.debug_ranges   0x0000000000000000     0x1158
  .debug_ranges  0x0000000000000000       0x38 app/out/app/src/driver.o
  .debug_ranges  0x0000000000000038       0x58 app/out/app/src/service.o
  .debug_ranges  0x0000000000000090       0x18 app/out/app/src/operations.o
- .debug_ranges  0x00000000000000a8       0x70 app/out/app/src/kernek.o
- .debug_ranges  0x0000000000000118       0x80 app/out/libs/cmsis_core//src/armv7m_startup.o
- .debug_ranges  0x0000000000000198       0xd0 app/out/libs/sys_newlib//src/system.o
- .debug_ranges  0x0000000000000268       0x48 app/out/libs/freertos/MemMang/heap_2.o
- .debug_ranges  0x00000000000002b0      0x228 app/out/libs/freertos/source/queue.o
- .debug_ranges  0x00000000000004d8       0x30 app/out/libs/freertos/source/list.o
- .debug_ranges  0x0000000000000508       0x18 app/out/libs/freertos/source/static_provider.o
- .debug_ranges  0x0000000000000520       0x18 app/out/libs/freertos/source/hooks.o
- .debug_ranges  0x0000000000000538      0x2e0 app/out/libs/freertos/source/tasks.o
- .debug_ranges  0x0000000000000818       0xd0 app/out/libs/freertos/source/timers.o
- .debug_ranges  0x00000000000008e8       0x70 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
- .debug_ranges  0x0000000000000958       0xf8 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
- .debug_ranges  0x0000000000000a50       0x50 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
- .debug_ranges  0x0000000000000aa0       0xb0 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
- .debug_ranges  0x0000000000000b50       0x80 app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
- .debug_ranges  0x0000000000000bd0      0x190 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
- .debug_ranges  0x0000000000000d60       0x28 app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
- .debug_ranges  0x0000000000000d88       0x28 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
- .debug_ranges  0x0000000000000db0       0x18 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
- .debug_ranges  0x0000000000000dc8       0xc0 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
- .debug_ranges  0x0000000000000e88       0xc8 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
- .debug_ranges  0x0000000000000f50       0x10 app/out/libs/lpc_open/lpc_startup/src/sysinit.o
- .debug_ranges  0x0000000000000f60       0x10 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
- .debug_ranges  0x0000000000000f70       0x28 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
- .debug_ranges  0x0000000000000f98       0xc0 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
- .debug_ranges  0x0000000000001058       0x38 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
- .debug_ranges  0x0000000000001090       0x30 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
- .debug_ranges  0x00000000000010c0       0x40 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
- .debug_ranges  0x0000000000001100       0x10 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
- .debug_ranges  0x0000000000001110       0x60 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
+ .debug_ranges  0x00000000000000a8       0x58 app/out/app/src/kernek.o
+ .debug_ranges  0x0000000000000100       0x80 app/out/libs/cmsis_core//src/armv7m_startup.o
+ .debug_ranges  0x0000000000000180       0xd0 app/out/libs/sys_newlib//src/system.o
+ .debug_ranges  0x0000000000000250       0x48 app/out/libs/freertos/MemMang/heap_2.o
+ .debug_ranges  0x0000000000000298      0x228 app/out/libs/freertos/source/queue.o
+ .debug_ranges  0x00000000000004c0       0x30 app/out/libs/freertos/source/list.o
+ .debug_ranges  0x00000000000004f0       0x18 app/out/libs/freertos/source/static_provider.o
+ .debug_ranges  0x0000000000000508       0x18 app/out/libs/freertos/source/hooks.o
+ .debug_ranges  0x0000000000000520      0x2e0 app/out/libs/freertos/source/tasks.o
+ .debug_ranges  0x0000000000000800       0xd0 app/out/libs/freertos/source/timers.o
+ .debug_ranges  0x00000000000008d0       0x70 app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+ .debug_ranges  0x0000000000000940       0xf8 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+ .debug_ranges  0x0000000000000a38       0x50 app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+ .debug_ranges  0x0000000000000a88       0xb0 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_ranges  0x0000000000000b38       0x80 app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
+ .debug_ranges  0x0000000000000bb8      0x190 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_ranges  0x0000000000000d48       0x28 app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .debug_ranges  0x0000000000000d70       0x28 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_ranges  0x0000000000000d98       0x18 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
+ .debug_ranges  0x0000000000000db0       0xc0 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
+ .debug_ranges  0x0000000000000e70       0xc8 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
+ .debug_ranges  0x0000000000000f38       0x10 app/out/libs/lpc_open/lpc_startup/src/sysinit.o
+ .debug_ranges  0x0000000000000f48       0x10 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
+ .debug_ranges  0x0000000000000f58       0x28 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_ranges  0x0000000000000f80       0xc0 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+ .debug_ranges  0x0000000000001040       0x38 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+ .debug_ranges  0x0000000000001078       0x30 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_ranges  0x00000000000010a8       0x40 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+ .debug_ranges  0x00000000000010e8       0x10 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
+ .debug_ranges  0x00000000000010f8       0x60 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
 
-.debug_macro    0x0000000000000000    0x10150
+.debug_macro    0x0000000000000000    0x102c6
  .debug_macro   0x0000000000000000      0x6f2 app/out/app/src/driver.o
  .debug_macro   0x00000000000006f2      0xa78 app/out/app/src/driver.o
  .debug_macro   0x000000000000116a       0x22 app/out/app/src/driver.o
@@ -16816,116 +16870,116 @@ OUTPUT(app/out/app.elf elf32-littlearm)
  .debug_macro   0x0000000000007976       0x8c app/out/app/src/driver.o
  .debug_macro   0x0000000000007a02       0x8d app/out/app/src/driver.o
  .debug_macro   0x0000000000007a8f      0x6f3 app/out/app/src/service.o
- .debug_macro   0x0000000000008182       0x1b app/out/app/src/operations.o
- .debug_macro   0x000000000000819d      0x73b app/out/app/src/kernek.o
- .debug_macro   0x00000000000088d8      0x16d app/out/app/src/kernek.o
- .debug_macro   0x0000000000008a45       0x6c app/out/app/src/kernek.o
- .debug_macro   0x0000000000008ab1       0x11 app/out/app/src/kernek.o
- .debug_macro   0x0000000000008ac2      0x195 app/out/app/src/kernek.o
- .debug_macro   0x0000000000008c57       0x35 app/out/app/src/kernek.o
- .debug_macro   0x0000000000008c8c       0x9a app/out/app/src/kernek.o
- .debug_macro   0x0000000000008d26       0x1d app/out/libs/cmsis_core//src/armv7m_startup.o
- .debug_macro   0x0000000000008d43      0x168 app/out/libs/sys_newlib//src/system.o
- .debug_macro   0x0000000000008eab       0x58 app/out/libs/sys_newlib//src/system.o
- .debug_macro   0x0000000000008f03       0x5c app/out/libs/sys_newlib//src/system.o
- .debug_macro   0x0000000000008f5f       0x57 app/out/libs/sys_newlib//src/system.o
- .debug_macro   0x0000000000008fb6       0x10 app/out/libs/sys_newlib//src/system.o
- .debug_macro   0x0000000000008fc6       0x10 app/out/libs/sys_newlib//src/system.o
- .debug_macro   0x0000000000008fd6      0x241 app/out/libs/sys_newlib//src/system.o
- .debug_macro   0x0000000000009217      0x353 app/out/libs/sys_newlib//src/system.o
- .debug_macro   0x000000000000956a      0x105 app/out/libs/sys_newlib//src/system.o
- .debug_macro   0x000000000000966f       0x16 app/out/libs/sys_newlib//src/system.o
- .debug_macro   0x0000000000009685      0x456 app/out/libs/freertos/MemMang/heap_2.o
- .debug_macro   0x0000000000009adb       0x16 app/out/libs/freertos/MemMang/heap_2.o
- .debug_macro   0x0000000000009af1      0x10e app/out/libs/freertos/MemMang/heap_2.o
- .debug_macro   0x0000000000009bff       0x86 app/out/libs/freertos/MemMang/heap_2.o
- .debug_macro   0x0000000000009c85       0x22 app/out/libs/freertos/MemMang/heap_2.o
- .debug_macro   0x0000000000009ca7       0xd9 app/out/libs/freertos/MemMang/heap_2.o
- .debug_macro   0x0000000000009d80      0x49b app/out/libs/freertos/source/queue.o
- .debug_macro   0x000000000000a21b       0x16 app/out/libs/freertos/source/queue.o
- .debug_macro   0x000000000000a231      0x429 app/out/libs/freertos/source/list.o
- .debug_macro   0x000000000000a65a      0x370 app/out/libs/freertos/source/static_provider.o
- .debug_macro   0x000000000000a9ca      0x388 app/out/libs/freertos/source/hooks.o
- .debug_macro   0x000000000000ad52      0x509 app/out/libs/freertos/source/tasks.o
- .debug_macro   0x000000000000b25b       0x10 app/out/libs/freertos/source/tasks.o
- .debug_macro   0x000000000000b26b      0x46c app/out/libs/freertos/source/timers.o
- .debug_macro   0x000000000000b6d7      0x44e app/out/libs/freertos/source/portable/ARM_CM4F/port.o
- .debug_macro   0x000000000000bb25      0x43d app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
- .debug_macro   0x000000000000bf62      0x42b app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
- .debug_macro   0x000000000000c38d      0x315 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
- .debug_macro   0x000000000000c6a2      0x315 app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
- .debug_macro   0x000000000000c9b7      0x31b app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
- .debug_macro   0x000000000000ccd2      0x315 app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
- .debug_macro   0x000000000000cfe7      0x315 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
- .debug_macro   0x000000000000d2fc      0x315 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
- .debug_macro   0x000000000000d611      0x315 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
- .debug_macro   0x000000000000d926      0x327 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
- .debug_macro   0x000000000000dc4d       0x17 app/out/libs/lpc_open/lpc_startup/src/crp.o
- .debug_macro   0x000000000000dc64      0x42b app/out/libs/lpc_open/lpc_startup/src/sysinit.o
- .debug_macro   0x000000000000e08f       0x1d app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
- .debug_macro   0x000000000000e0ac      0x449 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
- .debug_macro   0x000000000000e4f5       0x28 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
- .debug_macro   0x000000000000e51d      0x487 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
- .debug_macro   0x000000000000e9a4       0x16 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
- .debug_macro   0x000000000000e9ba      0x4c1 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
- .debug_macro   0x000000000000ee7b      0x452 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
- .debug_macro   0x000000000000f2cd       0x28 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
- .debug_macro   0x000000000000f2f5      0x545 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
- .debug_macro   0x000000000000f83a      0x474 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
- .debug_macro   0x000000000000fcae      0x4a2 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
+ .debug_macro   0x0000000000008182      0x178 app/out/app/src/operations.o
+ .debug_macro   0x00000000000082fa      0x353 app/out/app/src/operations.o
+ .debug_macro   0x000000000000864d       0x16 app/out/app/src/operations.o
+ .debug_macro   0x0000000000008663       0x35 app/out/app/src/operations.o
+ .debug_macro   0x0000000000008698      0x754 app/out/app/src/kernek.o
+ .debug_macro   0x0000000000008dec      0x16d app/out/app/src/kernek.o
+ .debug_macro   0x0000000000008f59       0x6c app/out/app/src/kernek.o
+ .debug_macro   0x0000000000008fc5       0x11 app/out/app/src/kernek.o
+ .debug_macro   0x0000000000008fd6      0x195 app/out/app/src/kernek.o
+ .debug_macro   0x000000000000916b       0x9a app/out/app/src/kernek.o
+ .debug_macro   0x0000000000009205       0x1d app/out/libs/cmsis_core//src/armv7m_startup.o
+ .debug_macro   0x0000000000009222      0x168 app/out/libs/sys_newlib//src/system.o
+ .debug_macro   0x000000000000938a       0x58 app/out/libs/sys_newlib//src/system.o
+ .debug_macro   0x00000000000093e2       0x5c app/out/libs/sys_newlib//src/system.o
+ .debug_macro   0x000000000000943e       0x57 app/out/libs/sys_newlib//src/system.o
+ .debug_macro   0x0000000000009495       0x10 app/out/libs/sys_newlib//src/system.o
+ .debug_macro   0x00000000000094a5       0x10 app/out/libs/sys_newlib//src/system.o
+ .debug_macro   0x00000000000094b5      0x241 app/out/libs/sys_newlib//src/system.o
+ .debug_macro   0x00000000000096f6      0x105 app/out/libs/sys_newlib//src/system.o
+ .debug_macro   0x00000000000097fb       0x16 app/out/libs/sys_newlib//src/system.o
+ .debug_macro   0x0000000000009811      0x456 app/out/libs/freertos/MemMang/heap_2.o
+ .debug_macro   0x0000000000009c67       0x16 app/out/libs/freertos/MemMang/heap_2.o
+ .debug_macro   0x0000000000009c7d      0x10e app/out/libs/freertos/MemMang/heap_2.o
+ .debug_macro   0x0000000000009d8b       0x86 app/out/libs/freertos/MemMang/heap_2.o
+ .debug_macro   0x0000000000009e11       0x22 app/out/libs/freertos/MemMang/heap_2.o
+ .debug_macro   0x0000000000009e33       0xd9 app/out/libs/freertos/MemMang/heap_2.o
+ .debug_macro   0x0000000000009f0c      0x49b app/out/libs/freertos/source/queue.o
+ .debug_macro   0x000000000000a3a7      0x429 app/out/libs/freertos/source/list.o
+ .debug_macro   0x000000000000a7d0      0x370 app/out/libs/freertos/source/static_provider.o
+ .debug_macro   0x000000000000ab40      0x388 app/out/libs/freertos/source/hooks.o
+ .debug_macro   0x000000000000aec8      0x509 app/out/libs/freertos/source/tasks.o
+ .debug_macro   0x000000000000b3d1       0x10 app/out/libs/freertos/source/tasks.o
+ .debug_macro   0x000000000000b3e1      0x46c app/out/libs/freertos/source/timers.o
+ .debug_macro   0x000000000000b84d      0x44e app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+ .debug_macro   0x000000000000bc9b      0x43d app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+ .debug_macro   0x000000000000c0d8      0x42b app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+ .debug_macro   0x000000000000c503      0x315 app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_macro   0x000000000000c818      0x315 app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
+ .debug_macro   0x000000000000cb2d      0x31b app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_macro   0x000000000000ce48      0x315 app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .debug_macro   0x000000000000d15d      0x315 app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_macro   0x000000000000d472      0x315 app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
+ .debug_macro   0x000000000000d787      0x315 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
+ .debug_macro   0x000000000000da9c      0x327 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
+ .debug_macro   0x000000000000ddc3       0x17 app/out/libs/lpc_open/lpc_startup/src/crp.o
+ .debug_macro   0x000000000000ddda      0x42b app/out/libs/lpc_open/lpc_startup/src/sysinit.o
+ .debug_macro   0x000000000000e205       0x1d app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
+ .debug_macro   0x000000000000e222      0x449 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_macro   0x000000000000e66b       0x28 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_macro   0x000000000000e693      0x487 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+ .debug_macro   0x000000000000eb1a       0x16 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+ .debug_macro   0x000000000000eb30      0x4c1 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+ .debug_macro   0x000000000000eff1      0x452 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_macro   0x000000000000f443       0x28 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_macro   0x000000000000f46b      0x545 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+ .debug_macro   0x000000000000f9b0      0x474 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
+ .debug_macro   0x000000000000fe24      0x4a2 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
 
-.debug_line     0x0000000000000000    0x1383c
+.debug_line     0x0000000000000000    0x13ac7
  .debug_line    0x0000000000000000      0xe0c app/out/app/src/driver.o
  .debug_line    0x0000000000000e0c      0xe7b app/out/app/src/service.o
- .debug_line    0x0000000000001c87       0x7d app/out/app/src/operations.o
- .debug_line    0x0000000000001d04      0xf27 app/out/app/src/kernek.o
- .debug_line    0x0000000000002c2b       0xfa app/out/libs/cmsis_core//src/armv7m_startup.o
- .debug_line    0x0000000000002d25      0x4a6 app/out/libs/sys_newlib//src/system.o
- .debug_line    0x00000000000031cb      0x908 app/out/libs/freertos/MemMang/heap_2.o
- .debug_line    0x0000000000003ad3     0x10bd app/out/libs/freertos/source/queue.o
- .debug_line    0x0000000000004b90      0x8c3 app/out/libs/freertos/source/list.o
- .debug_line    0x0000000000005453      0x7e5 app/out/libs/freertos/source/static_provider.o
- .debug_line    0x0000000000005c38      0x7e3 app/out/libs/freertos/source/hooks.o
- .debug_line    0x000000000000641b     0x13e2 app/out/libs/freertos/source/tasks.o
- .debug_line    0x00000000000077fd      0xb97 app/out/libs/freertos/source/timers.o
- .debug_line    0x0000000000008394      0x95b app/out/libs/freertos/source/portable/ARM_CM4F/port.o
- .debug_line    0x0000000000008cef      0xa6b app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
- .debug_line    0x000000000000975a      0x86e app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
- .debug_line    0x0000000000009fc8      0x9dd app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
- .debug_line    0x000000000000a9a5      0x824 app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
- .debug_line    0x000000000000b1c9      0xb35 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
- .debug_line    0x000000000000bcfe      0x73f app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
- .debug_line    0x000000000000c43d      0x79c app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
- .debug_line    0x000000000000cbd9      0x6fd app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
- .debug_line    0x000000000000d2d6      0xb87 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
- .debug_line    0x000000000000de5d      0x9e2 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
- .debug_line    0x000000000000e83f       0x44 app/out/libs/lpc_open/lpc_startup/src/crp.o
- .debug_line    0x000000000000e883      0x80b app/out/libs/lpc_open/lpc_startup/src/sysinit.o
- .debug_line    0x000000000000f08e       0x61 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
- .debug_line    0x000000000000f0ef      0x8b5 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
- .debug_line    0x000000000000f9a4      0xc2c app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
- .debug_line    0x00000000000105d0      0x9e1 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
- .debug_line    0x0000000000010fb1      0x9a8 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
- .debug_line    0x0000000000011959      0xb4f app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
- .debug_line    0x00000000000124a8      0x91d app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
- .debug_line    0x0000000000012dc5      0xa77 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
+ .debug_line    0x0000000000001c87      0x2f0 app/out/app/src/operations.o
+ .debug_line    0x0000000000001f77      0xf3f app/out/app/src/kernek.o
+ .debug_line    0x0000000000002eb6       0xfa app/out/libs/cmsis_core//src/armv7m_startup.o
+ .debug_line    0x0000000000002fb0      0x4a6 app/out/libs/sys_newlib//src/system.o
+ .debug_line    0x0000000000003456      0x908 app/out/libs/freertos/MemMang/heap_2.o
+ .debug_line    0x0000000000003d5e     0x10bd app/out/libs/freertos/source/queue.o
+ .debug_line    0x0000000000004e1b      0x8c3 app/out/libs/freertos/source/list.o
+ .debug_line    0x00000000000056de      0x7e5 app/out/libs/freertos/source/static_provider.o
+ .debug_line    0x0000000000005ec3      0x7e3 app/out/libs/freertos/source/hooks.o
+ .debug_line    0x00000000000066a6     0x13e2 app/out/libs/freertos/source/tasks.o
+ .debug_line    0x0000000000007a88      0xb97 app/out/libs/freertos/source/timers.o
+ .debug_line    0x000000000000861f      0x95b app/out/libs/freertos/source/portable/ARM_CM4F/port.o
+ .debug_line    0x0000000000008f7a      0xa6b app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+ .debug_line    0x00000000000099e5      0x86e app/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+ .debug_line    0x000000000000a253      0x9dd app/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_line    0x000000000000ac30      0x824 app/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
+ .debug_line    0x000000000000b454      0xb35 app/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_line    0x000000000000bf89      0x73f app/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .debug_line    0x000000000000c6c8      0x79c app/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_line    0x000000000000ce64      0x6fd app/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
+ .debug_line    0x000000000000d561      0xb87 app/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
+ .debug_line    0x000000000000e0e8      0x9e2 app/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
+ .debug_line    0x000000000000eaca       0x44 app/out/libs/lpc_open/lpc_startup/src/crp.o
+ .debug_line    0x000000000000eb0e      0x80b app/out/libs/lpc_open/lpc_startup/src/sysinit.o
+ .debug_line    0x000000000000f319       0x61 app/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
+ .debug_line    0x000000000000f37a      0x8b5 app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_line    0x000000000000fc2f      0xc2c app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
+ .debug_line    0x000000000001085b      0x9e1 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+ .debug_line    0x000000000001123c      0x9a8 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_line    0x0000000000011be4      0xb4f app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+ .debug_line    0x0000000000012733      0x91d app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
+ .debug_line    0x0000000000013050      0xa77 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
 
 .debug_str      0x0000000000000000    0x2f7a5
  .debug_str     0x0000000000000000    0x266ba app/out/app/src/driver.o
                                       0x26a94 (size before relaxing)
  .debug_str     0x00000000000266ba      0x2c5 app/out/app/src/service.o
                                       0x26d51 (size before relaxing)
- .debug_str     0x000000000002697f       0x44 app/out/app/src/operations.o
-                                       0x2d71 (size before relaxing)
- .debug_str     0x00000000000269c3      0xc88 app/out/app/src/kernek.o
-                                      0x2783f (size before relaxing)
- .debug_str     0x000000000002764b      0x1e5 app/out/libs/cmsis_core//src/armv7m_startup.o
+ .debug_str     0x000000000002697f       0x63 app/out/app/src/operations.o
+                                       0x7200 (size before relaxing)
+ .debug_str     0x00000000000269e2      0xc88 app/out/app/src/kernek.o
+                                      0x27844 (size before relaxing)
+ .debug_str     0x000000000002766a      0x1e5 app/out/libs/cmsis_core//src/armv7m_startup.o
                                        0x2f6c (size before relaxing)
- .debug_str     0x0000000000027830      0x714 app/out/libs/sys_newlib//src/system.o
+ .debug_str     0x000000000002784f      0x701 app/out/libs/sys_newlib//src/system.o
                                        0x6bcf (size before relaxing)
- .debug_str     0x0000000000027f44      0x448 app/out/libs/freertos/MemMang/heap_2.o
+ .debug_str     0x0000000000027f50      0x448 app/out/libs/freertos/MemMang/heap_2.o
                                       0x1e160 (size before relaxing)
- .debug_str     0x000000000002838c      0xb6a app/out/libs/freertos/source/queue.o
+ .debug_str     0x0000000000028398      0xb5e app/out/libs/freertos/source/queue.o
                                       0x1f288 (size before relaxing)
  .debug_str     0x0000000000028ef6       0x95 app/out/libs/freertos/source/list.o
                                       0x1cee3 (size before relaxing)
