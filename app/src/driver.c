@@ -30,7 +30,7 @@ uint8_t v;
 //This function copies the data portion of the the message buffer to data  and casts data type to read-only on MsgBuffer inside this block only
 int GetData(char *data, const char* buffer,uint8_t size ){
 
-	memcpy(data,buffer+1,size-2);
+	memcpy(data,buffer+1,size-3);
 	return 1;
 }
 int ASCI(char *frame, uint8_t  size, char *buf){															//This function converts Hex to ASCII

@@ -107,9 +107,11 @@ void server(void){																	// The server assigns the messages to the cor
     		fsmMesurePerformance(PerfPt,MsgFromDriver,sizeof(frame));					   //update state and set  R1.4 and R5.1
     		SizeData[0]=MsgFromDriver[1];												   // Save the first byte of the size field in first  element of this buffer
     		SizeData[1]=MsgFromDriver[2];												   //Save the second byte of size field in this second element  of this buffer
+    	//	puts(SizeData);
     		message.size= atoi(SizeData);												   // Convert the Size string to integer and assign it to the size entry of the message structure
     		message.operation=	atoi(*f);												   // Convert the operation to integer and assign to the operation entry of the message structure
     		strcpy(message.data,MsgFromDriver+3);										   // Copy the data portion only to the data entry of the message structure
+    		//printf("pload is %s",message.data);
     		if(!(message.size==strlen(message.data))){										//Check if data length is correct
     			*f='\0';																	//set operation to empty so no operation is executed and switch to the proper case
     			}
@@ -259,9 +261,9 @@ void driver(void){
 			if(xSemaphoreTake( xSemaphoreStartDriver, (TickType_t)portMAX_DELAY )){			//Keep trying to take key for ever, until ISR  has released it
 				vTaskDelay(2000);															//Wait 2 seconds
 				xSemaphoreTake(xSemaphoreCompleteDriver,(TickType_t)portMAX_DELAY);			//Keep trying to take mutex key to complete processing the package, if a previous package is being processed it will not continue
-				printf("last is %c\n",frame[strlen(frame)-1]);
-				printf("first is %c\n",frame[0]);
-				if(!((frame[0]==SOF) && (frame[strlen(frame)-1]==EnOF))){					// Verify if either start of frame or end of frame is not valid
+				//printf("last is %c\n",frame[5]);
+				//printf("first is %c\n",frame[0]);
+				if(!((frame[0]==SOF) && (frame[strlen(frame)-2]==EnOF))){					// Verify if either start of frame or end of frame is not valid
 					puts("\n");
 					puts("Driver: Invalid Frame");											//Display error if frame does not have "{" or "}"
 					}else{
