@@ -259,6 +259,8 @@ void driver(void){
 			if(xSemaphoreTake( xSemaphoreStartDriver, (TickType_t)portMAX_DELAY )){			//Keep trying to take key for ever, until ISR  has released it
 				vTaskDelay(2000);															//Wait 2 seconds
 				xSemaphoreTake(xSemaphoreCompleteDriver,(TickType_t)portMAX_DELAY);			//Keep trying to take mutex key to complete processing the package, if a previous package is being processed it will not continue
+				printf("last is %c\n",frame[strlen(frame)-1]);
+				printf("first is %c\n",frame[0]);
 				if(!((frame[0]==SOF) && (frame[strlen(frame)-1]==EnOF))){					// Verify if either start of frame or end of frame is not valid
 					puts("\n");
 					puts("Driver: Invalid Frame");											//Display error if frame does not have "{" or "}"
@@ -294,7 +296,8 @@ void driver(void){
 							}
 						}
 					}																//Come here directly if it was false and after finishing process if true
-				vTaskDelay(6000);													// Wait 8 seconds before clearing the screen
+				vTaskDelay(3000);													// Wait 8 seconds before clearing the screen
+				bzero(frame,strlen(frame));
 				xSemaphoreGive(xSemaphoreCompleteDriver);							//Release mutex semaphore to allow next cycle to be completed
 				InterruptCounter=0;													//Reset counter
 				ClearScreen();														//Clear screen
