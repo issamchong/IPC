@@ -302,7 +302,7 @@ void driver(void){
 				bzero(frame,strlen(frame));
 				xSemaphoreGive(xSemaphoreCompleteDriver);							//Release mutex semaphore to allow next cycle to be completed
 				InterruptCounter=0;													//Reset counter
-				ClearScreen();														//Clear screen
+				//ClearScreen();														//Clear screen
 				puts("Driver: Ready for new package...");							//Display message
 
 			}else{
